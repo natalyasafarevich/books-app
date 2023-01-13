@@ -1,12 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Cardo&family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 * {
   transition: ease 0.3s;
 }
 body {
-  font-family: "Inter", sans-serif;
 }
-
 .wrapper {
+  font-family: "Montserrat", sans-serif;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 44px 0px;
+}
+.main {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
 }
 /* .App {
   text-align: center;

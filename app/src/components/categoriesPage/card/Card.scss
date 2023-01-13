@@ -1,0 +1,101 @@
+.category-card {
+    max-width: 546px;
+    width: 100%;
+    &__container {
+        font-family: 'Cardo';
+        font-weight: 400;
+
+        display: flex;
+        justify-content: space-between;
+        max-width: 620px;
+        width: 100%;
+        margin: 0 -5px;
+
+    }
+
+    &__img {
+        max-width: 279px;
+        height: 382px;
+        width: 100%;
+        margin: 0 5px;
+        &::before{
+            
+        }
+    }
+
+    &__info {
+        max-width: 290px;
+        margin: 0 5px;
+        width: 100%;
+        padding-top: 20px;
+
+    }
+
+    &__title {
+        text-transform:lowercase;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: 0.32px;
+        color: #1B3764;
+        margin-bottom: 7px;
+    }
+
+    &__price {
+        font-size: 21px;
+        line-height: 33px;
+        color: #FFCA42;
+        margin-bottom: 16px;
+    }
+
+    &__desc {
+        font-family: 'Inter';
+        font-size: 19px;
+        line-height: 28px;
+        color: #969AA0;
+        margin-bottom: 15px;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__category {
+        font-size: 24px;
+        line-height: 29px;
+        color: #1B3764;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+
+        &::before {
+            content: '';
+            display: block;
+            height: 16px;
+            width: 16px;
+            margin-right: 10px;
+            background: #FFCA42;
+            border-radius: 100px;
+        }
+
+    }
+
+    &__button {
+        font-family: 'Cardo';
+        border: 2px solid #FFCA42;
+        background-color: transparent;
+        padding: 18px 5px;
+        max-width: 206px;
+        width: 100%;
+        font-size: 19px;
+        line-height: 28px;
+        letter-spacing: 0.38px;
+        color: #1B3764;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: #FFCA42;
+            cursor: pointer;
+        }
+    }
+}

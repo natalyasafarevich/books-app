@@ -1,0 +1,7 @@
+buy_links - объект для покупки(ссылки) 
+description
+author
+book_image
+title
+book_uri: "nyt://book/717e0ead-9782-567d-af27-d9a6cfb1856f"
+primary_isbn10
