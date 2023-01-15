@@ -1,39 +1,32 @@
 import "./Preview.scss";
 
 export function Preview() {
-	const infomation = [
+	const link = [
 		{
-			name: "Pages",
-			desc: "250pages",
-			class: "preview__title",
+			desc: "Change old book on new",
+			class: "preview_link preview_link_violet",
+			url: "/book/history",
 		},
 		{
-			name: "Length",
-			desc: "10 Hours",
-			class: "preview__title",
-		},
-		{
-			name: "Rating:",
-			desc: "4.5/5 (305 ratings)",
-			class: "preview__title",
+			desc: "top 100 books 2019",
+			class: "preview_link preview_link_pink",
+			url: "/book/best-series",
 		},
 	];
 
-
 	return (
 		<div className="preview">
+			{link.map((item, index) => (
+				<a key={index} href={item.url} className={item.class}>
+					<span>{item.desc}</span>
+				</a>
+			))}
 			<div className="preview__container">
 				<p className="preview__title">big summer sale</p>
 				<div className="text">
-					<span className="main-text">
-						large collection  of books
-						
-					</span>
-					<span className="additional">
-							large collection  of books
-						</span>
+					<span className="main-text">large collection of books</span>
+					<span className="additional">large collection of books</span>
 				</div>
-
 			</div>
 		</div>
 	);

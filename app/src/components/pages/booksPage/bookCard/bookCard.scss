@@ -1,0 +1,103 @@
+.book-card {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 50px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 -5px;
+
+    }
+
+    &__img {
+        width: 100%;
+        transform: scale(1.4);
+        margin: 0 5px;
+    }
+
+    &__info {
+        margin: 0 5px;
+        max-width: 250px;
+        width: 100%;
+    }
+
+    &__author {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        text-transform: capitalize;
+        color: #5C6A79;
+        margin-bottom: 4px;
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 25px;
+        color: #1C2A39;
+        margin-bottom: 10px;
+    }
+
+    &__rating {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+        color: #5C6A79;
+        margin-bottom: 15px;
+    }
+
+    &__subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        line-height:    px;
+        text-transform: capitalize;
+        color: #5C6A79;
+        margin-bottom: 20px;
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 16px;
+        text-transform: uppercase;
+        color: #1C2A39;
+        margin-bottom: 10px;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        margin: 0 -5px;
+    }
+
+    &__link {
+        margin: 0 5px;
+
+        &_more {
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 14px;
+            text-transform: uppercase;
+            color: #4C3DB2;
+            width: 100%;
+            padding: 15px 5px;
+            border: 1px solid #4C3DB2;
+            margin-bottom: 5px;
+
+            &:hover {
+                background: #4C3DB2;
+                color: #fff;
+            }
+        }
+
+    }
+}
+.fav{
+   color: #000000;
+   &:hover{
+    color: rgb(253, 0, 0);
+   }
+}

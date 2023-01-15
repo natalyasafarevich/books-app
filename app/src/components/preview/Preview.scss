@@ -1,4 +1,47 @@
 .preview {
+    position: relative;
+
+    &_link {
+        position: absolute;
+        right: 0;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: #1C2A39;
+        display: flex;
+        align-items: end;
+        padding: 20px;
+        cursor: pointer;
+
+        span {
+            &::after {
+                content: '';
+                display: block;
+                width: 55px;
+                height: 12px;
+                background: no-repeat url(../../img/arrow.svg);
+                margin-top: 4px;
+            }
+        }
+
+        &_violet {
+            top: 79px;
+            right: -100px;
+            width: 149px;
+            height: 204px;
+            background: #9E98DC;
+        }
+
+        &_pink {
+            width: 137px;
+            height: 273px;
+            background: #FF8FE6;
+            bottom: 79px;
+            right: -210px;
+        }
+    }
+
     &__container {
         padding: 70px 10px;
 
@@ -23,11 +66,9 @@
     }
 
     .main-text {
-        
         color: #FFFFFF;
         position: relative;
         z-index: 2;
-
     }
 
     .additional {

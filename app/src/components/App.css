@@ -2,9 +2,12 @@
 * {
   transition: ease 0.3s;
 }
-body {
+html {
+  overflow-x: hidden;
 }
+
 .wrapper {
+  position: relative;
   font-family: "Montserrat", sans-serif;
   max-width: 1440px;
   width: 100%;
