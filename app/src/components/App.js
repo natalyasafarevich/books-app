@@ -1,7 +1,13 @@
 import './App.css';
 import {Header} from './header/Header';
 
-
+import {
+    Router,
+    Routes,
+    Route,
+    Link,
+    Switch
+} from "react-router-dom";
 import './Normalize.css';
 import {Preview} from './preview/Preview';
 import {useEffect, useState} from 'react';
@@ -15,11 +21,18 @@ function App() { // console.log(response)
         <div className="wrapper">
             <div className='main'>
                 <Header/>
-                 {/* <Preview/>
+                <Routes>
+                    <Route path="/book"
+                        element={<DescriptionBook/>}/>
+                          <Route path="/"
+                        element={<BooksPage/>}/>
+           
+                </Routes>
+                {/* <Preview/>
                 */}
                 {/* <BooksPage/>  */}
                 {/* <DescriptionBook/> */}
-                <BooksPage/>
+                {/* <BooksPage/> */}
             </div>
         </div>
     );

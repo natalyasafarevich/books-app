@@ -1,5 +1,12 @@
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useEffect, useState } from "react";
+import {
+    Router,
+    Routes,
+    Route,
+    Link,
+    Switch
+} from "react-router-dom";
 
 import "./bookCard.scss";
 
@@ -20,9 +27,10 @@ export default function BookCard({ book, src }) {
 
 					<p className="book-card__price"> {book.price}</p>
 					<div className="book-card__row">
-						<a href="/" className="book-card__link book-card__link_more">
+<Link to='/book' className="book-card__link book-card__link_more">more</Link>
+						{/* <a href="/" className="book-card__link book-card__link_more">
 							more
-						</a>
+						</a> */}
 						<a href="/" className="book-card__link book-card__link_add">
 							<FavoriteBorderIcon className="fav" />
 						</a>
