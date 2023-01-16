@@ -1,12 +1,6 @@
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useEffect, useState } from "react";
-import {
-    Router,
-    Routes,
-    Route,
-    Link,
-    Switch
-} from "react-router-dom";
+import { Router, Routes, Route, Link, Switch } from "react-router-dom";
 
 import "./bookCard.scss";
 
@@ -17,7 +11,7 @@ export default function BookCard({ book, src }) {
 	return (
 		<div className="book-card">
 			<div className="book-card__container">
-                {/* <div></div> */}
+				{/* <div></div> */}
 				<img src={book.image} className="book-card__img" />
 				<div className="book-card__info">
 					<p className="book-card__author"></p>
@@ -27,7 +21,9 @@ export default function BookCard({ book, src }) {
 
 					<p className="book-card__price"> {book.price}</p>
 					<div className="book-card__row">
-<Link to='/book' className="book-card__link book-card__link_more">more</Link>
+						<Link to={`/book/${book.isbn13}`} className="book-card__link book-card__link_more">
+							more
+						</Link>
 						{/* <a href="/" className="book-card__link book-card__link_more">
 							more
 						</a> */}

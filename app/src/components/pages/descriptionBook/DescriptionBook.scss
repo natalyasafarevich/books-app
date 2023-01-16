@@ -101,8 +101,12 @@
         display: flex;
         width: 55%;
         margin-bottom: 20px;
+        text-align: right;
+        display: flex;
+        justify-content: space-between;
 
         span {
+            text-align: left;
             display: block;
             width: 50%;
             color: #5C6A79;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getBooks, getCurrentBook } from "../../../api/getBooks";
+import { getBooks, getBookFromItBook } from "../../../api/getBooks";
 // import getUrl from "../hoc/hoc";
 import BookCard from "./bookCard/bookCard";
 import "./booksPage.scss";

@@ -16,6 +16,10 @@ export function getBooks() {
     return axios.get(`https://api.itbook.store/1.0/new`, method_get)
 }
 
-export function getCurrentBook(isbn) {
+export function getBookFromItBook(isbn) {
+    return axios.get(`https://api.itbook.store/1.0/books/${isbn}`, method_get)
+}
+
+export function getBookFromOpenLibrary(isbn) {
     return axios.get(`http://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=details&format=json`, method_get)
 }

@@ -22,7 +22,7 @@ function App() { // console.log(response)
             <div className='main'>
                 <Header/>
                 <Routes>
-                    <Route path="/book"
+                    <Route path="/book/:isbn"
                         element={<DescriptionBook/>}/>
                           <Route path="/"
                         element={<BooksPage/>}/>
