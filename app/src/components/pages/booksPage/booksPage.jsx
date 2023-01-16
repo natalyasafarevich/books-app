@@ -12,7 +12,6 @@ function BooksPage({}) {
 			try {
 				const response = await getBooks();
 				const books = response.data.books;
-				console.log(response);
 				setBooks(books.slice(0, 10));
 			} catch (e) {
 				// console.log(url);
@@ -25,8 +24,8 @@ function BooksPage({}) {
 		<div className="books-page">
 			<p className="books-page__title">it books</p>
 			<div className="books-page__row">
-				{books.map((book) => (
-					<BookCard book={book} src="" />
+				{books.map((book,index) => (
+					<BookCard key={index} book={book} src="" />
 				))}
 			</div>
 		</div>
