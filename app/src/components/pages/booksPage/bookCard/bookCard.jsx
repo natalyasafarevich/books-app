@@ -1,6 +1,7 @@
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useEffect, useState } from "react";
 import { Router, Routes, Route, Link, Switch } from "react-router-dom";
+// import SimilarBooks from "../../../similarBooks/SimilarBooks";
 
 import "./bookCard.scss";
 
@@ -33,6 +34,7 @@ export default function BookCard({ book, src }) {
 					</div>
 				</div>
 			</div>
+		
 		</div>
 	);
 }

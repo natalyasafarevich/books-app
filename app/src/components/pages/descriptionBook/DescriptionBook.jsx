@@ -5,6 +5,7 @@ import "./DescriptionBook.scss";
 
 import { Rating } from "@mui/material";
 import { getCurrentBook } from "../../../api/getBooks";
+import SimilarBooks from "../../similarBooks/SimilarBooks";
 
 export function DescriptionBook() {
 	const [dataItBook, setDataItBook] = useState({});
@@ -18,7 +19,7 @@ export function DescriptionBook() {
 			const response = await getCurrentBook(params.isbn);
 			setDataItBook(response.data);
 			setRating(response.data.rating);
-			console.log(response.data.pdf);
+			// console.log(response.data.pdf);
 			setPdf(response.data.pdf || null);
 		}
 		getData();
@@ -79,6 +80,7 @@ export function DescriptionBook() {
 					<p className="desc-book__desc">{dataItBook.desc}</p>
 				</div>
 			</div>
+			<SimilarBooks/>
 		</div>
 	);
 }
