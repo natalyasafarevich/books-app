@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getBooks, getBookFromItBook } from "../../../api/getBooks";
+import { getBooks } from "../../../api/getBooks";
 // import getUrl from "../hoc/hoc";
 import BookCard from "./bookCard/bookCard";
 import "./booksPage.scss";
@@ -24,7 +24,7 @@ function BooksPage({}) {
 		<div className="books-page">
 			<p className="books-page__title">it books</p>
 			<div className="books-page__row">
-				{books.map((book,index) => (
+				{books.map((book, index) => (
 					<BookCard key={index} book={book} src="" />
 				))}
 			</div>

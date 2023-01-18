@@ -1,26 +1,25 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import "./DescriptionBook.scss";
-import {Rating} from "@mui/material";
-// import Stack from "@mui/material/Stack";
-import {
-	getBookFromItBook,
-	getBookFromOpenLibrary,
-} from "../../../api/getBooks";
-import { useEffect } from "react";
-import { useState } from "react";
+
+import { Rating } from "@mui/material";
+import { getCurrentBook } from "../../../api/getBooks";
 
 export function DescriptionBook() {
 	const [dataItBook, setDataItBook] = useState({});
 	const [rating, setRating] = useState({});
+	const [pdf, setPdf] = useState([]);
 
 	const params = useParams();
-	// console.log(params);
+
 	useEffect(() => {
 		async function getData() {
-			const response = await getBookFromItBook(params.isbn);
+			const response = await getCurrentBook(params.isbn);
 			setDataItBook(response.data);
-			setRating(response.data.rating)
-			// console.log(response.data.rating)
+			setRating(response.data.rating);
+			console.log(response.data.pdf);
+			setPdf(response.data.pdf || null);
 		}
 		getData();
 	}, []);
@@ -34,23 +33,23 @@ export function DescriptionBook() {
 						<img className="desc-book__img" src={dataItBook.image} alt="book img" />
 					</div>
 					<div className="desc-book__rating">
-						{
-							 <Rating
-							name="half-rating-read"
-							value={Number(rating) }
-							// precision={0.5}
-							readOnly
-						/>
-						}
-						
+						{<Rating name="half-rating-read" value={Number(rating)} readOnly />}
 					</div>
 					<div className="desc-book__btns">
-						<a href="/" className="desc-book__btn desc-book__btn_buy">
+						<a
+							href={`https://www.amazon.com/gp/reader/${dataItBook.isbn10}/?tag=isbndir-20`}
+							className="desc-book__btn desc-book__btn_buy">
 							buy
 						</a>
-						<a href="/" className="desc-book__btn desc-book__btn_preview">
-							preview
-						</a>
+						{(pdf && (
+							<>
+								<a
+									href={Object.values(pdf)[0]}
+									className="desc-book__btn desc-book__btn_preview">
+									prewiev
+								</a>
+							</>
+						)) }
 					</div>
 				</div>
 
@@ -77,10 +76,7 @@ export function DescriptionBook() {
 						<span>publisher</span> {dataItBook.publisher}
 					</p>
 					<p className="desc-book__desc-text">Description</p>
-					<p className="desc-book__desc">
-						{dataItBook.desc}
-						{/* {console.log(dataItBook.desc)} */}
-					</p>
+					<p className="desc-book__desc">{dataItBook.desc}</p>
 				</div>
 			</div>
 		</div>
