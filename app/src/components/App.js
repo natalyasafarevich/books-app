@@ -1,22 +1,11 @@
 import './App.css';
 import {Header} from './header/Header';
-
-import {
-    Router,
-    Routes,
-    Route,
-    Link,
-    Switch
-} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import './Normalize.css';
-import {Preview} from './preview/Preview';
-import {useEffect, useState} from 'react';
-import BooksPage from './pages/booksPage/booksPage';
 import {BookDescription} from './pages/bookDescription/BookDescription';
-// import {СategoriesPage} from './categoriesPage/СategoriesPage';
+import Main from './pages/mainPage/MainPage';
 
-
-function App() { // console.log(response)
+function App() {
     return (
         <div className="wrapper">
             <div className='main'>
@@ -24,14 +13,9 @@ function App() { // console.log(response)
                 <Routes>
                     <Route path="/book/:isbn"
                         element={<BookDescription/>}/>
-                          <Route path="/"
-                        element={<BooksPage/>}/>
+                    <Route path="/"
+                        element={<Main/>}/>
                 </Routes>
-                {/* <Preview/>
-                */}
-                {/* <BooksPage/>  */}
-                {/* <DescriptionBook/> */}
-                {/* <BooksPage/> */}
             </div>
         </div>
     );

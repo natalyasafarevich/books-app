@@ -13,7 +13,7 @@ export function BookDescription() {
 	const [rating, setRating] = useState({});
 	const [pdfVersion, setPdfVersion] = useState([]);
 	const [isLoading, setIsloading] = useState(true);
-	const [isError, setIsError] = useState(true);
+	const [isError, setIsError] = useState(false);
 	const params = useParams();
 
 	useEffect(() => {

@@ -1,5 +1,6 @@
 import "./Header.scss";
 import React from "react";
+import { Link } from "react-router-dom";
 
 // library.add(fab, faCheckSquare, faCoffee)
 export function Header() {
@@ -49,9 +50,9 @@ export function Header() {
 	return (
 		<header className="header">
 			<div className="header__container">
-				<a href="/home" onClick={preventDefaultLink} className="header__logo">
+				<Link to="/" className="header__logo">
 					Bookshop
-				</a>
+				</Link>
 				<div className="header__content">
 					<ul className="header__list">
 						{links.map((item, index) => (
@@ -67,15 +68,14 @@ export function Header() {
 							</React.Fragment>
 						))}
 					</ul>
-					
 				</div>
 				<div className="header__icons">
 					{icons.map((item, index) => (
-							<React.Fragment key={index}>
+						<React.Fragment key={index}>
 							<a href={item.urlPage} className={item.class}></a>
-							</React.Fragment>
-						))}
-					</div>
+						</React.Fragment>
+					))}
+				</div>
 			</div>
 		</header>
 	);
