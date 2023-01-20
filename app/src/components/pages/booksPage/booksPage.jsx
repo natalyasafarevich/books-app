@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getBooks } from "../../../api/getBooks";
+import { searchBook } from "../../../api/getBooks";
 
-import BookCard from "./bookCard/bookCard";
+import BookCard from "../../bookCard/bookCard";
 import Error from "../../error/Error";
 import Load from "../../load/Load";
 
@@ -15,9 +15,9 @@ function BooksPage() {
 	useEffect(() => {
 		async function fetchData() {
 			try {
-				const response = await getBooks();
+				const response = await searchBook('angular');
 				const books = response.data.books;
-				setBooks(books.slice(0, 10));
+				setBooks(books.slice(0, 3));
 				setIsloading(false);
 			} catch (e) {
 				setIsloading(false);
@@ -29,7 +29,7 @@ function BooksPage() {
 
 	return (
 		<div className="books-page">
-			<p className="books-page__title">it books</p>
+			<p className="books-page__title">books react</p>
 			<div className="books-page__row">
 				{isLoading && !isError && <Load />}
 				{!isLoading && isError && <Error />}
