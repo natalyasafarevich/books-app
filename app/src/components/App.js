@@ -12,7 +12,7 @@ import './Normalize.css';
 import {Preview} from './preview/Preview';
 import {useEffect, useState} from 'react';
 import BooksPage from './pages/booksPage/booksPage';
-import {DescriptionBook} from './pages/descriptionBook/DescriptionBook';
+import {BookDescription} from './pages/bookDescription/BookDescription';
 // import {СategoriesPage} from './categoriesPage/СategoriesPage';
 
 
@@ -23,10 +23,9 @@ function App() { // console.log(response)
                 <Header/>
                 <Routes>
                     <Route path="/book/:isbn"
-                        element={<DescriptionBook/>}/>
+                        element={<BookDescription/>}/>
                           <Route path="/"
                         element={<BooksPage/>}/>
-           
                 </Routes>
                 {/* <Preview/>
                 */}

@@ -1,32 +1,41 @@
 import { useEffect, useState } from "react";
 import { getBooks } from "../../../api/getBooks";
-// import getUrl from "../hoc/hoc";
+
 import BookCard from "./bookCard/bookCard";
+import Error from "../../error/Error";
+import Load from "../../load/Load";
+
 import "./booksPage.scss";
 
-function BooksPage({}) {
+function BooksPage() {
 	const [books, setBooks] = useState([]);
+	const [isLoading, setIsloading] = useState(true);
+	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
-		async function getBooksData() {
+		async function fetchData() {
 			try {
 				const response = await getBooks();
 				const books = response.data.books;
 				setBooks(books.slice(0, 10));
+				setIsloading(false);
 			} catch (e) {
-				// console.log(url);
+				setIsloading(false);
+				setIsError(true);
 			}
 		}
-		getBooksData();
+		fetchData();
 	}, []);
 
 	return (
 		<div className="books-page">
 			<p className="books-page__title">it books</p>
 			<div className="books-page__row">
-				{books.map((book, index) => (
-					<BookCard key={index} book={book} src="" />
-				))}
+				{isLoading && !isError && <Load />}
+				{!isLoading && isError && <Error />}
+				{!isLoading &&
+					!isError &&
+					books.map((book, index) => <BookCard key={index} book={book} />)}
 			</div>
 		</div>
 	);
