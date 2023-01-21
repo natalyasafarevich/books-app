@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { usePagination } from '@sajari/react-hooks';
+// import { usePagination } from '@sajari/react-hooks';
 import { Link } from "react-router-dom";
 import { searchBook } from "../../api/getBooks";
 import BookCard from "../bookCard/bookCard";
 import Error from "../error/Error";
 import Load from "../load/Load";
+import PaginationItem from "../pagination/Pagination";
 import "./Categories.scss";
 
 export default function Categories() {
@@ -58,14 +59,17 @@ export default function Categories() {
 					))}
 				</div>
 			</div>
-
-			<div className="category__content">
-				{isLoading && <Load />}
-				{isError && <Error />}
-				{!isError &&
-					!isLoading &&
-					books.map((book, index) => <BookCard book={book} key={index} />)}
-			</div>
+			{isLoading && <Load />}
+			{isError && <Error />}
+			{!isError && (
+				<div className="category__info">
+					<div className="category__content">
+						{!isLoading &&
+							books.map((book, index) => <BookCard book={book} key={index} />)}
+					</div>
+					<PaginationItem count={3} />
+				</div>
+			)}
 		</div>
 	);
 }

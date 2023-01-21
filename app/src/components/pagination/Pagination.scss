@@ -1,0 +1,11 @@
+.pagination {
+    button {
+        &:active,
+        &:focus,
+        &:hover,
+        &.Mui-selected {
+            // background-color: #9E98DC;
+        }
+
+    }
+}
