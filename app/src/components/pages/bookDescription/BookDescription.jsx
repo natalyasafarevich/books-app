@@ -14,6 +14,7 @@ export function BookDescription() {
 	const [pdfVersion, setPdfVersion] = useState([]);
 	const [isLoading, setIsloading] = useState(true);
 	const [isError, setIsError] = useState(false);
+	
 	const params = useParams();
 
 	useEffect(() => {
@@ -71,7 +72,6 @@ export function BookDescription() {
 
 					<div className="desc-book__info">
 						<p className="desc-book__desc-text">Information</p>
-
 						<p className="desc-book__text">
 							<span>price</span> {dataItBook.price}
 						</p>

@@ -1,57 +1,70 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { usePagination } from '@sajari/react-hooks';
+import { Link } from "react-router-dom";
 import { searchBook } from "../../api/getBooks";
 import BookCard from "../bookCard/bookCard";
+import Error from "../error/Error";
+import Load from "../load/Load";
 import "./Categories.scss";
 
 export default function Categories() {
 	const [books, getBooks] = useState([]);
 	const [restCategory, getRestCategory] = useState({});
+	const [isLoading, setIsloading] = useState(true);
+	const [isError, setIsError] = useState(false);
 
-	const getLocakSBook = localStorage.getItem("category");
+	const getLocalStorageBook = localStorage.getItem("category");
+
+	let category = [
+		{ title: "Google", className: "category__item " },
+		{ title: "Analytics ", className: "category__item" },
+		{ title: "Node.js", className: "category__item" },
+		{ title: "React", className: "category__item" },
+		{ title: "Docker", className: "category__item" },
+	];
+
 	useEffect(() => {
 		async function getData() {
-			const response = await searchBook(getLocakSBook);
-			console.log(getLocakSBook);
-			getBooks(response.data.books.slice(0, 3));
+			try {
+				const response = await searchBook(getLocalStorageBook);
+				getBooks(response.data.books.slice(0, 3));
+				setIsloading(false);
+			} catch (e) {
+				setIsloading(false);
+				setIsError(true);
+			}
 		}
 		getData();
-	}, [restCategory]);
+	}, [restCategory, getLocalStorageBook]);
+
 	const getCategory = (e) => {
-		e.target.classList.add("category__item_active");
 		localStorage.setItem("category", e.target.text);
 		getRestCategory(localStorage.getItem("category"));
 	};
 
-	const category = [
-		{ title: "Google", className: "category__item " },
-		{ title: "InDesign", className: "category__item" },
-		{ title: "Node.js", className: "category__item" },
-		{ title: "React", className: "category__item" },
-		{ title: "Python", className: "category__item" },
-	];
 	return (
 		<div className="category">
 			<div className="category__header">
 				<p className="category__title">Top Categories</p>
 				<div className="category__row">
-
 					{category.map((category, index) => (
 						<Link
+							key={index}
 							className={category.className}
 							to="#"
-							activeClassName="selected"
 							onClick={getCategory}>
 							{category.title}
 						</Link>
 					))}
 				</div>
 			</div>
+
 			<div className="category__content">
-				{books.map((book, index) => (
-					<BookCard book={book} key={index} />
-				))}
-				{/* <BookCard/> */}
+				{isLoading && <Load />}
+				{isError && <Error />}
+				{!isError &&
+					!isLoading &&
+					books.map((book, index) => <BookCard book={book} key={index} />)}
 			</div>
 		</div>
 	);
