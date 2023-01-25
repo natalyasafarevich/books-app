@@ -1,25 +1,26 @@
+import { Link } from "react-router-dom";
 import "./Preview.scss";
 
 export function Preview() {
 	const link = [
 		{
-			desc: "Change old book on new",
+			desc: "get new knowledge about Windows",
 			class: "preview_link preview_link_violet",
-			url: "/book/history",
+			url: "/books/windows",
 		},
 		{
-			desc: "top 100 books 2019",
+			desc: "top Angular books ",
 			class: "preview_link preview_link_pink",
-			url: "/book/best-series",
+			url: "/books/angular",
 		},
 	];
 
 	return (
 		<div className="preview">
 			{link.map((item, index) => (
-				<a key={index} href={item.url} className={item.class}>
+				<Link key={index} to={item.url} className={item.class}>
 					<span>{item.desc}</span>
-				</a>
+				</Link>
 			))}
 			<div className="preview__container">
 				<p className="preview__title">big summer sale</p>

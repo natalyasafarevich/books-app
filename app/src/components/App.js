@@ -4,6 +4,7 @@ import {Routes, Route} from "react-router-dom";
 import './Normalize.css';
 import {BookDescription} from './pages/bookDescription/BookDescription';
 import Main from './pages/mainPage/MainPage';
+import BooksPage from './pages/booksPage/BooksPage';
 
 function App() {
     return (
@@ -15,6 +16,8 @@ function App() {
                         element={<BookDescription/>}/>
                     <Route path="/"
                         element={<Main/>}/>
+                        <Route path="/books/:title"
+                        element={<BooksPage/>}/>
                 </Routes>
             </div>
         </div>

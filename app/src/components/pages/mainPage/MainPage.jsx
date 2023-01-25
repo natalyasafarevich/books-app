@@ -1,13 +1,13 @@
 import Categories from "../../categories/Categories";
 import { Preview } from "../../preview/Preview";
-import BooksPage from "../booksPage/booksPage";
+import Books from "../../books/Books";
 
 export default function Main() {
 	return (
 		<>
 			<Preview />
-            <Categories/>
-			<BooksPage />
+			<Categories />
+			<Books />
 		</>
 	);
 }

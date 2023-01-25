@@ -13,6 +13,7 @@ export default function Categories() {
 	const [restCategory, getRestCategory] = useState({});
 	const [isLoading, setIsloading] = useState(true);
 	const [isError, setIsError] = useState(false);
+	const [titleCategory, setTitleCategory] = useState(null);
 
 	const getLocalStorageBook = localStorage.getItem("category");
 
@@ -23,6 +24,19 @@ export default function Categories() {
 		{ title: "React", className: "category__item" },
 		{ title: "Docker", className: "category__item" },
 	];
+	useEffect(() => {
+		function addCategory() {
+			setTitleCategory(getLocalStorageBook);
+			let tt = document.querySelectorAll(".category__item");
+			tt.forEach((item) => {
+				item.classList.remove("category__item_active");
+				if (item.textContent === titleCategory) {
+					item.classList.add("category__item_active");
+				}
+			});
+		}
+		addCategory();
+	}, [titleCategory]);
 
 	useEffect(() => {
 		async function getData() {
