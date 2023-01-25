@@ -5,6 +5,7 @@ import './Normalize.css';
 import {BookDescription} from './pages/bookDescription/BookDescription';
 import Main from './pages/mainPage/MainPage';
 import BooksPage from './pages/booksPage/BooksPage';
+import NotFound from './pages/notFound/NotFound';
 
 function App() {
     return (
@@ -16,8 +17,10 @@ function App() {
                         element={<BookDescription/>}/>
                     <Route path="/"
                         element={<Main/>}/>
-                        <Route path="/books/:title"
+                    <Route path="/books/:title"
                         element={<BooksPage/>}/>
+                    <Route path='*'
+                        element={<NotFound/>}/>
                 </Routes>
             </div>
         </div>

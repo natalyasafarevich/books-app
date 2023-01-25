@@ -40,7 +40,7 @@ export function Header() {
 			class: "header__icon header__icon_search",
 		},
 		{
-			urlPage: "/basket",
+			urlPage: "/favorit",
 			class: "header__icon header__icon_basket",
 		},
 	];
@@ -72,7 +72,7 @@ export function Header() {
 				<div className="header__icons">
 					{icons.map((item, index) => (
 						<React.Fragment key={index}>
-							<a href={item.urlPage} className={item.class}></a>
+							<Link to={item.urlPage} className={item.class}></Link>
 						</React.Fragment>
 					))}
 				</div>
