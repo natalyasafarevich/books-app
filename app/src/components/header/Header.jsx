@@ -32,15 +32,15 @@ export function Header() {
 	];
 	const icons = [
 		{
-			urlPage: "/profile",
-			class: "header__icon header__icon_profile",
-		},
+				urlPage: "/profile",
+				class: "header__icon header__icon_profile",
+			},
+			{
+				urlPage: "/search",
+				class: "header__icon header__icon_search",
+			},
 		{
-			urlPage: "/search",
-			class: "header__icon header__icon_search",
-		},
-		{
-			urlPage: "/favorit",
+			urlPage: "/favorite",
 			class: "header__icon header__icon_basket",
 		},
 	];

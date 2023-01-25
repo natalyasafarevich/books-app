@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./bookCard.scss";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function BookCard({ book }) {
+	const [isFavorite, setIsFavorite] = useState(false);
+
+	const handleClickFavor = (e) => {
+		setIsFavorite(true);
+		e.preventDefault();
+	};
 	return (
 		<div className={[`book-card`]}>
 			<div className="book-card__container">
@@ -19,9 +28,13 @@ export default function BookCard({ book }) {
 							className="book-card__link book-card__link_more">
 							more
 						</Link>
-						<a href="/" className="book-card__link book-card__link_add">
-							<FavoriteBorderIcon className="fav" />
-						</a>
+						<button
+							className="book-card__link book-card__link_add"
+							onClick={handleClickFavor}>
+							{(isFavorite && <FavoriteIcon className="fav active" />) || (
+								<FavoriteBorderIcon className="fav" />
+							)}
+						</button>
 					</div>
 				</div>
 			</div>

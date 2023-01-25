@@ -10,6 +10,10 @@
         margin: 0 -5px;
 
     }
+    &__link_add{
+        cursor: pointer;
+        background-color: transparent;
+    }
 
     &__img {
         width: 100%;
@@ -97,6 +101,7 @@
 }
 .fav{
    color: #000000;
+   &.active,
    &:hover{
     color: rgb(253, 0, 0);
    }
