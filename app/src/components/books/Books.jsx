@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { getBooks } from "../../api/getBooks";
+// import { useDispatch, useSelector } from "react-redux";
 
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { getBooks } from "../../api/getBooks";
 import BookCard from "../bookCard/bookCard";
 import Error from "../error/Error";
 import Load from "../load/Load";
@@ -8,6 +10,12 @@ import Load from "../load/Load";
 import "./Books.scss";
 
 function Books() {
+	const favorives = useSelector((state) => {
+		const { favoritesReduser } = state;
+		return favoritesReduser.favorites;
+	});
+	// console.log(favorives);
+
 	const [books, setBooks] = useState([]);
 	const [isLoading, setIsloading] = useState(true);
 	const [isError, setIsError] = useState(false);
@@ -27,6 +35,11 @@ function Books() {
 		fetchData();
 	}, []);
 
+	// function handleClick(e) {
+	// 	// dispatch(inputText(e.target.value));
+	// 	// document.querySelector(".book-card");
+	// 	console.log(e);
+	// }
 	return (
 		<div className="books-page">
 			<p className="books-page__title">New Releases Books</p>
@@ -35,9 +48,14 @@ function Books() {
 				{!isLoading && isError && <Error />}
 				{!isLoading &&
 					!isError &&
-					books.map((book, index) => <BookCard key={index} book={book} />)}
+					books.map((book, index) => (
+						<BookCard key={index} book={book} />
+					))}
 			</div>
 		</div>
 	);
 }
+
+// function
+
 export default Books;

@@ -1,18 +1,28 @@
 import { Link } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+import { addFavoriets } from "../../store/favorites/action";
+
+// import { useEffect, useState } from "react";
+
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./bookCard.scss";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
-	const handleClickFavor = (e) => {
+	const dispatch = useDispatch();
+
+
+
+	const handleClick = (e) => {
 		setIsFavorite(true);
 		e.preventDefault();
+		dispatch(addFavoriets(book));
 	};
+
 	return (
 		<div className={[`book-card`]}>
 			<div className="book-card__container">
@@ -29,8 +39,8 @@ export default function BookCard({ book }) {
 							more
 						</Link>
 						<button
-							className="book-card__link book-card__link_add"
-							onClick={handleClickFavor}>
+							onClick={handleClick}
+							className="book-card__link book-card__link_add">
 							{(isFavorite && <FavoriteIcon className="fav active" />) || (
 								<FavoriteBorderIcon className="fav" />
 							)}
