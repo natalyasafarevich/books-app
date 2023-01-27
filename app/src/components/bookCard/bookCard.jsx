@@ -9,8 +9,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./bookCard.scss";
 import { useState, useEffect } from "react";
+import { withFavorites } from "../../hoc/withFavorites";
 
-export default function BookCard({ book }) {
+function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	const dispatch = useDispatch();
@@ -51,3 +52,4 @@ export default function BookCard({ book }) {
 		</div>
 	);
 }
+export default withFavorites( BookCard)

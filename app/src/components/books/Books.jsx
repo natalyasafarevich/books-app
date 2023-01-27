@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getBooks } from "../../api/getBooks";
+import { withFavorites } from "../../hoc/withFavorites";
 import BookCard from "../bookCard/bookCard";
 import Error from "../error/Error";
 import Load from "../load/Load";
@@ -10,10 +11,7 @@ import Load from "../load/Load";
 import "./Books.scss";
 
 function Books() {
-	const favorives = useSelector((state) => {
-		const { favoritesReduser } = state;
-		return favoritesReduser.favorites;
-	});
+
 	// console.log(favorives);
 
 	const [books, setBooks] = useState([]);
