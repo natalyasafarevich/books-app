@@ -52,4 +52,4 @@ function BookCard({ book }) {
 		</div>
 	);
 }
-export default withFavorites( BookCard)
+export default  BookCard

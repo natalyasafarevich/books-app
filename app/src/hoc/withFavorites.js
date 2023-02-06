@@ -1,13 +1,13 @@
 import {useSelector} from "react-redux";
 
-
 export const withFavorites = (Component) => (props) => {
 
     const favorives = useSelector((state) => {
-        const {favoritesReduser} = state;
-        return favoritesReduser.favorites;
+        const {favorite} = state;
+  
+        return favorite.favorites;
     });
-    console.log(favorives)
+  
     return (<Component onClick={favorives}
         {...props}/>)
 }
