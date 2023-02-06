@@ -9,9 +9,6 @@ import Load from "../load/Load";
 import "./Books.scss";
 
 function Books() {
-	const [isLoading, setIsloading] = useState(false);
-	const [isError, setIsError] = useState(false);
-
 	const dispatch = useDispatch();
 	const books = useSelector((state) => state.books.books);
 
@@ -23,11 +20,10 @@ function Books() {
 		<div className="books-page">
 			<p className="books-page__title">New Releases Books</p>
 			<div className="books-page__row">
-				{isLoading && !isError && <Load />}
-				{!isLoading && isError && <Error />}
-				{!isLoading &&
-					!isError &&
-					books.map((book, index) => <BookCard key={index} book={book} />)}
+				<Load />
+				{books.map((book, index) => (
+					<BookCard key={index} book={book} />
+				))}
 			</div>
 		</div>
 	);
