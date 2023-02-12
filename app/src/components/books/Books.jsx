@@ -20,7 +20,9 @@ function Books() {
 		<div className="books-page">
 			<p className="books-page__title">New Releases Books</p>
 			<div className="books-page__row">
+			<Error />
 				<Load />
+		
 				{books.map((book, index) => (
 					<BookCard key={index} book={book} />
 				))}
