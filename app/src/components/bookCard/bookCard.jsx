@@ -1,27 +1,28 @@
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriets } from "../../store/favorites/action";
-
-// import { useEffect, useState } from "react";
-
+import { addFavoriets } from "../../store/books/actions";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./bookCard.scss";
-import { useState, useEffect } from "react";
-import { withFavorites } from "../../hoc/withFavorites";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	const dispatch = useDispatch();
-
-
+	const favorBooks = useSelector((state) => state.books.favoriteBooks);
+	useEffect(() => {
+		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
+	}, [favorBooks]);
+	
 
 	const handleClick = (e) => {
+		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 		e.preventDefault();
-		dispatch(addFavoriets(book));
+	
 	};
 
 	return (
@@ -52,4 +53,4 @@ function BookCard({ book }) {
 		</div>
 	);
 }
-export default  BookCard
+export default BookCard;

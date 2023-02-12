@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { withFavorites } from "../../hoc/withFavorites";
+// import { withFavorites } from "../../hoc/withFavorites";
 import { setBooks } from "../../store/books/actions";
 import BookCard from "../bookCard/bookCard";
 import Error from "../error/Error";
@@ -11,7 +11,7 @@ import "./Books.scss";
 function Books() {
 	const dispatch = useDispatch();
 	const books = useSelector((state) => state.books.books);
-
+	
 	useEffect(() => {
 		dispatch(setBooks());
 	}, []);
@@ -20,9 +20,9 @@ function Books() {
 		<div className="books-page">
 			<p className="books-page__title">New Releases Books</p>
 			<div className="books-page__row">
-			<Error />
+				<Error />
 				<Load />
-		
+
 				{books.map((book, index) => (
 					<BookCard key={index} book={book} />
 				))}
@@ -31,4 +31,4 @@ function Books() {
 	);
 }
 
-export default withFavorites(Books);
+export default Books;

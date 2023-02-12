@@ -1,10 +1,12 @@
 import cloneDeep from "lodash.clonedeep";
-import {SEARCH_BOOKS, SET_ALLBOOKS, SET_CURRENT_BOOKS} from "./actions";
+import {ADD_FAVORITES, SEARCH_BOOKS, SET_ALLBOOKS, SET_CURRENT_BOOKS} from "./actions";
 
 const initialState = {
     books: [],
     currentBook: [],
-    searchBook: []
+    searchBook: [],
+    favoriteBooks: JSON.parse(localStorage.getItem('favorBook')) || []
+
 }
 
 export const BookReduser = (state = initialState, action) => { // console.log('aaacction',action.data)
@@ -14,8 +16,6 @@ export const BookReduser = (state = initialState, action) => { // console.log('a
                 const newBook = action.data.map(res => {
                     return res
                 })
-                // console.log(newBook)
-
                 const clone = cloneDeep(state);
                 clone.books = newBook;
                 return clone;
@@ -30,6 +30,13 @@ export const BookReduser = (state = initialState, action) => { // console.log('a
             {
                 const clone = cloneDeep(state);
                 clone.searchBook = action.data;
+                return clone;
+            }
+        case ADD_FAVORITES:
+            {
+                const clone = cloneDeep(state);
+                clone.favoriteBooks.push(action.data.books);
+
                 return clone;
             }
         default:
