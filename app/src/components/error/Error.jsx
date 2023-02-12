@@ -5,9 +5,6 @@ import "./Error.scss";
 export default function Error() {
 	const error = useSelector((state) => state.error.isError);
 
-
-
-	
 	if (error) {
 		return (
 			<div>

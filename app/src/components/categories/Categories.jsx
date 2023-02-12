@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-// import { usePagination } from '@sajari/react-hooks';
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { searchBook } from "../../api/getBooks";
+import { setSearchBook } from "../../store/books/actions";
 import BookCard from "../bookCard/bookCard";
 import Error from "../error/Error";
 import Load from "../load/Load";
@@ -9,10 +9,7 @@ import PaginationItem from "../pagination/Pagination";
 import "./Categories.scss";
 
 export default function Categories() {
-	const [books, getBooks] = useState([]);
 	const [restCategory, getRestCategory] = useState({});
-	const [isLoading, setIsloading] = useState(true);
-	const [isError, setIsError] = useState(false);
 	const [titleCategory, setTitleCategory] = useState(null);
 
 	const getLocalStorageBook = localStorage.getItem("category");
@@ -27,8 +24,8 @@ export default function Categories() {
 	useEffect(() => {
 		function addCategory() {
 			setTitleCategory(getLocalStorageBook);
-			let tt = document.querySelectorAll(".category__item");
-			tt.forEach((item) => {
+			let category_item = document.querySelectorAll(".category__item");
+			category_item.forEach((item) => {
 				item.classList.remove("category__item_active");
 				if (item.textContent === titleCategory) {
 					item.classList.add("category__item_active");
@@ -38,18 +35,11 @@ export default function Categories() {
 		addCategory();
 	}, [titleCategory]);
 
+	const dispatch = useDispatch();
+	const books = useSelector((state) => state.books.searchBook);
+	const cloneBook = books.slice(0, 3);
 	useEffect(() => {
-		async function getData() {
-			try {
-				const response = await searchBook(getLocalStorageBook);
-				getBooks(response.data.books.slice(0, 3));
-				setIsloading(false);
-			} catch (e) {
-				setIsloading(false);
-				setIsError(true);
-			}
-		}
-		getData();
+		dispatch(setSearchBook(getLocalStorageBook));
 	}, [restCategory, getLocalStorageBook]);
 
 	const getCategory = (e) => {
@@ -73,17 +63,16 @@ export default function Categories() {
 					))}
 				</div>
 			</div>
-			{isLoading && <Load />}
-			{isError && <Error />}
-			{!isError && (
-				<div className="category__info">
-					<div className="category__content">
-						{!isLoading &&
-							books.map((book, index) => <BookCard book={book} key={index} />)}
-					</div>
-					<PaginationItem count={3} />
+			<Load />
+			<Error />
+			<div className="category__info">
+				<div className="category__content">
+					{cloneBook.map((book, index) => (
+						<BookCard book={book} key={index} />
+					))}
 				</div>
-			)}
+				<PaginationItem count={3} />
+			</div>
 		</div>
 	);
 }
