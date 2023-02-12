@@ -9,7 +9,7 @@ const initialState = {
 
 }
 
-export const BookReduser = (state = initialState, action) => { // console.log('aaacction',action.data)
+export const BookReduser = (state = initialState, action) => {
     switch (action.type) {
         case SET_ALLBOOKS:
             {
@@ -35,8 +35,7 @@ export const BookReduser = (state = initialState, action) => { // console.log('a
         case ADD_FAVORITES:
             {
                 const clone = cloneDeep(state);
-                clone.favoriteBooks.push(action.data.books);
-
+                clone.favoriteBooks.unshift(action.data.books);
                 return clone;
             }
         default:
