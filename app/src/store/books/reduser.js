@@ -4,16 +4,14 @@ import {
     SEARCH_BOOKS,
     SET_ALLBOOKS,
     SET_CURRENT_BOOKS,
-    REMOVE_FAVORITES,
-    SET_ISBN
+    REMOVE_FAVORITES
 } from "./actions";
 
 const initialState = {
     books: [],
     currentBook: [],
     searchBook: [],
-    favoriteBooks: JSON.parse(localStorage.getItem('favorBook')) || [],
-    isbn: []
+    favoriteBooks: JSON.parse(localStorage.getItem('favorBook')) || []
 
 }
 
@@ -51,7 +49,7 @@ export const BookReduser = (state = initialState, action) => {
                 const {index} = action;
                 const {favoriteBooks} = state;
                 const itemIndex = favoriteBooks.findIndex(item => item.isbn13 === index);
- 
+
                 const updateArray = [
                     ...favoriteBooks.slice(0, itemIndex),
                     ...favoriteBooks.slice(itemIndex + 1),
@@ -60,12 +58,6 @@ export const BookReduser = (state = initialState, action) => {
                 clone.favoriteBooks = updateArray;
                 return clone;
             })()
-        case SET_ISBN:
-            {
-                const clone = cloneDeep(state);
-                clone.isbn.push(action.data);
-                return clone;
-            }
         default:
             return state
     }

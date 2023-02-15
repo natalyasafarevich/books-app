@@ -7,11 +7,7 @@ export const SET_CURRENT_BOOKS = 'books/SET_CURRENT_BOOKS';
 export const SEARCH_BOOKS = 'books/SEARCH__BOOKS';
 export const ADD_FAVORITES = 'favorites/ADD_FAVORITES';
 export const REMOVE_FAVORITES = 'favorites/REMOVE_FAVORITES';
-export const SET_ISBN = 'favorites/SET_ISBN';
 
-export function setIsbn(isbn) {
-    return {type: SET_ISBN, data: isbn}
-}
 
 export function setBooks() {
     return async dispatch => {

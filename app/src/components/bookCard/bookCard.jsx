@@ -1,35 +1,39 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
-import {
-	addFavoriets,
-	removeFavoriets,
-	setIsbn,
-} from "../../store/books/actions";
+import { addFavoriets, removeFavoriets } from "../../store/books/actions";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./bookCard.scss";
-import { useState } from "react";
-import { useEffect } from "react";
 
 function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	const dispatch = useDispatch();
 	const favorBooks = useSelector((state) => state.books.favoriteBooks);
-	const isbns = useSelector((state) => state.books.isbn);
+
+	useEffect(() => {
+		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
+		if (getBooks) {
+			getBooks.map((item) => {
+				if (item.isbn13 === book.isbn13) {
+					setIsFavorite(true);
+					return;
+				}
+			});
+		}
+	}, [favorBooks]);
 	useEffect(() => {
 		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
 	}, [favorBooks]);
+
 	const deleteFavorite = (e) => {
 		dispatch(removeFavoriets(book.isbn13));
 		setIsFavorite(false);
+		e.preventDefault();
 	};
 	const addFavorite = (e) => {
-		if (!isFavorite) {
-			dispatch(addFavoriets(book));
-		}
-		dispatch(setIsbn(book.isbn13));
+		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 		e.preventDefault();
 	};
