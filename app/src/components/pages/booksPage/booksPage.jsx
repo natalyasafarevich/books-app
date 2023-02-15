@@ -16,6 +16,7 @@ export default function BooksPage() {
 
 
 	const books = useSelector((state) => state.books.searchBook);
+	
 	useEffect(() => {
 		dispatch(setSearchBook(title));
 	}, []);

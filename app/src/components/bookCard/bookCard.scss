@@ -10,7 +10,8 @@
         margin: 0 -5px;
 
     }
-    &__link_add{
+
+    &__link_add {
         cursor: pointer;
         background-color: transparent;
     }
@@ -19,12 +20,16 @@
         width: 100%;
         transform: scale(1.4);
         margin: 0 5px;
+        position: relative;
+        z-index: 2;
     }
 
     &__info {
         margin: 0 5px;
         max-width: 250px;
         width: 100%;
+        position: relative;
+        z-index: 4;
     }
 
     &__author {
@@ -55,7 +60,7 @@
     &__subtitle {
         font-weight: 400;
         font-size: 14px;
-        line-height:    px;
+        line-height: px;
         text-transform: capitalize;
         color: #5C6A79;
         margin-bottom: 20px;
@@ -99,10 +104,12 @@
 
     }
 }
-.fav{
-   color: #000000;
-   &.active,
-   &:hover{
-    color: rgb(253, 0, 0);
-   }
+
+.fav {
+    color: #000000;
+
+    &.active,
+    &:hover {
+        color: rgb(253, 0, 0);
+    }
 }

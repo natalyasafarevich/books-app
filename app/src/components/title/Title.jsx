@@ -8,7 +8,7 @@ export function Title({ name, className }) {
 		e.preventDefault();
 		setIsActive(true);
 	};
-	// const [isActive, setIsActive] = useState(false);
+
 	return (
 		<>
 			{isActive && (

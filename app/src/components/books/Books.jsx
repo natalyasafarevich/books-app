@@ -14,6 +14,7 @@ function Books() {
 	
 	useEffect(() => {
 		dispatch(setBooks());
+		// console.log(booksd)
 	}, []);
 
 	return (
