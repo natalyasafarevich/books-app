@@ -1,115 +1,122 @@
 .book-card {
-    max-width: 44%;
+    max-width: 263px;
     width: 100%;
     margin-bottom: 50px;
+    position: relative;
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 -5px;
 
-    }
-
-    &__link_add {
-        cursor: pointer;
-        background-color: transparent;
+    &__box {
+        background: #F8F9FA;
+        border-radius: 0px 10px 10px 0px;
+        padding: 40px 40px 0;
+        margin: 0 0 28px;
+        position: relative;
+        overflow: hidden;
+        &:hover{
+            cursor: pointer;
+            .book-card__content{
+                opacity: 1;
+            }
+        }
     }
 
     &__img {
+        display: block;
+        margin: 0 auto;
+        filter: drop-shadow(9px 10px 5px rgba(92, 92, 92, 0.2));
+        border-radius: 0px 10px 10px 0px;
+        max-width: 184px;
         width: 100%;
-        transform: scale(1.4);
-        margin: 0 5px;
-        position: relative;
-        z-index: 2;
+        height: 227px;
+
     }
 
-    &__info {
-        margin: 0 5px;
-        max-width: 250px;
-        width: 100%;
-        position: relative;
-        z-index: 4;
+    &__subject {
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 25px;
+        color: var(--grey-color);
+        text-align: center;
+    }
+
+    &__name {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        color: var(--dark-color);
+        margin-bottom: 4px;
     }
 
     &__author {
         font-weight: 400;
-        font-size: 20px;
-        line-height: 24px;
-        text-transform: capitalize;
-        color: #5C6A79;
-        margin-bottom: 4px;
-    }
-
-    &__name {
-        font-weight: 700;
-        font-size: 21px;
+        font-size: 15px;
         line-height: 25px;
-        color: #1C2A39;
-        margin-bottom: 10px;
+        color: var(--dark-color);
+        text-align: center;
+
+        span {
+            color: var(--grey-color);
+        }
     }
 
-    &__rating {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 18px;
-        color: #5C6A79;
-        margin-bottom: 15px;
-    }
-
-    &__subtitle {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: px;
-        text-transform: capitalize;
-        color: #5C6A79;
-        margin-bottom: 20px;
-    }
-
-    &__price {
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 16px;
-        text-transform: uppercase;
-        color: #1C2A39;
-        margin-bottom: 10px;
-    }
-
-    &__row {
+    &__content {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        padding: 28px;
         display: flex;
         align-items: center;
-        margin: 0 -5px;
+        justify-content: center;
+    }
+
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--orange-color);
+        opacity: 0.5;
+    }
+
+    &__links {
+        position: relative;
+        z-index: 9;
+        width: 100%;
+        display: flex;
+        justify-content: center;   margin: 0 -10px;
     }
 
     &__link {
-        margin: 0 5px;
+        margin: 0 10px;
+        background-color: var(--white-color);
+        box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
 
-        &_more {
-            text-align: center;
-            font-weight: 700;
-            font-size: 13px;
-            line-height: 14px;
-            text-transform: uppercase;
-            color: #4C3DB2;
-            width: 100%;
-            padding: 15px 5px;
-            border: 1px solid #4C3DB2;
-            margin-bottom: 5px;
+        &:hover {
+            background-color: var(--dark-color);
 
-            &:hover {
-                background: #4C3DB2;
-                color: #fff;
+            .book-card__icon {
+                color: var(--white-color);
             }
         }
-
     }
-}
 
-.fav {
-    color: #000000;
-
-    &.active,
-    &:hover {
-        color: rgb(253, 0, 0);
+    &__icon {
+     width: 100%;
+     height: 100%;
+        font-size: 18px !important;
+        color: var(--dark-color);
     }
 }

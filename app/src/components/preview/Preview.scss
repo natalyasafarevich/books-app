@@ -1,5 +1,7 @@
 .preview {
     position: relative;
+    background-color: #fefefe;
+    background-image: url(../../img/bg-prewew.png);
 
     &_link {
         position: absolute;
@@ -43,51 +45,43 @@
     }
 
     &__container {
-        padding: 70px 10px;
-
-        background-image: url(../../img/banner.svg);
-        // background-size: cover;
-        // max-width: 1120px;
-        // width: 100%;
-        height: 702px;
+        display: flex;
+        align-items: center;
         margin: 0 auto;
     }
 
-    .text {
-        font-weight: 700;
-        font-size: 60px;
-        line-height: 73px;
-        text-align: center;
-        text-transform: uppercase;
-        position: relative;
-        max-width: 700px;
-        width: 100%;
-        margin: 25px auto;
-    }
-
-    .main-text {
-        color: #FFFFFF;
-        position: relative;
-        z-index: 2;
-    }
-
-    .additional {
-        right: -11px;
-        top: 0;
-        z-index: 1;
-        position: absolute;
-        color: #534FD2;
-    }
-
     &__title {
-        text-align: center;
-        font-weight: 600;
-        font-size: 25px;
-        line-height: 30px;
-        text-align: center;
-        text-transform: uppercase;
-        color: #1C2A39;
+        line-height: 72px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-size: 64px;
+
+        span {
+            color: var(--orange-color);
+            text-align: left;
+            line-height: 72px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 64px;
+        }
+    }
+
+    &__image {
+        background-image: url(../../img/girl-reading-books-online.png);
+        background-repeat: no-repeat;
+        width: 941px;
+        height: 500px;
+        background-size: contain;
+        background-position: center;
+        transform: scale(1.2);
     }
 
 
+    &__desc {
+        margin-top: 18px;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 26px;
+        color: var(--grey-color);
+    }
 }

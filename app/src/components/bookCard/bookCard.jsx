@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import "./bookCard.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriets, removeFavoriets } from "../../store/books/actions";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import "./bookCard.scss";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+// import "./bookCard.scss";
 
 function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -16,7 +18,7 @@ function BookCard({ book }) {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
 		if (getBooks) {
 			getBooks.map((item) => {
-				if (item.isbn13 === book.isbn13) {
+				if (item.id === book.id) {
 					setIsFavorite(true);
 					return;
 				}
@@ -28,7 +30,7 @@ function BookCard({ book }) {
 	}, [favorBooks]);
 
 	const deleteFavorite = (e) => {
-		dispatch(removeFavoriets(book.isbn13));
+		dispatch(removeFavoriets(book.id));
 		setIsFavorite(false);
 		e.preventDefault();
 	};
@@ -41,27 +43,45 @@ function BookCard({ book }) {
 	return (
 		<div className={[`book-card`]}>
 			<div className="book-card__container">
-				<img src={book.image} className="book-card__img" alt="img book" />
-				<div className="book-card__info">
-					<p className="book-card__author"></p>
-					<p className="book-card__name">{book.title}</p>
-					<p className="book-card__subtitle">{book.subtitle}</p>
-					<p className="book-card__price"> {book.price}</p>
-					<div className="book-card__row">
-						<Link
-							to={`/book/${book.isbn13}`}
-							className="book-card__link book-card__link_more">
-							more
-						</Link>
-						<button className="book-card__link book-card__link_add">
+				<div className="book-card__box">
+					<img
+						src={book.formats["image/jpeg"]}
+						className="book-card__img"
+						alt="img book"
+					/>
+					<div className="book-card__content">
+						<div className="book-card__bg"></div>
+						<div className="book-card__links">
+							<Link to={`/book/${book.id}`} className="book-card__link ">
+								<RemoveRedEyeOutlinedIcon className="book-card__icon book-card__icon_eye" />
+							</Link>
+
 							{isFavorite && (
-								<FavoriteIcon className="fav active" onClick={deleteFavorite} />
+								<button
+									className="book-card__link book-card__link_add"
+									onClick={deleteFavorite}>
+									<FavoriteIcon className="book-card__icon fav active" />
+								</button>
 							)}
 							{!isFavorite && (
-								<FavoriteBorderIcon className="fav" onClick={addFavorite} />
+								<button className="book-card__link book-card__link_add" onClick={addFavorite}>
+									<FavoriteBorderIcon
+										className="book-card__icon fav"
+										
+									/>
+								</button>
 							)}
-						</button>
+						</div>
 					</div>
+				</div>
+				<div className="book-card__info">
+					<div className="book-card__subject">
+						{book.subjects[4].replace(/[\s.,--,%]/g, " ")}
+					</div>
+					<p className="book-card__name">{book.title}</p>
+					<p className="book-card__author">
+						<span>by</span> {book.authors[0].name}
+					</p>
 				</div>
 			</div>
 		</div>

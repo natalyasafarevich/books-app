@@ -5,8 +5,9 @@ import Books from "../../books/Books";
 export default function Main() {
 	return (
 		<>
+		
 			<Preview />
-			<Categories />
+			{/* <Categories /> */}
 			<Books />
 		</>
 	);

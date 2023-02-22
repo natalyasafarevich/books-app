@@ -14,7 +14,7 @@ export function setBooks() {
         try {
             dispatch(loadingOn())
             const response = await getBooks();
-            const dataBooks = response.data.books;
+            const dataBooks = response.data.results;
             dispatch({type: SET_ALLBOOKS, data: dataBooks})
             dispatch(loadingOff())
             dispatch(errorOFF())
@@ -25,11 +25,11 @@ export function setBooks() {
     }
 }
 
-export function setCurrentBook(isbn) {
+export function setCurrentBook(id) {
     return async dispatch => {
         try {
             dispatch(loadingOn())
-            const response = await getCurrentBook(isbn);
+            const response = await getCurrentBook(id);
             const dataBook = await response.data;
             dispatch({type: SET_CURRENT_BOOKS, data: dataBook})
             dispatch(loadingOff())
@@ -47,7 +47,8 @@ export function setSearchBook(name) {
         try {
             dispatch(loadingOn())
             const response = await searchBook(name);
-            const dataBook = await response.data.books;
+            const dataBook = await response.data.results;
+            // console.log(response.data)
             dispatch({type: SEARCH_BOOKS, data: dataBook})
             dispatch(loadingOff())
             dispatch(errorOFF())

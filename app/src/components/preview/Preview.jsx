@@ -17,17 +17,14 @@ export function Preview() {
 
 	return (
 		<div className="preview">
-			{link.map((item, index) => (
-				<Link key={index} to={item.url} className={item.class}>
-					<span>{item.desc}</span>
-				</Link>
-			))}
 			<div className="preview__container">
-				<p className="preview__title">big summer sale</p>
-				<div className="text">
-					<span className="main-text">large collection of books</span>
-					<span className="additional">large collection of books</span>
+				<div className="preview__text">
+					<p className="preview__title">
+						Read <span>Books </span> Online
+					</p>
+					<p className="preview__desc">Let you read books online without leaving website</p>
 				</div>
+				<div className="preview__image"></div>
 			</div>
 		</div>
 	);

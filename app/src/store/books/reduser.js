@@ -9,8 +9,8 @@ import {
 
 const initialState = {
     books: [],
-    currentBook: [],
-    searchBook: [],
+    currentBook: {},
+    searchBook: {},
     favoriteBooks: JSON.parse(localStorage.getItem('favorBook')) || []
 
 }
@@ -28,8 +28,11 @@ export const BookReduser = (state = initialState, action) => {
             }
         case SET_CURRENT_BOOKS:
             {
+                const newBook = action.data.results.find(item => item);
+                // console.log(newBook)
                 const clone = cloneDeep(state);
-                clone.currentBook = action.data;
+                clone.currentBook = newBook;
+                // console.log(clone)
                 return clone;
             }
         case SEARCH_BOOKS:
@@ -48,7 +51,7 @@ export const BookReduser = (state = initialState, action) => {
             return(() => {
                 const {index} = action;
                 const {favoriteBooks} = state;
-                const itemIndex = favoriteBooks.findIndex(item => item.isbn13 === index);
+                const itemIndex = favoriteBooks.findIndex(item => item.id === index);
 
                 const updateArray = [
                     ...favoriteBooks.slice(0, itemIndex),

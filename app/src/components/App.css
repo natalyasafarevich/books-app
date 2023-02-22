@@ -1,6 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Jost:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("styles/styles.scss");
+
+/* rt url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"); */
 * {
-  transition: ease 0.3s;
+  transition: all 0.3s ease;
 }
 html {
   overflow-x: hidden;
@@ -8,11 +11,18 @@ html {
 
 .wrapper {
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Jost", sans-serif;
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   padding: 44px 0px;
+}
+.title {
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  color: var(--dark-color);
+  font-weight: 700;
 }
 .main {
   max-width: 1120px;
