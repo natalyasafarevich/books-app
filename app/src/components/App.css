@@ -8,6 +8,13 @@
 html {
   overflow-x: hidden;
 }
+.h4 {
+  font-weight: 600;
+  margin: 0 0 20px;
+  color: var(--dark-color);
+  line-height: 1.4;
+  margin: 0;
+}
 
 .wrapper {
   position: relative;

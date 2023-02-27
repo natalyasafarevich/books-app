@@ -1,37 +1,65 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { Rating } from "@mui/material";
 import Load from "../../load/Load";
 import Error from "../../error/Error";
-import { addFavoriets, removeFavoriets, setCurrentBook } from "../../../store/books/actions";
+import {
+	addFavoriets,
+	removeFavoriets,
+	setCurrentBook,
+} from "../../../store/books/actions";
 import LanguageIcon from "@mui/icons-material/Language";
 import SubjectIcon from "@mui/icons-material/Subject";
 
 import "./BookDescription.scss";
+import Collapse from "../../collapse/Collapse";
+import FavoriteButton from "../../buttons/favorite-button/FavoriteButton";
+
 export function BookDescription() {
-	const [rating, setRating] = useState({});
-	const [pdfVersion, setPdfVersion] = useState([]);
-
+	const [isFavorite, setIsFavorite] = useState(false);
 	const params = useParams();
-
-	const book = useSelector((state) => state.books.currentBook);
-	const favoriteBook = useSelector((state) => state.books.favoriteBooks);
-	// console.log(book.formats["image/jpeg"]);
-	const { title, bookshelves, authors, translators, languages, subjects } = book;
 	const dispatch = useDispatch();
+
+	const favorBooks = useSelector((state) => state.books.favoriteBooks);
+	const book = useSelector((state) => state.books.currentBook);
+	const { title, bookshelves, authors, translators, languages, subjects } = book;
+
+	useEffect(() => {
+		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
+		if (getBooks) {
+			getBooks.map((item) => {
+				if (item.id === book.id) {
+					setIsFavorite(true);
+					return;
+				}else{
+					setIsFavorite(false);
+				}
+			});
+		}
+	}, []);
+	useEffect(() => {
+		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
+	}, [favorBooks]);
 	useEffect(() => {
 		dispatch(setCurrentBook(params.isbn));
 	}, [params]);
-	const isFavorite = (e) => {
-	
-		console.log(favoriteBook);
+
+	// handle clicks
+	const deleteFavorite = (e) => {
+		dispatch(removeFavoriets(book.id));
+		setIsFavorite(false);
 	};
+	const addFavorite = (e) => {
+		dispatch(addFavoriets(book));
+		setIsFavorite(true);
+	};
+
 	if (Object.keys(book).length) {
 		return (
 			<div className="desc-book">
 				<Load />
-				{console.log(book)}
+				<Error />
+
 				<div className="desc-book__container">
 					<div
 						className="desc-book__img"
@@ -51,11 +79,13 @@ export function BookDescription() {
 						</div>
 						<div className="desc-book__bookshelves">
 							Bookshelves:
-							{bookshelves.map((item, i) => (
-								<p key={i} className="desc-book__desc">
-									{item}
-								</p>
-							))}
+							<div className="desc-book__box">
+								{bookshelves.map((item, i) => (
+									<p key={i} className="desc-book__desc">
+										{item}
+									</p>
+								))}
+							</div>
 						</div>
 						<div className="desc-book__translators">
 							translators:
@@ -67,12 +97,12 @@ export function BookDescription() {
 						<div className="desc-book__languages">
 							<span>
 								<LanguageIcon />
-								languages
+								languages:
 							</span>
 							{languages.map((item, i) => (
-								<p key={i} to={`search/${book.id}`}>
+								<Link key={i} to={`search/${book.id}`}>
 									{item}
-								</p>
+								</Link>
 							))}
 						</div>
 						<div className="desc-book__subjects">
@@ -88,11 +118,14 @@ export function BookDescription() {
 								))}
 							</div>
 						</div>
-						<button onClick={isFavorite} className="add-favotive">
-							Add to cart
-						</button>
+						<FavoriteButton
+							isFavorite={isFavorite}
+							deleteFavorite={deleteFavorite}
+							addFavorite={addFavorite}
+						/>
 					</div>
 				</div>
+				<Collapse />
 			</div>
 		);
 	}

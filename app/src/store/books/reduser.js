@@ -29,10 +29,8 @@ export const BookReduser = (state = initialState, action) => {
         case SET_CURRENT_BOOKS:
             {
                 const newBook = action.data.results.find(item => item);
-                // console.log(newBook)
                 const clone = cloneDeep(state);
                 clone.currentBook = newBook;
-                // console.log(clone)
                 return clone;
             }
         case SEARCH_BOOKS:

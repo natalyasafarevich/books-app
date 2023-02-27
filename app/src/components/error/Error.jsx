@@ -1,4 +1,4 @@
-import ButtonBack from "../buttonBack/ButtonBack";
+import ButtonBack from "../buttons/button-back/ButtonBack";
 import { useSelector } from "react-redux";
 import "./Error.scss";
 

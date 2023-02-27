@@ -3,7 +3,10 @@ import axios from 'axios';
 const method_get = {
     method: 'GET'
 }
-
+// export function getBofoks() {
+//     // return axios.get(`https://api.itbook.store/1.0/new`, method_get)
+//     return axios.get(`localhost:8000/api/v1/trailers/`, method_get)
+// }
 export function getBooks() {
     // return axios.get(`https://api.itbook.store/1.0/new`, method_get)
     return axios.get(`http://gutendex.com/books/`, method_get)

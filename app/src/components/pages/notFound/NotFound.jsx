@@ -1,14 +1,13 @@
-// import ButtonBack from "../buttonBack/ButtonBack";
-import ButtonBack from "../../buttonBack/ButtonBack";
+import ButtonBack from "../../buttons/button-back/ButtonBack";
 import "./NotFound.scss";
 
 export default function NotFound() {
 	return (
 		<div className="not-found">
-            <ButtonBack/>
+			<ButtonBack />
 			<div className="not-found__container">
-                <div className="not-found__img"></div>
-                
+				<div className="not-found__img"></div>
+
 				<div className="not-found__info">
 					<p className="not-found__title">Oops, This Page Could Not Be Found </p>
 					<p className="not-found__desc">
