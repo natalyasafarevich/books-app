@@ -7,7 +7,7 @@ export default function FavoriteButton({
 }) {
 	return (
 		<>
-			{(!isFavorite && (
+			{(isFavorite && (
 				<button onClick={addFavorite} className="add-favotive">
 					Add to favorites
 				</button>

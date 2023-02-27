@@ -16,34 +16,13 @@ import Collapse from "../../collapse/Collapse";
 import FavoriteButton from "../../buttons/favorite-button/FavoriteButton";
 
 export function BookDescription() {
-	const [isFavorite, setIsFavorite] = useState(false);
+	const [isFavorite, setIsFavorite] = useState();
 	const params = useParams();
 	const dispatch = useDispatch();
 
 	const favorBooks = useSelector((state) => state.books.favoriteBooks);
 	const book = useSelector((state) => state.books.currentBook);
 	const { title, bookshelves, authors, translators, languages, subjects } = book;
-
-	useEffect(() => {
-		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
-		if (getBooks) {
-			getBooks.map((item) => {
-				if (item.id === book.id) {
-					setIsFavorite(true);
-					return;
-				}else{
-					setIsFavorite(false);
-				}
-			});
-		}
-	}, []);
-	useEffect(() => {
-		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
-	}, [favorBooks]);
-	useEffect(() => {
-		dispatch(setCurrentBook(params.isbn));
-	}, [params]);
-
 	// handle clicks
 	const deleteFavorite = (e) => {
 		dispatch(removeFavoriets(book.id));
@@ -53,6 +32,33 @@ export function BookDescription() {
 		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 	};
+	useEffect(() => {
+		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
+	}, [favorBooks]);
+	useEffect(() => {
+		dispatch(setCurrentBook(params.isbn));
+	}, [params]);
+	useEffect(() => {
+		
+		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
+		if (getBooks) {
+			getBooks.map((item) => {
+				if (item.id !== book.id) {
+					setIsFavorite(true);
+					console.log(false);
+					return;
+				}else{
+					setIsFavorite(false);
+					console.log(true);
+				}
+			
+				
+			});
+		}
+	}, [favorBooks, params, deleteFavorite, addFavorite]);
+
+
+
 
 	if (Object.keys(book).length) {
 		return (
