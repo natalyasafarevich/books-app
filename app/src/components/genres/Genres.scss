@@ -1,0 +1,52 @@
+.genres {
+
+  &__container {
+    padding: 50px 0 0;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+
+  &__item {
+    &:hover {
+      .genres__desc {
+        opacity: 1;
+      }
+    }
+
+    color: var(--dark-color);
+    max-width: 18%;
+    height: 255px;
+    margin: 0 15px 30px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  &__desc {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    padding: 14px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    text-transform: uppercase;
+
+    span {
+      font-size: 15px;
+      line-height: 25px;
+      text-transform: capitalize;
+      font-weight: 400;
+      display: block;
+    }
+  }
+}
