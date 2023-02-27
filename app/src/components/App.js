@@ -11,25 +11,28 @@ import ResultsSearchPage from './pages/results-search/ResultsSearchPage';
 
 function App() {
   return (
-    <div className="wrapper">
-      <div className='main'>
-        <Header/>
-        <Routes>
-          <Route path="/"
-            element={<Main/>}/>
-          <Route path="/book/:isbn"
-            element={<BookDescription/>}/>
-          <Route path="/books/:title"
-            element={<BooksPage/>}/>
-          <Route path="/favorite"
-            element={<FavoritesBook/>}/>
-             <Route path="/search/:name"
-            element={<ResultsSearchPage/>}/>
-          <Route path='*'
-            element={<NotFound/>}/>
-        </Routes>
+    <>
+      <div className="wrapper">
+        <div className='main'>
+          <Header/>
+        </div>
       </div>
-    </div>
+      <Routes>
+        <Route path="/"
+          element={<Main/>}/>
+        <Route path="/book/:isbn"
+          element={<BookDescription/>}/>
+        <Route path="/books/:title"
+          element={<BooksPage/>}/>
+        <Route path="/favorite"
+          element={<FavoritesBook/>}/>
+        <Route path="/search/:name"
+          element={<ResultsSearchPage/>}/>
+        <Route path='*'
+          element={<NotFound/>}/>
+      </Routes>
+    </>
+
   );
 }
 

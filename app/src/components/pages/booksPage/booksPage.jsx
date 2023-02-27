@@ -13,23 +13,25 @@ export default function BooksPage() {
 
 	const dispatch = useDispatch();
 
-
-
 	const books = useSelector((state) => state.books.searchBook);
-	
+
 	useEffect(() => {
 		dispatch(setSearchBook(title));
 	}, []);
 
 	return (
-		<div className="books-item">
-			<p className="books-item__title">top Angular books </p>
-			<div className="books-item__row">
-				<Load />
-				<Error />
-				{books.map((item, index) => (
-					<BookCard key={index} book={item} />
-				))}
+		<div className="wrapper">
+			<div className="main">
+				<div className="books-item">
+					<p className="books-item__title">top Angular books </p>
+					<div className="books-item__row">
+						<Load />
+						<Error />
+						{books.map((item, index) => (
+							<BookCard key={index} book={item} />
+						))}
+					</div>
+				</div>
 			</div>
 		</div>
 	);

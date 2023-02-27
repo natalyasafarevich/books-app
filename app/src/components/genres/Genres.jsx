@@ -51,24 +51,29 @@ export default function Genres() {
 		},
 	];
 	return (
-		<div className="genres">
-			<div className="genres__container">
-				<Label info={info} />
-				<div className="genres__row">
-					{items.map((genres, index) => (
-						<Link
-							to={`search/${genres.title.toLowerCase()}`}
-							className="genres__item"
-							key={index}
-							style={{
-								background: `center/cover no-repeat url(${genres.image_url})`,
-							}}>
-							<p className="genres__desc">
-								{genres.title}
-								<span>Browse Books</span>
-							</p>
-						</Link>
-					))}
+		<div className="wrapper">
+			<div className="main">
+				<div className="genres">
+					<div className="genres__container">
+						<Label info={info} />
+
+						<div className="genres__row">
+							{items.map((genres, index) => (
+								<Link
+									to={`search/${genres.title.toLowerCase()}`}
+									className="genres__item"
+									key={index}
+									style={{
+										background: `center/cover no-repeat url(${genres.image_url})`,
+									}}>
+									<p className="genres__desc">
+										{genres.title}
+										<span>Browse Books</span>
+									</p>
+								</Link>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

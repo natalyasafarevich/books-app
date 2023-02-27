@@ -6,11 +6,14 @@ import Genres from "../../genres/Genres";
 export default function Main() {
 	return (
 		<>
-		
-			<Preview />
-			{/* <Categories /> */}
-			<Books />
-			<Genres/>
+			<div className="wrapper">
+				<div className="main">
+					<Preview />
+					{/* <Categories /> */}
+					<Books />
+				</div>
+			</div>
+			<Genres />
 		</>
 	);
 }

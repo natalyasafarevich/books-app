@@ -4,4 +4,13 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
+
+  &__title {
+    padding: 15px;
+    font-size: 20px;
+    color: var(--dark-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #f0fbf7;
+  }
 }
