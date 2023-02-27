@@ -19,6 +19,11 @@ export function searchBook(text) {
     return axios.get(`http://gutendex.com/books/?search=${text}`, method_get)
     
 }
+
+export function searchTopic(topic) {
+    return axios.get(`http://gutendex.com/books/?topic=${topic}`, method_get)
+    
+}
 export function getBookNew() {
     return axios.get(`http://gutendex.com/books/`, method_get)
 }
