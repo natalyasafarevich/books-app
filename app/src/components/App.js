@@ -8,8 +8,15 @@ import BooksPage from './pages/booksPage/BooksPage';
 import NotFound from './pages/notFound/NotFound';
 import FavoritesBook from './pages/favoritesBook/FavoritesBook';
 import ResultsSearchPage from './pages/results-search/ResultsSearchPage';
+import { useEffect } from 'react';
+import { ScrollToTop } from '../helper/ScrollToTop';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate()
+  useEffect(()=>{
+    ScrollToTop()
+  },[navigate])
   return (
     <>
       <div className="wrapper">
