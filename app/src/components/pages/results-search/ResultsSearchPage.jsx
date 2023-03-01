@@ -14,7 +14,7 @@ export default function ResultsSearchPage() {
 	const results = useSelector((state) => state.topic.topic);
 	useEffect(() => {
 		dispatch(setTopic(params.name));
-	}, [results]);
+	}, []);
 
 	return (
 		<div className="results-search">
