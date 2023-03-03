@@ -46,11 +46,9 @@ export function BookDescription() {
 			getBooks.map((item) => {
 				if (item.id !== book.id) {
 					setIsFavorite(true);
-					console.log(false);
-					return;
-				} else {
+		} else {
 					setIsFavorite(false);
-					console.log(true);
+				
 				}
 			});
 		}

@@ -1,48 +1,33 @@
-import Categories from "../../components/categories/Categories";
 import { Preview } from "../../components/preview/Preview";
 import Books from "../../components/books/Books";
 import Genres from "../../components/genres/Genres";
 import { useDispatch, useSelector } from "react-redux";
 import { setBookLanguage, setBooks } from "../../store/books/actions";
 import { useEffect } from "react";
-import { getBooks } from "../../API/getBooks";
+import { info } from "../../helper/defaultInfo";
 
 export default function Main() {
 	const books = useSelector((state) => state.books.books);
 	const books_ru = useSelector((state) => state.books.languageBooks);
 
+	const { label_arrivals, label_language } = info.main_page;
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(setBooks());
-		dispatch(setBookLanguage("de"));
+		dispatch(setBookLanguage("fr"));
 	}, []);
-
-	const info = {
-		label: "Read new",
-		title: "New Arrivals",
-		desc: `Reading helps you developing your
-		communication skills`,
-	};
-
-	const infoRu = {
-		label: "language",
-		title: "Books in French",
-		desc: `Read books in other languages`,
-	};
-
 	return (
 		<>
 			<div className="wrapper">
 				<div className="main">
 					<Preview />
-					<Books info={info} books={books} />
+					<Books info={label_arrivals} books={books} />
 				</div>
 			</div>
-			{console.log(books_ru)}
 			<Genres />
 			<div className="wrapper">
 				<div className="main">
-					<Books info={infoRu} books={books_ru} />
+					<Books info={label_language} books={books_ru} />
 				</div>
 			</div>
 		</>

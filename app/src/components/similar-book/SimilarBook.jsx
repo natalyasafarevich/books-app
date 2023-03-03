@@ -9,8 +9,10 @@ import "./SimilarBook.scss";
 export default function SimilarBook() {
 	const params = useParams();
 	const dispatch = useDispatch();
+
 	const author = useSelector((state) => state.books.currentBook.authors[0].name);
 	const books = useSelector((state) => state.books.searchBook);
+	
 	useEffect(() => {
 		dispatch(setSearchBook(author));
 	}, [params]);

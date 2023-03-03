@@ -1,23 +1,27 @@
 import { useSelector } from "react-redux";
+import { addClass, removeClass } from "../../helper/events";
 import "./Collapse.scss";
 
 export default function Collapse() {
 	const book = useSelector((state) => state.books.currentBook);
+
+	// collapse event
 	const handleClick = (e) => {
 		document.querySelectorAll(".collapse__title").forEach((item) => {
-			item.classList.remove("active");
+			removeClass(item, "active");
 		});
 		if (e.target.classList.contains("collapse__title")) {
-			e.target.classList.add("active");
+			addClass(e.target, "active");
 			const name = e.target.getAttribute("data-name");
 			document.querySelectorAll(".collapse__item").forEach((item) => {
-				item.classList.remove("active");
+				removeClass(item, "active");
 				if (item.getAttribute("data-info") === name) {
-					item.classList.add("active");
+					addClass(item, "active");
 				}
 			});
 		}
 	};
+
 	return (
 		<div className="desc-book__collapse collapse">
 			<div className="collapse__row" onClick={handleClick}>
@@ -69,7 +73,7 @@ export default function Collapse() {
 						<div className="collapse__info">
 							<p>
 								copyright
-								<span>{book.copyright}</span>
+								<span>{book.copyright.toString()}</span>
 							</p>
 							<p>
 								download count:
