@@ -52,9 +52,13 @@ export function setSearchBook(name) {
       dispatch({type: SEARCH_BOOKS, data: dataBook})
 
       dispatch(loadingOff())
+      if (response.data.results.length === 0) {
+        dispatch(errorOn())
+        return;
+      }
       dispatch(errorOFF())
     } catch (e) {
-
+      console.log(e)
       dispatch(errorOn())
       dispatch(loadingOff())
     }

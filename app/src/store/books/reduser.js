@@ -1,6 +1,4 @@
 import cloneDeep from "lodash.clonedeep";
-import {useDispatch} from "react-redux";
-import {errorOn} from "../error/actions";
 import {
   ADD_FAVORITES,
   SEARCH_BOOKS,
@@ -20,10 +18,9 @@ const initialState = {
   audioBooks: []
 
 }
-
-
+// const dispatch
 export const BookReduser = (state = initialState, action) => {
-  const dispatch = useDispatch();
+
   switch (action.type) {
     case SET_ALLBOOKS:
       {
@@ -45,11 +42,6 @@ export const BookReduser = (state = initialState, action) => {
       {
         const clone = cloneDeep(state);
         clone.searchBook = action.data;
-        if (action.data.length === 0) {
-          dispatch(errorOn());
-          return
-        }
-        console.log(action.data.length)
         return clone;
       }
     case ADD_FAVORITES:

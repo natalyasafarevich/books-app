@@ -37,7 +37,8 @@ export default function ResultsSearchPage() {
 					<div className="results-search__container">
 						<div className="results-search__row">
 							<Load />
-
+							<Error />
+							
 							{params.lang &&
 								books_language.length &&
 								books_language.map((item, i) => <BookCard book={item} key={i} />)}
@@ -47,7 +48,7 @@ export default function ResultsSearchPage() {
 							{params.name &&
 								results.length &&
 								results.map((item, i) => <BookCard book={item} key={i} />)}
-							<Error />
+					
 						</div>
 					</div>
 				</div>
