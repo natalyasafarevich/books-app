@@ -1,13 +1,24 @@
 import "./Header.scss";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, redirect, useNavigate, useNavigation } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import { info } from "../../helper/defaultInfo";
 import { toggleClass } from "../../helper/events";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchBook } from "../../store/books/actions";
+import { setTopic } from "../../store/topic/actions";
+import { errorOn } from "../../store/error/actions";
 
 export function Header() {
+	const [value, setValue] = useState("");
+
+	const results = useSelector((state) => state.books.searchBook);
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const { links } = info.header;
 
 	const searchClick = (e) => {
@@ -23,6 +34,25 @@ export function Header() {
 		e.preventDefault();
 	};
 
+	const formSubmin = (e) => {
+		const value = e.target.value;
+		setValue(value);
+		if (e.keyCode === 13) {
+			dispatch(setSearchBook(value));
+			if (results.length !== 0) {
+				navigate(`/search/${value}`);
+				return;
+			} else {
+				dispatch(setTopic(value));
+				navigate(`/search/${value}`);
+			}
+			if (results.length === 0) {
+				dispatch(errorOn());
+				e.preventDefault();
+			}
+		}
+	};
+
 	return (
 		<header className="header">
 			<div className="header__container">
@@ -32,9 +62,10 @@ export function Header() {
 				<div className="header__content">
 					<form className="header__form form hidden">
 						<input
+							onKeyDown={(e) => formSubmin(e)}
 							className="header__input"
 							type="text"
-							placeholder="Search by Title, Category or ISBN"
+							placeholder="Search by Title, Autor or Topic"
 						/>
 						<CloseIcon className="header__close" onClick={searchClick} />
 					</form>

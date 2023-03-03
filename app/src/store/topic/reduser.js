@@ -11,7 +11,7 @@ export const TopicReduser = (state = defaultState, action) => {
     case SET_TOPIC:
       {
         const clone = cloneDeep(state);
-        console.log(action.data)
+   
         clone.topic = action.data;
         return clone
       }

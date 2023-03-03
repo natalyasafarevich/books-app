@@ -17,6 +17,8 @@ export default function ResultsSearchPage() {
 	const searchBook = useSelector((state) => state.books.searchBook);
 	const books_language = useSelector((state) => state.books.languageBooks);
 
+	const searchBosok = useSelector((state) => state.books);
+
 	useEffect(() => {
 		dispatch(setTopic(params.name));
 		dispatch(setSearchBook(params.author_name));
@@ -28,16 +30,14 @@ export default function ResultsSearchPage() {
 			<div className="results-search__title">
 				<div className="main">{params.name || params.author_name}</div>
 			</div>
-			{console.log(books_language)}
 
 			<div className="wrapper">
 				<div className="main">
 					<Selection books={results} />
 					<div className="results-search__container">
-						{console.log(searchBook)}
 						<div className="results-search__row">
 							<Load />
-							<Error />
+
 							{params.lang &&
 								books_language.length &&
 								books_language.map((item, i) => <BookCard book={item} key={i} />)}
@@ -47,6 +47,7 @@ export default function ResultsSearchPage() {
 							{params.name &&
 								results.length &&
 								results.map((item, i) => <BookCard book={item} key={i} />)}
+							<Error />
 						</div>
 					</div>
 				</div>

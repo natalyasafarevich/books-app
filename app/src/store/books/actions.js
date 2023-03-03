@@ -10,7 +10,6 @@ export const REMOVE_FAVORITES = 'favorites/REMOVE_FAVORITES';
 export const SET_BOOK_LANGUAGE = 'books/SET_BOOK_LANGUAGE';
 
 
-
 export function setBooks() {
   return async dispatch => {
     try {
@@ -51,6 +50,24 @@ export function setSearchBook(name) {
       const response = await searchBook(name);
       const dataBook = await response.data.results;
       dispatch({type: SEARCH_BOOKS, data: dataBook})
+
+      dispatch(loadingOff())
+      dispatch(errorOFF())
+    } catch (e) {
+
+      dispatch(errorOn())
+      dispatch(loadingOff())
+    }
+  }
+}
+
+export function setBookLanguage(language) {
+  return async dispatch => {
+    try {
+      dispatch(loadingOn())
+      const response = await getBooksLanguage(language);
+      const dataBook = await response.data;
+      dispatch({type: SET_BOOK_LANGUAGE, data: dataBook})
       dispatch(loadingOff())
       dispatch(errorOFF())
     } catch (e) {
@@ -60,22 +77,6 @@ export function setSearchBook(name) {
   }
 }
 
-export function setBookLanguage(language) {
-    return async dispatch => {
-      try {
-        dispatch(loadingOn())
-        const response = await getBooksLanguage(language);
-        const dataBook = await response.data;
-        dispatch({type: SET_BOOK_LANGUAGE, data: dataBook})
-        dispatch(loadingOff())
-        dispatch(errorOFF())
-      } catch (e) {
-        dispatch(errorOn())
-        dispatch(loadingOff())
-      }
-    }
-  }
-  
 export function addFavoriets(books,) {
   return {type: ADD_FAVORITES, data: {
       books

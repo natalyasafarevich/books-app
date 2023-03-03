@@ -11,7 +11,7 @@ export function setTopic(topic) {
       dispatch(loadingOn())
       const response = await searchTopic(topic);
       const topics = await response.data.results;
-      console.log(response.data)
+     
       dispatch({type: SET_TOPIC, data: topics})
       dispatch(loadingOff())
       dispatch(errorOFF())
