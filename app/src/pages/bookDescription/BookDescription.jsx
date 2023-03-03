@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import Load from "../../load/Load";
-import Error from "../../error/Error";
+import Load from "../../components/load/Load";
+import Error from "../../components/error/Error";
 import {
 	addFavoriets,
 	removeFavoriets,
 	setCurrentBook,
-} from "../../../store/books/actions";
+} from "../../store/books/actions";
 import LanguageIcon from "@mui/icons-material/Language";
 import SubjectIcon from "@mui/icons-material/Subject";
 
 import "./BookDescription.scss";
-import Collapse from "../../collapse/Collapse";
-import FavoriteButton from "../../buttons/favorite-button/FavoriteButton";
-
+import Collapse from "../../components/collapse/Collapse";
+import FavoriteButton from "../../components/buttons/favorite-button/FavoriteButton";
+import SimilarBook from "../../components/similar-book/SimilarBook";
+import { useNavigate } from "react-router-dom";
 export function BookDescription() {
 	const [isFavorite, setIsFavorite] = useState();
 	const params = useParams();
@@ -23,11 +24,12 @@ export function BookDescription() {
 	const favorBooks = useSelector((state) => state.books.favoriteBooks);
 	const book = useSelector((state) => state.books.currentBook);
 	const { title, bookshelves, authors, translators, languages, subjects } = book;
-	// handle clicks
+
 	const deleteFavorite = (e) => {
 		dispatch(removeFavoriets(book.id));
 		setIsFavorite(false);
 	};
+
 	const addFavorite = (e) => {
 		dispatch(addFavoriets(book));
 		setIsFavorite(true);
@@ -71,7 +73,7 @@ export function BookDescription() {
 								<div className="desc-book__autors">
 									<span className="desc-book__span">By</span>
 									{authors.map((item, index) => (
-										<Link to="/search" key={index} className="desc-book__name">
+										<Link to={`/search/author/${item.name}`} key={index} className="desc-book__name">
 											{item.name}
 											<span className="desc-book__years">
 												({item.birth_year} - {item.death_year})
@@ -102,7 +104,7 @@ export function BookDescription() {
 										languages:
 									</span>
 									{languages.map((item, i) => (
-										<Link key={i} to={`search/${book.id}`}>
+										<Link key={i} to={`/search/books-languages/${item}`}>
 											{item}
 										</Link>
 									))}
@@ -129,6 +131,7 @@ export function BookDescription() {
 						</div>
 						<Collapse />
 					</div>
+					<SimilarBook />
 				</div>
 			</div>
 		);

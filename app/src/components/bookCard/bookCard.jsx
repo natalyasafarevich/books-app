@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./bookCard.scss";
+import "./BookCard.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriets, removeFavoriets } from "../../store/books/actions";
@@ -76,7 +76,6 @@ function BookCard({ book }) {
 				</div>
 				<div className="book-card__info">
 					<div className="book-card__subject">
-						{/* {book?.subjects[4].replace(/[\s.,--,%]/g, " ")} */}
 					</div>
 					<p className="book-card__name">{book.title}</p>
 					<p className="book-card__author">

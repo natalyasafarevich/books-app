@@ -1,5 +1,5 @@
 import './App.css';
-import {Header} from './header/Header';
+import {Header} from './components/header/Header';
 import {Routes, Route} from "react-router-dom";
 import './Normalize.css';
 import {BookDescription} from './pages/bookDescription/BookDescription';
@@ -8,15 +8,15 @@ import BooksPage from './pages/booksPage/BooksPage';
 import NotFound from './pages/notFound/NotFound';
 import FavoritesBook from './pages/favoritesBook/FavoritesBook';
 import ResultsSearchPage from './pages/results-search/ResultsSearchPage';
-import { useEffect } from 'react';
-import { ScrollToTop } from '../helper/ScrollToTop';
-import { useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
+import {ScrollToTop} from './helper/ScrollToTop';
+import {useNavigate} from 'react-router-dom';
 
 function App() {
   const navigate = useNavigate()
-  useEffect(()=>{
+  useEffect(() => {
     ScrollToTop()
-  },[navigate])
+  }, [navigate])
   return (
     <>
       <div className="wrapper">
@@ -33,7 +33,11 @@ function App() {
           element={<BooksPage/>}/>
         <Route path="/favorite"
           element={<FavoritesBook/>}/>
-        <Route path="/search/:name"
+        <Route path={"/search/books-languages/:lang"}
+          element={<ResultsSearchPage/>}/>
+        <Route path={"/search/author/:author_name"}
+          element={<ResultsSearchPage/>}/>
+        <Route path={"/search/:name"}
           element={<ResultsSearchPage/>}/>
         <Route path='*'
           element={<NotFound/>}/>

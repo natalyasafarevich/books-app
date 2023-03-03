@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import BookCard from "../../bookCard/bookCard";
+import BookCard from "../../components/bookCard/BookCard";
 import "./FavoritesBook.scss";
 
 export default function FavoritesBook() {

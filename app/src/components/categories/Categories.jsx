@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setSearchBook } from "../../store/books/actions";
-import BookCard from "../bookCard/bookCard";
+import BookCard from "../bookCard/BookCard";
 import Error from "../error/Error";
 import Load from "../load/Load";
 import PaginationItem from "../pagination/Pagination";

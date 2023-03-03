@@ -1,4 +1,4 @@
-import ButtonBack from "../../buttons/button-back/ButtonBack";
+import ButtonBack from "../../components/buttons/button-back/ButtonBack";
 import "./NotFound.scss";
 
 export default function NotFound() {
