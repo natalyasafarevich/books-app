@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { makeRandomArr } from "../../helper/sortArray";
-import { setSearchBook } from "../../store/books/actions";
+import { setSearchBook } from "../../store/books/search/actions";
 import BookCard from "../bookCard/BookCard";
 import "./SimilarBook.scss";
 
@@ -10,8 +10,8 @@ export default function SimilarBook() {
 	const params = useParams();
 	const dispatch = useDispatch();
 
-	const author = useSelector((state) => state.books.currentBook.authors[0].name);
-	const books = useSelector((state) => state.books.searchBook);
+	const author = useSelector((state) => state.current_book.currentBook.authors[0].name);
+	const books = useSelector((state) => state.search.searchBook);
 	
 	useEffect(() => {
 		dispatch(setSearchBook(author));

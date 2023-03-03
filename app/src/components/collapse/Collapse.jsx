@@ -3,7 +3,7 @@ import { addClass, removeClass } from "../../helper/events";
 import "./Collapse.scss";
 
 export default function Collapse() {
-	const book = useSelector((state) => state.books.currentBook);
+	const book = useSelector((state) => state.current_book.currentBook);
 
 	// collapse event
 	const handleClick = (e) => {

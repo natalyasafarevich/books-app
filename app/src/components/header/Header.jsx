@@ -7,14 +7,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import { info } from "../../helper/defaultInfo";
 import { toggleClass } from "../../helper/events";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchBook } from "../../store/books/actions";
 import { setTopic } from "../../store/topic/actions";
 import { errorOn } from "../../store/error/actions";
+import { setSearchBook } from "../../store/books/search/actions";
 
 export function Header() {
 	const [value, setValue] = useState("");
 
-	const results = useSelector((state) => state.books.searchBook);
+	const results = useSelector((state) => state.search.searchBook);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();

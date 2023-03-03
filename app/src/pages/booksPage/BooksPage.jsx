@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setSearchBook } from "../../store/books/actions";
 import BookCard from "../../components/bookCard/BookCard";
 import Error from "../../components/error/Error";
 import Load from "../../components/load/Load";
+import { setSearchBook } from "../../store/books/search/actions";
 
 import "./BooksPage.scss";
 

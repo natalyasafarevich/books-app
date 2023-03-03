@@ -3,11 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Load from "../../components/load/Load";
 import Error from "../../components/error/Error";
-import {
-	addFavoriets,
-	removeFavoriets,
-	setCurrentBook,
-} from "../../store/books/actions";
 import LanguageIcon from "@mui/icons-material/Language";
 import SubjectIcon from "@mui/icons-material/Subject";
 
@@ -16,13 +11,18 @@ import Collapse from "../../components/collapse/Collapse";
 import FavoriteButton from "../../components/buttons/favorite-button/FavoriteButton";
 import SimilarBook from "../../components/similar-book/SimilarBook";
 import { useNavigate } from "react-router-dom";
+import { setCurrentBook } from "../../store/books/current/actions";
+import {
+	addFavoriets,
+	removeFavoriets,
+} from "../../store/books/favorite/actions";
 export function BookDescription() {
 	const [isFavorite, setIsFavorite] = useState();
 	const params = useParams();
 	const dispatch = useDispatch();
 
-	const favorBooks = useSelector((state) => state.books.favoriteBooks);
-	const book = useSelector((state) => state.books.currentBook);
+	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
+	const book = useSelector((state) => state.current_book.currentBook);
 	const { title, bookshelves, authors, translators, languages, subjects } = book;
 
 	const deleteFavorite = (e) => {
@@ -46,9 +46,8 @@ export function BookDescription() {
 			getBooks.map((item) => {
 				if (item.id !== book.id) {
 					setIsFavorite(true);
-		} else {
+				} else {
 					setIsFavorite(false);
-				
 				}
 			});
 		}
@@ -71,7 +70,10 @@ export function BookDescription() {
 								<div className="desc-book__autors">
 									<span className="desc-book__span">By</span>
 									{authors.map((item, index) => (
-										<Link to={`/search/author/${item.name}`} key={index} className="desc-book__name">
+										<Link
+											to={`/search/author/${item.name}`}
+											key={index}
+											className="desc-book__name">
 											{item.name}
 											<span className="desc-book__years">
 												({item.birth_year} - {item.death_year})

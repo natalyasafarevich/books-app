@@ -2,17 +2,16 @@ import { useState, useEffect } from "react";
 import "./BookCard.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriets, removeFavoriets } from "../../store/books/actions";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-// import "./bookCard.scss";
+import { addFavoriets, removeFavoriets } from "../../store/books/favorite/actions";
 
 function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	const dispatch = useDispatch();
-	const favorBooks = useSelector((state) => state.books.favoriteBooks);
+	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));

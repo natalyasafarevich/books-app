@@ -3,7 +3,7 @@ import BookCard from "../../components/bookCard/BookCard";
 import "./FavoritesBook.scss";
 
 export default function FavoritesBook() {
-	const favoriteBooks = useSelector((state) => state.books.favoriteBooks);
+	const favoriteBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 
 	// console.log(favoriteBooks);
 	return (

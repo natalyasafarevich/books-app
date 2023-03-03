@@ -2,13 +2,14 @@ import { Preview } from "../../components/preview/Preview";
 import Books from "../../components/books/Books";
 import Genres from "../../components/genres/Genres";
 import { useDispatch, useSelector } from "react-redux";
-import { setBookLanguage, setBooks } from "../../store/books/actions";
 import { useEffect } from "react";
 import { info } from "../../helper/defaultInfo";
+import { setBooks } from "../../store/books/all/actions";
+import { setBookLanguage } from "../../store/books/language/actions";
 
 export default function Main() {
-	const books = useSelector((state) => state.books.books);
-	const books_ru = useSelector((state) => state.books.languageBooks);
+	const books = useSelector((state) => state.all_books.books);
+	const books_ru = useSelector((state) => state.language_books.languageBooks);
 
 	const { label_arrivals, label_language } = info.main_page;
 	const dispatch = useDispatch();

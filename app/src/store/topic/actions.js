@@ -11,12 +11,12 @@ export function setTopic(topic) {
       dispatch(loadingOn())
       const response = await searchTopic(topic);
       const topics = await response.data.results;
-
+      if (response.data.results.length === 0) {
+        dispatch(errorOn())
+        return;
+      }
       dispatch({type: SET_TOPIC, data: topics})
       dispatch(loadingOff())
-      if (response.data.results.length === 0) {
-        return
-      }
       dispatch(errorOFF())
     } catch (e) {
       dispatch(errorOn())
