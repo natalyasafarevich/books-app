@@ -5,7 +5,8 @@ import {
   SET_ALLBOOKS,
   SET_CURRENT_BOOKS,
   REMOVE_FAVORITES,
-  SET_BOOK_LANGUAGE
+  SET_BOOK_LANGUAGE,
+  SET_AUDIO_BOOKS
 } from "./actions";
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
   currentBook: {},
   searchBook: {},
   favoriteBooks: JSON.parse(localStorage.getItem('favorBook')) || [],
-  languageBooks: []
+  languageBooks: [],
+  audioBooks: []
 
 }
 

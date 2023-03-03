@@ -9,12 +9,12 @@ import { getBooks } from "../../API/getBooks";
 
 export default function Main() {
 	const books = useSelector((state) => state.books.books);
-	const books_ru = useSelector((state) => state.books.searchBook);
+	const books_ru = useSelector((state) => state.books.languageBooks);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(setBooks());
-		dispatch(setBookLanguage("fr"));
+		dispatch(setBookLanguage("de"));
 	}, []);
 
 	const info = {
@@ -25,10 +25,9 @@ export default function Main() {
 	};
 
 	const infoRu = {
-		label: "Russian",
-		title: "Listen books",
-		desc: `Reading helps you developing your
-		communication skills`,
+		label: "language",
+		title: "Books in French",
+		desc: `Read books in other languages`,
 	};
 
 	return (
@@ -39,6 +38,7 @@ export default function Main() {
 					<Books info={info} books={books} />
 				</div>
 			</div>
+			{console.log(books_ru)}
 			<Genres />
 			<div className="wrapper">
 				<div className="main">
