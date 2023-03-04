@@ -5,13 +5,14 @@ import {loadingOff, loadingOn} from "../../loading/actions";
 export const SET_ALLBOOKS = 'books/SET_ALLBOOKS';
 
 
-export function setBooks() {
+export function setBooks(page) {
   return async dispatch => {
     try {
       dispatch(loadingOn())
-      const response = await getBooks();
+      const response = await getBooks(page);
       const dataBooks = response.data.results;
-      dispatch({type: SET_ALLBOOKS, data: dataBooks})
+      const count = response.data.count;
+      dispatch({type: SET_ALLBOOKS, data: dataBooks, count: count})
       dispatch(loadingOff())
       dispatch(errorOFF())
     } catch (e) {

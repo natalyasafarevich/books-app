@@ -11,15 +11,16 @@ function BookCard({ book }) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	const dispatch = useDispatch();
-	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
+	const favorBooks = useSelector((state) => state.favorite_books?.favoriteBooks);
 
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
+		// console.log(getBooks)
 		if (getBooks) {
 			getBooks.map((item) => {
+				// console.log(item)
 				if (item.id === book.id) {
-					setIsFavorite(true);
-					return;
+					return setIsFavorite(true);
 				}
 			});
 		}

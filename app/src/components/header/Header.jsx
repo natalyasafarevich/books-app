@@ -43,7 +43,7 @@ export function Header() {
 				navigate(`/search/${value}`);
 				return;
 			} else {
-				dispatch(setTopic(value));
+				dispatch(setTopic(1,value));
 				navigate(`/search/${value}`);
 			}
 			if (results.length === 0) {

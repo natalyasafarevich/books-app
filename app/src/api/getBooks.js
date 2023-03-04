@@ -4,19 +4,19 @@ const method_get = {
   method: 'GET'
 }
 
-export function getBooks() {
-  return axios.get(`http://gutendex.com/books/`, method_get)
+export function getBooks(page) {
+  return axios.get(`http://gutendex.com/books/?page=${page}`, method_get)
 }
 
 export function getCurrentBook(id) {
-  return axios.get(`http://gutendex.com/books/?ids=${id}`, method_get)
+  return axios.get(`http://gutendex.com/books/${id}/`, method_get)
 }
 export function searchBook(text) {
   return axios.get(`http://gutendex.com/books/?search=${text}`, method_get)
 }
 
-export function searchTopic(topic) {
-  return axios.get(`http://gutendex.com/books/?topic=${topic}`, method_get)
+export function searchTopic(page,topic) {
+  return axios.get(`http://gutendex.com/books/?page=${page}&topic=${topic}`, method_get)
 
 }
 export function getBooksLanguage(language) {

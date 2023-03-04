@@ -6,15 +6,20 @@ import { useEffect } from "react";
 import { info } from "../../helper/defaultInfo";
 import { setBooks } from "../../store/books/all/actions";
 import { setBookLanguage } from "../../store/books/language/actions";
+import { useState } from "react";
 
 export default function Main() {
+
+
+
+	const booksdd = useSelector((state) => state.all_books)
 	const books = useSelector((state) => state.all_books.books);
 	const books_ru = useSelector((state) => state.language_books.languageBooks);
 
 	const { label_arrivals, label_language } = info.main_page;
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(setBooks());
+		dispatch(setBooks('1'));
 		dispatch(setBookLanguage("fr"));
 	}, []);
 	return (
@@ -22,6 +27,7 @@ export default function Main() {
 			<div className="wrapper">
 				<div className="main">
 					<Preview />
+					{console.log(booksdd)}
 					<Books info={label_arrivals} books={books} />
 				</div>
 			</div>

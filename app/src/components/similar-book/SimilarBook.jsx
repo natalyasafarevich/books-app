@@ -10,8 +10,8 @@ export default function SimilarBook() {
 	const params = useParams();
 	const dispatch = useDispatch();
 
-	const author = useSelector((state) => state.current_book.currentBook.authors[0].name);
-	const books = useSelector((state) => state.search.searchBook);
+	const author = useSelector((state) => state.current_book.currentBook.authors[0]?.name);
+	const books = useSelector((state) => state.search?.searchBook);
 	
 	useEffect(() => {
 		dispatch(setSearchBook(author));

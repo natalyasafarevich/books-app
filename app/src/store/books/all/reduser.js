@@ -2,7 +2,10 @@ import cloneDeep from "lodash.clonedeep";
 import {SET_ALLBOOKS} from "./actions";
 
 const initialState = {
-  books: []
+  books: [],
+  count: 1,
+  allBooks: 32,
+  results: 1
 }
 
 
@@ -16,6 +19,9 @@ export const allBookReduser = (state = initialState, action) => {
         })
         const clone = cloneDeep(state);
         clone.books = newBook;
+        clone.count = action.count;
+        clone.allBooks = newBook.length;
+        clone.results = Math.ceil(action.count / newBook.length);
         return clone;
       }
 

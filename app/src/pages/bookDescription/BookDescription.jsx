@@ -23,6 +23,9 @@ export function BookDescription() {
 
 	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 	const book = useSelector((state) => state.current_book.currentBook);
+
+	const bodok = useSelector((state) => state);
+
 	const { title, bookshelves, authors, translators, languages, subjects } = book;
 
 	const deleteFavorite = (e) => {
@@ -39,6 +42,8 @@ export function BookDescription() {
 	}, [favorBooks]);
 	useEffect(() => {
 		dispatch(setCurrentBook(params.isbn));
+		{console.log(bodok)}
+
 	}, [params]);
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
@@ -56,6 +61,7 @@ export function BookDescription() {
 	if (Object.keys(book).length) {
 		return (
 			<div className="wrapper">
+		
 				<div className="main">
 					<div className="desc-book">
 						<Load />

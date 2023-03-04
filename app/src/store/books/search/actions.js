@@ -11,11 +11,12 @@ export function setSearchBook(name) {
       dispatch(loadingOn())
       const response = await searchBook(name);
       const dataBook = await response.data.results;
+      const count = response.data.count;
       if (response.data.results.length === 0) {
         dispatch(errorOn())
         return;
       }
-      dispatch({type: SEARCH_BOOKS, data: dataBook})
+      dispatch({type: SEARCH_BOOKS, data: dataBook, count: count})
 
       dispatch(loadingOff())
 
