@@ -11,16 +11,16 @@ export function setCurrentBook(id) {
       dispatch(loadingOn())
       const response = await getCurrentBook(id);
       const dataBook = await response.data;
-      console.log(dataBook)
+      // console.log(dataBook)
       dispatch({type: SET_CURRENT_BOOK, data: dataBook})
       dispatch(loadingOff())
       dispatch(errorOFF())
     } catch (e) {
       dispatch(errorOn())
-      if(e.response.status === 404){
+      // if(e.response.status === 404){
 
-      }
-      console.log(e)
+      // }
+      // console.log(e)
 
       dispatch(loadingOff())
     }

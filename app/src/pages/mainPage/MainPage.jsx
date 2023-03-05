@@ -13,6 +13,8 @@ export default function Main() {
 
 
 	const booksdd = useSelector((state) => state.all_books)
+
+
 	const books = useSelector((state) => state.all_books.books);
 	const books_ru = useSelector((state) => state.language_books.languageBooks);
 
@@ -21,6 +23,7 @@ export default function Main() {
 	useEffect(() => {
 		dispatch(setBooks('1'));
 		dispatch(setBookLanguage("fr"));
+		
 	}, []);
 	return (
 		<>

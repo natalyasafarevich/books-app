@@ -4,15 +4,16 @@ import {loadingOff, loadingOn} from "../loading/actions";
 
 export const SET_TOPIC = 'topic/SET_TOPIC';
 
-
 export function setTopic(page, topic) {
   return async dispatch => {
+
     try {
       dispatch(loadingOn())
       const response = await searchTopic(page, topic);
-      const topics = await response.data.results;
+      const topics =  response.data.results;
       const count = response.data.count;
-      if (response.data.results.length === 0) {
+      if (topics.length === 0) {
+       
         dispatch(errorOn())
         return;
       }

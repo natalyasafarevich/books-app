@@ -15,10 +15,8 @@ function BookCard({ book }) {
 
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
-		// console.log(getBooks)
 		if (getBooks) {
 			getBooks.map((item) => {
-				// console.log(item)
 				if (item.id === book.id) {
 					return setIsFavorite(true);
 				}

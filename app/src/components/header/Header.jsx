@@ -46,10 +46,10 @@ export function Header() {
 				dispatch(setTopic(1,value));
 				navigate(`/search/${value}`);
 			}
-			if (results.length === 0) {
-				dispatch(errorOn());
-				e.preventDefault();
-			}
+			// if (results.length === 0) {
+			// 	dispatch(errorOn());
+			// 	e.preventDefault();
+			// }
 		}
 	};
 

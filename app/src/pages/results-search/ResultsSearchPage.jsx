@@ -12,30 +12,33 @@ import Selection from "../../components/selection/Selection";
 import "./ResultsSearchPage.scss";
 import Pagination from "../../components/pagination/Pagination";
 import { useState } from "react";
+import { setResetPage } from "../../store/pagination/actions";
 
 export default function ResultsSearchPage() {
 	const params = useParams();
 	const dispatch = useDispatch();
-	const [page, setPage] = useState("5");
-	const results = useSelector((state) => state.topic.topic);
-	// const resuffflts = useSelector((state) => state.topic);
-const paginations  = useSelector(state=>state.pagination.page)
-	const searchBook = useSelector((state) => state.search.searchBook);
 
+	const results = useSelector((state) => state.topic);
+	const paginations = useSelector((state) => state.pagination.page);
+	const sss = useSelector((state) => state)
+	const searchBook = useSelector((state) => state.search.searchBook);
 	const books_language = useSelector(
 		(state) => state.language_books.languageBooks
 	);
-	useEffect(() => {
 
+	useEffect(() => {
+	
+	}, []);
+
+	useEffect(() => {
 		dispatch(setTopic(paginations, params.name));
+		console.log(sss.loading)
 	}, [paginations]);
 
-
 	useEffect(() => {
-		dispatch(setTopic(page, params.name));
+		dispatch(setResetPage());
 		dispatch(setSearchBook(params.author_name));
 		dispatch(setBookLanguage(params.lang));
-		console.log(paginations)
 	}, []);
 
 	return (
@@ -43,11 +46,10 @@ const paginations  = useSelector(state=>state.pagination.page)
 			<div className="results-search__title">
 				<div className="main">{params.name || params.author_name}</div>
 			</div>
-			<Pagination  />
-			
+
 			<div className="wrapper">
 				<div className="main">
-					<Selection books={results} />
+					<Selection books={results.topic} />
 					<div className="results-search__container">
 						<div className="results-search__row">
 							<Load />
@@ -58,10 +60,10 @@ const paginations  = useSelector(state=>state.pagination.page)
 							{params.author_name &&
 								searchBook.length &&
 								searchBook.map((item, i) => <BookCard book={item} key={i} />)}
+							<Pagination state={results} />
 							{params.name &&
-								results.length &&
-								results.map((item, i) => <BookCard book={item} key={i} />)}
-							{/* {console.log( resuffflts)} */}
+								results.topic.length &&
+								results.topic.map((item, i) => <BookCard book={item} key={i} />)}
 						</div>
 					</div>
 				</div>
