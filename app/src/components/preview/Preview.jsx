@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
+import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
+import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import "./Preview.scss";
 
 const theme = createTheme({
@@ -27,7 +29,33 @@ export function Preview() {
 				</div>
 				<div className="preview__info">
 					<div className="preview__item">
-						<MenuBookOutlinedIcon color="primary" />
+						<div className="preview__box">
+							<MenuBookOutlinedIcon fontSize="large" color="primary" />
+						</div>
+						<p>
+							Read books Online
+							<span>Over 7.000 of books</span>
+						</p>
+					</div>
+					<div className="preview__item">
+						<div className="preview__box">
+							<TranslateOutlinedIcon fontSize="large" color="primary" />
+						</div>
+
+						<p>
+							books on different languages
+							<span>ALL ACROSS THE WORLD</span>
+						</p>
+					</div>
+					<div className="preview__item">
+						<div className="preview__box">
+							<FavoriteOutlinedIcon fontSize="large" color="primary" />
+						</div>
+
+						<p>
+							Add to favorites
+							<span>Not to lose books</span>
+						</p>
 					</div>
 				</div>
 			</div>
