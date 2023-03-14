@@ -27,24 +27,27 @@ export function BookDescription() {
 	const bodok = useSelector((state) => state);
 
 	const { title, bookshelves, authors, translators, languages, subjects } = book;
-
+	useEffect(() => {
+		dispatch(setCurrentBook(params.isbn));
+		// {
+		// 	console.log(bodok);
+		// }
+	}, [params]);
 	const deleteFavorite = (e) => {
+		// console.log(",kk");
 		dispatch(removeFavoriets(book.id));
 		setIsFavorite(false);
 	};
 
 	const addFavorite = (e) => {
+		// console.log("add");
 		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 	};
 	useEffect(() => {
 		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
 	}, [favorBooks]);
-	useEffect(() => {
-		dispatch(setCurrentBook(params.isbn));
-		{console.log(bodok)}
 
-	}, [params]);
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
 		if (getBooks) {
@@ -54,14 +57,12 @@ export function BookDescription() {
 				} else {
 					setIsFavorite(false);
 				}
-			});
-		}
-	}, [favorBooks, params, deleteFavorite, addFavorite]);
+			})}
+	}, [params, favorBooks, deleteFavorite, addFavorite]);
 
 	if (Object.keys(book).length) {
 		return (
 			<div className="wrapper">
-		
 				<div className="main">
 					<div className="desc-book">
 						<Load />
