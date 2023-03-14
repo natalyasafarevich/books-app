@@ -16,15 +16,22 @@ export const info = {
         name: "Home",
         classNameLink: "header__link header__link_active",
         classNameItem: "header__item"
-      }, {
-        url: "/collections",
-        name: "Collections",
+      },
+       {
+        url: "/genres",
+        name: "Genres",
         classNameLink: "header__link",
         classNameItem: "header__item"
       }, {
         url: "/articles",
         name: "Articles",
         classNameLink: "header__link",
+        classNameItem: "header__item"
+      },
+      {
+        url: "https://github.com/natalyasafarevich/bookstore",
+        name: "About project",
+        classNameLink: "header__link header__link_active",
         classNameItem: "header__item"
       },
     ]

@@ -15,10 +15,10 @@ const theme = createTheme({
 export function Preview() {
 	return (
 		<ThemeProvider theme={theme}>
-			<div className="preview">
+			<div className="preview ">
 				<div className="preview__container">
 					<div className="preview__text">
-						<p className="preview__title">
+						<p className="preview__title " >
 							Read <span>Books </span> Online
 						</p>
 						<p className="preview__desc">

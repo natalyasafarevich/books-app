@@ -2,7 +2,7 @@ import cloneDeep from "lodash.clonedeep";
 import {SEARCH_BOOKS, RESULT_SEARCH_BOOKS} from "./actions";
 
 const initialState = {
-  searchBook: {},
+  searchBook: [],
   count: 1,
 
 }
@@ -14,8 +14,10 @@ export const searchBookReduser = (state = initialState, action) => {
     case SEARCH_BOOKS:
       {
         const books = action.data.map(item => item);
+    
         const clone = cloneDeep(state);
         clone.searchBook = action.data;
+ 
         clone.count = action.count;
         
         

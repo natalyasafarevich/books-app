@@ -16,6 +16,7 @@ import {
 	addFavoriets,
 	removeFavoriets,
 } from "../../store/books/favorite/actions";
+import { ScrollToTop } from "../../helper/ScrollToTop";
 export function BookDescription() {
 	const [isFavorite, setIsFavorite] = useState();
 	const params = useParams();
@@ -24,29 +25,23 @@ export function BookDescription() {
 	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 	const book = useSelector((state) => state.current_book.currentBook);
 
-	const bodok = useSelector((state) => state);
-
 	const { title, bookshelves, authors, translators, languages, subjects } = book;
+
+	// useEffect
 	useEffect(() => {
+		ScrollToTop();
 		dispatch(setCurrentBook(params.isbn));
-		// {
-		// 	console.log(bodok);
-		// }
 	}, [params]);
+
 	const deleteFavorite = (e) => {
-		// console.log(",kk");
 		dispatch(removeFavoriets(book.id));
 		setIsFavorite(false);
 	};
 
 	const addFavorite = (e) => {
-		// console.log("add");
 		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 	};
-	useEffect(() => {
-		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
-	}, [favorBooks]);
 
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
@@ -57,8 +52,13 @@ export function BookDescription() {
 				} else {
 					setIsFavorite(false);
 				}
-			})}
+			});
+		}
 	}, [params, favorBooks, deleteFavorite, addFavorite]);
+
+	useEffect(() => {
+		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
+	}, [favorBooks]);
 
 	if (Object.keys(book).length) {
 		return (

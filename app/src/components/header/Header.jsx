@@ -15,17 +15,15 @@ export function Header() {
 	const [value, setValue] = useState("");
 
 	const results = useSelector((state) => state.search.searchBook);
+	const { links } = info.header;
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	const { links } = info.header;
 
 	const searchClick = (e) => {
 		e.preventDefault();
 		const list = document.querySelector(".header__list");
 		const form = document.querySelector(".header__form");
-
 		toggleClass(list, "hidden");
 		toggleClass(form, "hidden");
 	};
@@ -57,7 +55,7 @@ export function Header() {
 		<header className="header">
 			<div className="header__container">
 				<Link to="/" className="header__logo">
-					Bookshop
+					{/* Bookshop */}
 				</Link>
 				<div className="header__content">
 					<form className="header__form form hidden">
@@ -76,7 +74,8 @@ export function Header() {
 									<a
 										href={item.url}
 										className={item.classNameLink}
-										onClick={preventDefaultLink}>
+										// onClick={preventDefaultLink}
+										>
 										{item.name}
 									</a>
 								</li>

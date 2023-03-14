@@ -30,10 +30,11 @@ export default function Main() {
 			<div className="wrapper">
 				<div className="main">
 					<Preview />
-					{console.log(books)}
+				
 					<Books info={label_arrivals} books={books} />
 				</div>
 			</div>
+			{/* <>ggg</> */}
 			<Genres />
 			<div className="wrapper">
 				<div className="main">

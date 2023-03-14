@@ -11,7 +11,7 @@ export function setCurrentBook(id) {
       dispatch(loadingOn())
       const response = await getCurrentBook(id);
       const dataBook = await response.data;
-      // console.log(dataBook)
+      console.log(dataBook)
       dispatch({type: SET_CURRENT_BOOK, data: dataBook})
       dispatch(loadingOff())
       dispatch(errorOFF())

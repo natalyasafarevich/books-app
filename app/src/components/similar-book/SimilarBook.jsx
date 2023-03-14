@@ -12,18 +12,20 @@ export default function SimilarBook() {
 
 	const author = useSelector((state) => state.current_book.currentBook.authors[0]?.name);
 	const books = useSelector((state) => state.search?.searchBook);
+	const current_book = useSelector((state) => state.current_book.currentBook);
+
 	
 	useEffect(() => {
 		dispatch(setSearchBook(author));
-	}, [params]);
+	}, [params,current_book]);
 
 	return (
 		<div className="similar-book">
 			<div className="similar-book__container">
-				<p className="similar-book__title h2">Books by this author</p>
+				<p className="similar-book__title h2">Books by this author </p>
 				<div className="similar-book__row">
 					{books.length &&
-						makeRandomArr(books)
+					books
 							.slice(0, 4)
 							.map((book, index) => <BookCard book={book} key={index} />)}
 				</div>

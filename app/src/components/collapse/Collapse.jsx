@@ -30,6 +30,7 @@ export default function Collapse() {
 				</p>
 				<p className="collapse__title" data-name="details">
 					Book Details
+					
 				</p>
 			</div>
 			<div className="collapse__row ">

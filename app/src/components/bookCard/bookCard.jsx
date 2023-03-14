@@ -42,8 +42,8 @@ function BookCard({ book }) {
 		<div className={[`book-card`]}>
 			<div className="book-card__container">
 				<div className="book-card__box">
-					<img
-						src={book.formats["image/jpeg"]}
+					<div
+						style={{backgroundImage: `url(${book.formats["image/jpeg"]})`}}
 						className="book-card__img"
 						alt="img book"
 					/>
@@ -75,7 +75,7 @@ function BookCard({ book }) {
 				<div className="book-card__info">
 					<div className="book-card__subject">
 					</div>
-					<p className="book-card__name">{book.title}</p>
+					<Link to={`/book/${book.id}`}  className="book-card__name">{book.title}</Link>
 					<p className="book-card__author">
 						<span>by</span> {book.authors[0]?.name}
 					</p>
