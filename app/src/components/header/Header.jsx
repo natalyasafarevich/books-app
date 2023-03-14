@@ -83,6 +83,7 @@ export function Header() {
 						))}
 					</ul>
 				</div>
+		
 				<div className="header__box">
 					<Link to={"/favorite"} className="header__favorite">
 						<FavoriteBorderIcon className="fav" />

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import BookCard from "../bookCard/BookCard";
 import Error from "../error/Error";
 import Label from "../label/Label";
@@ -38,21 +40,19 @@ function Books({ books, info }) {
 						))}
 				</Swiper>
 
-				<div className="swiper-button">
-					<button
-						className="button button-left button-default"
-						onClick={() => {
-							swiper.slidePrev();
-						}}>
-						prev
-					</button>
-					<button
-						className="button button-right button-active"
+				<div className="swiper-container">
+						<ChevronLeftOutlinedIcon
+							className="swiper-button"
+							onClick={() => {
+								swiper.slidePrev();
+							}}
+						/>
+					<ChevronRightOutlinedIcon
+						className="swiper-button"
 						onClick={() => {
 							swiper.slideNext();
-						}}>
-						next
-					</button>
+						}}
+					/>
 				</div>
 			</div>
 		</div>

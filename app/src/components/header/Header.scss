@@ -3,12 +3,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 0px;
+        padding: 20px 0;
     }
 
     &__content {
-        max-width: 372px;
+        max-width: max-content;
         width: 100%;
+        min-width: 500px;
+      
     }
 
     &__icons {
@@ -42,17 +44,15 @@
     }
 
     &__list {
-
         display: flex;
         align-items: center;
-
-        width: 100%;
         margin: 0 -15px;
         justify-content: space-between;
     }
 
     &__item {
         margin: 0 15px;
+        white-space: nowrap;
     }
 
     &__link {
@@ -158,6 +158,7 @@
         background-color: transparent;
         color: #7d6a6a;
         border: none;
+       
         width: 100%;
     }
 
