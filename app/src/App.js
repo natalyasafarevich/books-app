@@ -11,14 +11,29 @@ import ResultsSearchPage from './pages/results-search/ResultsSearchPage';
 import {useEffect} from 'react';
 import {ScrollToTop} from './helper/ScrollToTop';
 import {useNavigate} from 'react-router-dom';
+import Notification from './components/notification/Notification';
+import {useSelector} from 'react-redux';
 
 function App() {
+  const theme = useSelector(state => state.theme.isLight)
+  useEffect(() => {
+    if (theme) {
+      document.querySelector('body').setAttribute('data-theme', 'dark');
+      return
+    } else {
+      document.querySelector('body').setAttribute('data-theme', 'light');
+      return
+
+    }
+
+  }, [theme])
   const navigate = useNavigate()
   useEffect(() => {
     ScrollToTop()
   }, [navigate])
   return (
     <>
+
       <div className="wrapper">
         <div className='main'>
           <Header/>

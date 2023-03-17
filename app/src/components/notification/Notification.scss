@@ -1,0 +1,43 @@
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+
+  &__container {
+    background: #E6FAF5;
+    border: 1px solid #00CC99;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px 10px 20px;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: inline-block;
+      background: #00CC99;
+
+    }
+  }
+
+
+  &__desc {
+    i {
+      text-decoration: underline;
+    }  font-size: 15px;
+
+    span {
+      font-weight: 600;
+      font-size: 15px;
+      text-align: right;
+      display: block;
+    }
+  }
+}

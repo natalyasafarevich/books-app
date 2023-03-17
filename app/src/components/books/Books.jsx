@@ -34,7 +34,7 @@ function Books({ books, info }) {
 					className="book-slider">
 					{books.length &&
 						books.map((book, index) => (
-							<SwiperSlide>
+							<SwiperSlide  key={index}>
 								<BookCard key={index} book={book} />
 							</SwiperSlide>
 						))}

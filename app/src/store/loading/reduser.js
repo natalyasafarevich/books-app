@@ -5,7 +5,7 @@ const defaultState = {
 }
 
 
-export const loadingReduser = (state = defaultState, action) => { // console.log(action)
+export const loadingReduser = (state = defaultState, action) => {
 
   switch (action.type) {
     case LOADING_ON:

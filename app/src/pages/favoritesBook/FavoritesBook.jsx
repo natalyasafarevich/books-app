@@ -3,17 +3,21 @@ import BookCard from "../../components/bookCard/BookCard";
 import "./FavoritesBook.scss";
 
 export default function FavoritesBook() {
-	const favoriteBooks = useSelector((state) => state.favorite_books.favoriteBooks);
+	const favoriteBooks = useSelector(
+		(state) => state.favorite_books.favoriteBooks
+	);
 
 	// console.log(favoriteBooks);
 	return (
-		<div className="favorite-books">
-			<p className="favorite-books__title title"> favorite books</p>
-			
-			<div className="favorite-books__container category">
-				{favoriteBooks.map((book, index) => (
-					<BookCard book={book}  key={index}/>
-				))}
+		<div className="wrapper">
+			<div className="favorite-books">
+				<p className="favorite-books__title title"> your favorite books</p>
+
+				<div className="favorite-books__container category">
+					{favoriteBooks.map((book, index) => (
+						<BookCard book={book} key={index} />
+					))}
+				</div>
 			</div>
 		</div>
 	);

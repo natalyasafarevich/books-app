@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTopic } from "../../store/topic/actions";
 import { errorOn } from "../../store/error/actions";
 import { setSearchBook } from "../../store/books/search/actions";
+import Theme from "../theme/Theme";
 
 export function Header() {
 	const [value, setValue] = useState("");
@@ -83,8 +84,11 @@ export function Header() {
 						))}
 					</ul>
 				</div>
-		
+				<div className="header__theme"><Theme/> </div>
+				{/* <div className="header__login">Hi, 	Natallia</div> */}
 				<div className="header__box">
+					{/* <div className="header__name">Hi, 	Natallia</div> */}
+				
 					<Link to={"/favorite"} className="header__favorite">
 						<FavoriteBorderIcon className="fav" />
 					</Link>

@@ -32,7 +32,6 @@ export default function ResultsSearchPage() {
 
 	useEffect(() => {
 		dispatch(setTopic(paginations, params.name));
-		console.log(sss.loading)
 	}, [paginations]);
 
 	useEffect(() => {
