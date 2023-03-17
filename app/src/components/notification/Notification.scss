@@ -1,5 +1,5 @@
 .notification {
-  opacity: 0;
+  // opacity: 0;
 
   &.animation-open {
     animation: fade 0.5s ease forwards;
@@ -17,39 +17,40 @@
 
   &__container {
     background: #E6FAF5;
-    border: 1px solid #00CC99;
+    background: #20315C;
     border-radius: 10px;
-    display: flex;
     align-items: center;
-    padding: 10px 15px 10px 20px;
+    padding: 15px 30px;
     overflow: hidden;
     position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 5px;
-      height: 100%;
-      left: 0;
-      top: 0;
-      display: inline-block;
-      background: #00CC99;
-
-    }
+    color: var(--main-bg);
+    max-width: 567px;
+    width: auto;
+    display: flex;
+    align-items: baseline;
   }
 
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    min-width: 20px;
+    background: center/contain no-repeat url(../../img/success-icon.svg);
+    margin-right: 18px;
+  }
 
   &__desc {
-    i {
-      text-decoration: underline;
-    }
 
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
 
     span {
-      font-weight: 600;
-      font-size: 15px;
-      text-align: right;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      margin-top: 7px;
+      color: #9FAED7;
       display: block;
     }
   }
@@ -58,23 +59,19 @@
 @keyframes fade {
   from {
     opacity: 0;
-    // visibility: visible;
   }
 
   to {
     opacity: 1;
-    // visibility: hidden;
   }
 }
 
 @keyframes hidden {
   from {
     opacity: 1;
-    // visibility: visible;
   }
 
   to {
     opacity: 0;
-    // visibility: hidden;
   }
 }
