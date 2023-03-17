@@ -1,9 +1,11 @@
 export const NOTIFICATION_ADD = 'notification/NOTIFICATION_ADD';
-export const NOTIFICATION_HIDDEN = 'notification/NOTIFICATION_HIDDEN';
+export const NOTIFICATION_REMOVE = 'notification/NOTIFICATION_REMOVE';
 
-export function setNotification(text) {
+
+export function setNotificationAdd(text) {
   return {type: NOTIFICATION_ADD, data: text}
 }
-export function setNotificationHidden() {
-  return {type: NOTIFICATION_HIDDEN}
-}
+
+export function setNotificationRemove(text) {
+    return {type: NOTIFICATION_REMOVE, data: text}
+  }

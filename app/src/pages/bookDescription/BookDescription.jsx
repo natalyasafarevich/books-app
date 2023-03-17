@@ -17,7 +17,7 @@ import {
 	removeFavoriets,
 } from "../../store/books/favorite/actions";
 import { ScrollToTop } from "../../helper/ScrollToTop";
-import { setNotification } from "../../store/notification/actions";
+import { setNotificationAdd } from "../../store/notification/actions";
 export function BookDescription() {
 	const [isFavorite, setIsFavorite] = useState();
 	const params = useParams();
@@ -40,7 +40,7 @@ export function BookDescription() {
 	};
 
 	const addFavorite = (e) => {
-		dispatch(setNotification(book.title));
+		dispatch(setNotificationAdd(book.title));
 		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 	};

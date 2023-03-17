@@ -1,9 +1,10 @@
 import cloneDeep from "lodash.clonedeep";
-import {NOTIFICATION_ADD, NOTIFICATION_HIDDEN} from "./actions";
+import {NOTIFICATION_ADD, NOTIFICATION_REMOVE} from "./actions";
 
 const defaultState = {
   text: '',
-  hidden: true
+  hidden: true,
+  remove: false
 }
 
 
@@ -15,12 +16,15 @@ export const notificationReduser = (state = defaultState, action) => {
         const clone = cloneDeep(state);
         clone.text = action.data;
         clone.hidden = false;
+        clone.remove = true;
         return clone
       }
-    case NOTIFICATION_HIDDEN:
+    case NOTIFICATION_REMOVE:
       {
         const clone = cloneDeep(state);
+        clone.text = action.data;
         clone.hidden = true;
+        clone.remove = true;
         return clone
       }
 

@@ -11,8 +11,9 @@ import {
 } from "../../store/books/favorite/actions";
 import Notification from "../notification/Notification";
 import {
-	setNotification,
+	setNotificationAdd,
 	setNotificationHidden,
+	setNotificationRemove,
 } from "../../store/notification/actions";
 
 function BookCard({ book }) {
@@ -39,12 +40,13 @@ function BookCard({ book }) {
 	
 	const deleteFavorite = (e) => {
 		dispatch(removeFavoriets(book.id));
+		dispatch(setNotificationRemove(book.title))
 		setIsFavorite(false);
 		
 		e.preventDefault();
 	};
 	const addFavorite = (e) => {
-		dispatch(setNotification(book.title));
+		dispatch(setNotificationAdd(book.title));
 
 
 		dispatch(addFavoriets(book));
