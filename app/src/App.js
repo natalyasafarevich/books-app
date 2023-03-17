@@ -33,7 +33,7 @@ function App() {
   }, [navigate])
   return (
     <>
-
+<Notification/>
       <div className="wrapper">
         <div className='main'>
           <Header/>

@@ -6,8 +6,9 @@ import {languageBookReduser} from "./books/language/reduser";
 import {searchBookReduser} from "./books/search/reduser";
 import {errorReduser} from "./error/reduser";
 import {loadingReduser} from "./loading/reduser";
+import {notificationReduser} from "./notification/reduser";
 import {paginationReduser} from "./pagination/reduser";
-import { ThemeReduser } from "./theme/reduser";
+import {ThemeReduser} from "./theme/reduser";
 import {TopicReduser} from "./topic/reduser";
 
 export default combineReducers({
@@ -21,5 +22,6 @@ export default combineReducers({
   error: errorReduser,
   topic: TopicReduser,
   pagination: paginationReduser,
-  theme: ThemeReduser
+  theme: ThemeReduser,
+  note: notificationReduser
 });
