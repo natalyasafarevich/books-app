@@ -1,6 +1,7 @@
 .label {
     width: max-content;
     margin: 0 auto;
+    // position: relative;
 
     &__info {
         padding: 6px 19px;
@@ -29,7 +30,41 @@
         line-height: 27px;
         width: 80%;
         color: var(--grey-color);
+        margin: 0px auto 40px;
 
-        margin: 0 auto 40px;
+
+    }
+
+    &__link {
+        cursor: pointer;
+        z-index: 99;
+        position: absolute;
+        right: 0;
+        bottom: 70%;
+        text-transform: uppercase;
+        color: var(--grey-color);
+        font-size: 15px;
+        text-align: center;
+        margin: 0px auto 0;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 0.5px;
+            position: absolute;
+            background: var(--dark-color);
+            bottom: -2px;
+        }
+
+        &:hover {
+          
+
+            transform: scale(1.1);
+            color: var(--dark-color)
+        }
     }
 }

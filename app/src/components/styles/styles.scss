@@ -3,6 +3,7 @@
     --white-color: rgb(255, 255, 255);
     --dark-color: #121823;
     --orange-color: #f18e7d;
+    --main-bg: #fefefe;
 }
 
 [data-theme="dark"] {
@@ -10,4 +11,5 @@
     --white-color: #121823;
     --dark-color: rgb(255, 255, 255);
     --orange-color: #db2100;
+    --main-bg: #000000;
 }

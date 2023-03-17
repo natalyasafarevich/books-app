@@ -9,11 +9,7 @@ import { setBookLanguage } from "../../store/books/language/actions";
 import { useState } from "react";
 
 export default function Main() {
-
-
-
-	const booksdd = useSelector((state) => state.all_books)
-
+	const booksdd = useSelector((state) => state.all_books);
 
 	const books = useSelector((state) => state.all_books.books);
 	const books_ru = useSelector((state) => state.language_books.languageBooks);
@@ -21,24 +17,22 @@ export default function Main() {
 	const { label_arrivals, label_language } = info.main_page;
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(setBooks('1'));
+		dispatch(setBooks("1"));
 		dispatch(setBookLanguage("fr"));
-		
 	}, []);
 	return (
 		<>
 			<div className="wrapper">
 				<div className="main">
 					<Preview />
-				
-					<Books info={label_arrivals} books={books} />
+
+					<Books info={label_arrivals} books={books} link="books" />
 				</div>
 			</div>
-			{/* <>ggg</> */}
 			<Genres />
 			<div className="wrapper">
 				<div className="main">
-					<Books info={label_language} books={books_ru} />
+					<Books info={label_language} books={books_ru} link='fr' />
 				</div>
 			</div>
 		</>

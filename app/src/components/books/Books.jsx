@@ -15,12 +15,12 @@ import "./Books.scss";
 
 SwiperCore.use([Pagination]);
 
-function Books({ books, info }) {
+function Books({ books, info ,link}) {
 	const [swiper, setSwiper] = useState(null);
 	return (
 		<div className="books-container">
 			<div className="books-container__box">
-				<Label info={info} />
+				<Label info={info} link={link} />
 			</div>
 			<Error />
 			<Load />

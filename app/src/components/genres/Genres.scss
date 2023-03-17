@@ -2,6 +2,11 @@
 
   &__container {
     padding: 50px 0 0;
+    position: relative;
+  }
+
+  .label__link {
+    display: none;
   }
 
   &__row {
