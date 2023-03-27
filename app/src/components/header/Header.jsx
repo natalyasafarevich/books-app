@@ -57,7 +57,6 @@ export function Header() {
 			}
 		}
 	};
-	
 	const advancedSearch = (e) => {
 		e.preventDefault();
 		document.querySelector(".advanced-search").classList.remove("hidden");
