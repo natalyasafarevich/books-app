@@ -5,21 +5,29 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import { info } from "../../helper/defaultInfo";
-import { toggleClass } from "../../helper/events";
+import {
+	bookParams,
+	idParams,
+	toggleClass,
+	topicParams,
+} from "../../helper/events";
 import { useDispatch, useSelector } from "react-redux";
 import { setTopic } from "../../store/topic/actions";
 import { errorOn } from "../../store/error/actions";
 import { setSearchBook } from "../../store/books/search/actions";
 import Theme from "../theme/Theme";
+import AdvancedSearch from "../advanced-search/AdvancedSearch";
+import { getSearchBooks } from "../../store/paramsSearch/actions";
+import { setCurrentBook } from "../../store/books/current/actions";
 
 export function Header() {
-	const [value, setValue] = useState("");
-
-	const results = useSelector((state) => state.search.searchBook);
-	const { links } = info.header;
-
+	
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+
+	const params_search = useSelector((state) => state.search_params);
+	const paginations = useSelector((state) => state.pagination.page);
+	const { links } = info.header;
 
 	const searchClick = (e) => {
 		e.preventDefault();
@@ -29,44 +37,59 @@ export function Header() {
 		toggleClass(form, "hidden");
 	};
 
-	const preventDefaultLink = (e) => {
-		e.preventDefault();
-	};
-
+	// submit form
 	const formSubmin = (e) => {
 		const value = e.target.value;
-		setValue(value);
 		if (e.keyCode === 13) {
-			dispatch(setSearchBook(value));
-			if (results.length !== 0) {
-				navigate(`/search/${value}`);
-				return;
-			} else {
-				dispatch(setTopic(1,value));
+			if (params_search.search_by === "book") {
+				const params = bookParams(paginations, value, params_search);
+				dispatch(getSearchBooks(params));
 				navigate(`/search/${value}`);
 			}
-			// if (results.length === 0) {
-			// 	dispatch(errorOn());
-			// 	e.preventDefault();
-			// }
+			if (params_search.search_by === "topic") {
+				const params = topicParams(paginations, value, params_search);
+				dispatch(getSearchBooks(params));
+				navigate(`/search/${value}`);
+			}
+			if (params_search.search_by === "id") {
+				dispatch(setCurrentBook(value));
+				navigate(`/book/${value}`);
+			}
 		}
 	};
+	
+	const advancedSearch = (e) => {
+		e.preventDefault();
+		document.querySelector(".advanced-search").classList.remove("hidden");
+	};
 
+	const keyUp = (e) => {
+		if (params_search.search_by === "id") {
+			e.target.value = e.target.value.replace(/[^\d]/g, "");
+		}
+	};
 	return (
 		<header className="header">
 			<div className="header__container">
 				<Link to="/" className="header__logo">
-					{/* Bookshop */}
+			
 				</Link>
 				<div className="header__content">
 					<form className="header__form form hidden">
 						<input
 							onKeyDown={(e) => formSubmin(e)}
+							// onChange={(e) => handleChange(e)}
 							className="header__input"
 							type="text"
-							placeholder="Search by Title, Autor or Topic"
+							placeholder="Search by Title or Autor "
+							onKeyUp={keyUp}
+							// value={'topik'}
 						/>
 						<CloseIcon className="header__close" onClick={searchClick} />
+						<button className="header__serch-link" onClick={advancedSearch}>
+							рассширенный поиск
+						</button>
+						<AdvancedSearch />
 					</form>
 					<ul className="header__list">
 						{links.map((item, index) => (
@@ -76,7 +99,7 @@ export function Header() {
 										href={item.url}
 										className={item.classNameLink}
 										// onClick={preventDefaultLink}
-										>
+									>
 										{item.name}
 									</a>
 								</li>
@@ -84,11 +107,13 @@ export function Header() {
 						))}
 					</ul>
 				</div>
-				<div className="header__theme"><Theme/> </div>
+				<div className="header__theme">
+					<Theme />{" "}
+				</div>
 				{/* <div className="header__login">Hi, 	Natallia</div> */}
 				<div className="header__box">
 					{/* <div className="header__name">Hi, 	Natallia</div> */}
-				
+
 					<Link to={"/favorite"} className="header__favorite">
 						<FavoriteBorderIcon className="fav" />
 					</Link>

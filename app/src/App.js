@@ -13,6 +13,7 @@ import {ScrollToTop} from './helper/ScrollToTop';
 import {useNavigate} from 'react-router-dom';
 import Notification from './components/notification/Notification';
 import {useSelector} from 'react-redux';
+import SearchPage from './pages/search/SearchPage';
 
 function App() {
   const theme = useSelector(state => state.theme.isLight)
@@ -50,6 +51,8 @@ function App() {
           element={<FavoritesBook/>}/>
         <Route path={"/search/books-languages/:lang"}
           element={<ResultsSearchPage/>}/>
+           <Route path={"/search"}
+          element={<SearchPage/>}/>
         <Route path={"/search/author/:author_name"}
           element={<ResultsSearchPage/>}/>
         <Route path={"/search/:name"}

@@ -10,9 +10,10 @@ import Load from "../../components/load/Load";
 import Selection from "../../components/selection/Selection";
 
 import "./ResultsSearchPage.scss";
-import Pagination from "../../components/pagination/Pagination";
+import Paginations from "../../components/pagination/Pagination";
 import { useState } from "react";
 import { setResetPage } from "../../store/pagination/actions";
+import { getSearchBooks } from "../../store/paramsSearch/actions";
 
 export default function ResultsSearchPage() {
 	const params = useParams();
@@ -20,24 +21,22 @@ export default function ResultsSearchPage() {
 
 	const results = useSelector((state) => state.topic);
 	const paginations = useSelector((state) => state.pagination.page);
-	const sss = useSelector((state) => state)
-	const searchBook = useSelector((state) => state.search.searchBook);
-	const books_language = useSelector(
-		(state) => state.language_books.languageBooks
-	);
-
-	useEffect(() => {
+	const search_params = useSelector((state) => state.search_params);
 	
-	}, []);
+	// const searchBook = useSelector((state) => state.search.searchBook);
+	// const books_language = useSelector(
+		// (state) => state.language_books.languageBooks
+	// );
 
 	useEffect(() => {
-		dispatch(setTopic(paginations, params.name));
+		console.log(paginations)
+		dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
 	}, [paginations]);
 
 	useEffect(() => {
 		dispatch(setResetPage());
-		dispatch(setSearchBook(params.author_name));
-		dispatch(setBookLanguage(params.lang));
+		
+		dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
 	}, []);
 
 	return (
@@ -45,7 +44,7 @@ export default function ResultsSearchPage() {
 			<div className="results-search__title">
 				<div className="main">{params.name || params.author_name}</div>
 			</div>
-
+			<Paginations state={search_params?.books} />
 			<div className="wrapper">
 				<div className="main">
 					<Selection books={results.topic} />
@@ -53,16 +52,10 @@ export default function ResultsSearchPage() {
 						<div className="results-search__row">
 							<Load />
 							<Error />
-							{params.lang &&
-								books_language.length &&
-								books_language.map((item, i) => <BookCard book={item} key={i} />)}
-							{params.author_name &&
-								searchBook.length &&
-								searchBook.map((item, i) => <BookCard book={item} key={i} />)}
-							<Pagination state={results} />
-							{params.name &&
-								results.topic.length &&
-								results.topic.map((item, i) => <BookCard book={item} key={i} />)}
+							{search_params?.books?.results?.map((item, i) => (
+								<BookCard book={item} key={i} />
+							))}
+							
 						</div>
 					</div>
 				</div>

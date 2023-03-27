@@ -17,3 +17,26 @@ export function notificationEvent() {
   }, 2000);
   return() => clearTimeout(timer);
 }
+
+
+export function bookParams(page, value, language) {
+  return `page=${page}&search=${value}&languages=${
+    language.language.join(",")
+  }`;
+}
+
+export function topicParams(page, value, language) {
+  return `page=${page}&topic=${value}&languages=${
+    language.language.join(",")
+  }`;
+}
+export function idParams(page, value, language) {
+  return `page=${page}&ids=${value}&languages=${
+    language.language.join(",")
+  }`;
+}
+
+
+export function validation(){
+  
+}

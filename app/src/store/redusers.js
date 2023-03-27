@@ -8,6 +8,7 @@ import {errorReduser} from "./error/reduser";
 import {loadingReduser} from "./loading/reduser";
 import {notificationReduser} from "./notification/reduser";
 import {paginationReduser} from "./pagination/reduser";
+import { ParamsReduser } from "./paramsSearch/reduser";
 import {ThemeReduser} from "./theme/reduser";
 import {TopicReduser} from "./topic/reduser";
 
@@ -23,5 +24,6 @@ export default combineReducers({
   topic: TopicReduser,
   pagination: paginationReduser,
   theme: ThemeReduser,
-  note: notificationReduser
+  note: notificationReduser,
+  search_params: ParamsReduser
 });

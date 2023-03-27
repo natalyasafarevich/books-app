@@ -33,7 +33,7 @@ export default function Notification() {
 					<div className="notification__icon notification__icon_warning"> </div>
 					<p className="notification__desc">
 						Book: <i>"{text.text}"</i>
-						<span> is delete in favorite</span>
+						<span> is removed in favorite</span>
 					</p>
 				</div>
 			</div>

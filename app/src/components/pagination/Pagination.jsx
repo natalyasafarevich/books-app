@@ -11,7 +11,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useEffect } from "react";
 
-export default function Paginationss({ state }) {
+export default function Paginations({ state }) {
 	const dispatch = useDispatch();
 
 	const result = useSelector((state) => state.pagination);

@@ -144,6 +144,7 @@
     }
 
     &__form {
+        position: relative; 
         width: 100%;
         position: relative;
         border-bottom: 1px solid #cedce2;
@@ -172,6 +173,13 @@
             cursor: pointer;
 
         }
+    }
+
+    &__serch-link {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        bottom: -35px;
     }
 }
 

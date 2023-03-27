@@ -22,3 +22,8 @@ export function searchTopic(page,topic) {
 export function getBooksLanguage(language) {
   return axios.get(`http://gutendex.com/books/?languages=${language}`, method_get)
 }
+
+export function searchByParameters(params) {
+  return axios.get(`http://gutendex.com/books/?${params}`, method_get)
+}
+
