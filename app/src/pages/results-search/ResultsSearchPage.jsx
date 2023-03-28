@@ -19,22 +19,12 @@ export default function ResultsSearchPage() {
 	const params = useParams();
 	const dispatch = useDispatch();
 
-	const book = useSelector((state) => state.all_books);
-
 	const results = useSelector((state) => state.topic);
 	const paginations = useSelector((state) => state.pagination.page);
 	const search_params = useSelector((state) => state.search_params);
-	const d = useSelector((state) => state.pagination);
-
-	// const searchBook = useSelector((state) => state.search.searchBook);
-	// const books_language = useSelector(
-	// (state) => state.language_books.languageBooks
-	// );
 
 	useEffect(() => {
 		dispatch(setResetPage());
-
-
 	}, []);
 
 	useEffect(() => {
@@ -49,20 +39,41 @@ export default function ResultsSearchPage() {
 		if (params.topic) {
 			dispatch(getSearchBooks(`page=${paginations}&topic=${params.topic}`));
 			return;
-		} 
-			dispatch(getSearchBooks(`page=${paginations}&search=${params.name || params.author_name}`));
-		
-	}, [paginations ]);
+		}
+		dispatch(
+			getSearchBooks(
+				`page=${paginations}&search=${params.name || params.author_name}`
+			)
+		);
+	}, [paginations]);
 
 	return (
 		<div className="results-search">
 			<div className="results-search__title">
-				<div className="main">{params.name || params.author_name}</div>
+				<div className="result-title main">
+					search by request:&nbsp;
+					{(search_params?.books?.results?.length === 0 && (
+						<span>
+							{params.name || params.author_name || params.topic || params.lang}{" "}
+							nothing is found
+						</span>
+					)) || (
+						<span>
+							{params.name || params.author_name || params.topic || params.lang}
+							
+							(sorted by popularity)
+						</span>
+					)}
+				</div>
 			</div>
-			<Paginations state={search_params?.books} />
+
 			<div className="wrapper">
 				<div className="main">
-					<Selection books={results.topic} />
+					<div className="results-search__flex">
+						<Selection books={results.topic} />
+						<Paginations state={search_params?.books} />
+					</div>
+
 					<div className="results-search__container">
 						<div className="results-search__row">
 							<Load />

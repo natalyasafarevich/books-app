@@ -30,14 +30,22 @@
       }
     }
   }
-
+&__flex{
+  display: flex;justify-content: space-between;
+  padding: 50px 0 25px;
+}
   &__title {
     padding: 15px;
     font-size: 20px;
     color: var(--dark-color);
-    text-transform: uppercase;
-    font-weight: 700;
+    text-transform: capitalize;
+    font-weight: 500;
     background-color: #f0fbf7;
+    span{
+      font-weight: 600;
+      text-transform:initial;
+      // text-decoration: underline;
+    }
   }
 
 }
