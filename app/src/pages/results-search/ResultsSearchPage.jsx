@@ -38,32 +38,19 @@ export default function ResultsSearchPage() {
 	}, []);
 
 	useEffect(() => {
-
 		if (params.name === "books") {
-			// console.log(1)
 			dispatch(getSearchBooks(`page=${paginations}`));
 			return;
 		}
 		if (params.lang) {
-			console.log(2)
-
 			dispatch(getSearchBooks(`languages=${params.lang}`));
-			console.log(params);
 			return;
 		}
 		if (params.topic) {
-			console.log(3)
-
 			dispatch(getSearchBooks(`page=${paginations}&topic=${params.topic}`));
-			console.log(params);
 			return;
 		} 
-
-
-			dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
-	
-		console.log(paginations, 'a')
-
+			dispatch(getSearchBooks(`page=${paginations}&search=${params.name || params.author_name}`));
 		
 	}, [paginations ]);
 
