@@ -29,6 +29,7 @@ export default function Paginations({ state }) {
 			return;
 		}
 		dispatch(setPaginationNumber(e.target.textContent));
+		console.log('ll')
 	};
 
 	return (

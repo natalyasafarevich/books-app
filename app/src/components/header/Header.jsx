@@ -40,7 +40,6 @@ export function Header() {
 			return;
 		}
 		main_input.maxLength = 9999999;
-		console.log(main_input);
 		main_input.removeAttribute("max-length");
 	}, [params_search]);
 

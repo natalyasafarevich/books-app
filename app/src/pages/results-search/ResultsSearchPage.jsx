@@ -19,26 +19,53 @@ export default function ResultsSearchPage() {
 	const params = useParams();
 	const dispatch = useDispatch();
 
+	const book = useSelector((state) => state.all_books);
+
 	const results = useSelector((state) => state.topic);
 	const paginations = useSelector((state) => state.pagination.page);
 	const search_params = useSelector((state) => state.search_params);
-	
+	const d = useSelector((state) => state.pagination);
+
 	// const searchBook = useSelector((state) => state.search.searchBook);
 	// const books_language = useSelector(
-		// (state) => state.language_books.languageBooks
+	// (state) => state.language_books.languageBooks
 	// );
 
 	useEffect(() => {
-		console.log(paginations)
-		// document.querySelector('.advanced-search').classList.add('hidden')
-		dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
-	}, [paginations]);
+		dispatch(setResetPage());
+
+
+	}, []);
 
 	useEffect(() => {
-		dispatch(setResetPage());
+
+		if (params.name === "books") {
+			// console.log(1)
+			dispatch(getSearchBooks(`page=${paginations}`));
+			return;
+		}
+		if (params.lang) {
+			console.log(2)
+
+			dispatch(getSearchBooks(`languages=${params.lang}`));
+			console.log(params);
+			return;
+		}
+		if (params.topic) {
+			console.log(3)
+
+			dispatch(getSearchBooks(`page=${paginations}&topic=${params.topic}`));
+			console.log(params);
+			return;
+		} 
+
+
+			dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
+	
+		console.log(paginations, 'a')
+
 		
-		dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
-	}, []);
+	}, [paginations ]);
 
 	return (
 		<div className="results-search">
@@ -56,7 +83,6 @@ export default function ResultsSearchPage() {
 							{search_params?.books?.results?.map((item, i) => (
 								<BookCard book={item} key={i} />
 							))}
-							
 						</div>
 					</div>
 				</div>

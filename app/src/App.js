@@ -53,9 +53,12 @@ function App() {
           element={<ResultsSearchPage/>}/>
            <Route path={"/search"}
           element={<SearchPage/>}/>
+          
         <Route path={"/search/author/:author_name"}
           element={<ResultsSearchPage/>}/>
         <Route path={"/search/:name"}
+          element={<ResultsSearchPage/>}/>
+          <Route path={"/search/topic/:topic"}
           element={<ResultsSearchPage/>}/>
         <Route path='*'
           element={<NotFound/>}/>

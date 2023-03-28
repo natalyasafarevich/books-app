@@ -9,8 +9,6 @@ export function setResetPage() {
   return {type: RESET_PAGE, }
 }
 
-
-
 export function setPaginationCount(count) {
   return {type: GET_PAGINATION_COUNT, count}
 }

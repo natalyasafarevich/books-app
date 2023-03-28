@@ -15,7 +15,7 @@ export default function Genres() {
 						<div className="genres__row">
 							{items.map((genres, index) => (
 								<Link
-									to={`search/${genres.title.toLowerCase()}`}
+									to={`search/topic/${genres.title.toLowerCase()}`}
 									className="genres__item"
 									key={index}
 									style={{

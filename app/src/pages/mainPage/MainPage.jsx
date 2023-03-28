@@ -18,6 +18,7 @@ export default function Main() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(setBooks("1"));
+		console.log(books)
 		dispatch(setBookLanguage("fr"));
 	}, []);
 	return (
@@ -26,7 +27,7 @@ export default function Main() {
 				<div className="main">
 					<Preview />
 
-					<Books info={label_arrivals} books={books} link="all-books" />
+					<Books info={label_arrivals} books={books} link="books" />
 				</div>
 			</div>
 			<Genres />

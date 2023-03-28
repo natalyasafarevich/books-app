@@ -7,7 +7,6 @@ export default function FavoritesBook() {
 		(state) => state.favorite_books.favoriteBooks
 	);
 
-	// console.log(favoriteBooks);
 	return (
 		<div className="wrapper">
 			<div className="favorite-books">
