@@ -29,10 +29,11 @@ export function BookDescription() {
 	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 	const book = useSelector((state) => state.current_book.currentBook);
 
-	const { title, bookshelves, authors, translators, languages, subjects } = book;
+	// const { title, bookshelves, authors, translators, languages, subjects } = book;
 
 	// useEffect
 	useEffect(() => {
+		console.log(params);
 		ScrollToTop();
 		dispatch(setCurrentBook(params.isbn));
 	}, [params]);
@@ -77,19 +78,21 @@ export function BookDescription() {
 						<div className="desc-book__container">
 							<div
 								className="desc-book__img"
-								style={{ backgroundImage: `url(${book.formats["image/jpeg"]})` }}></div>
+								style={{
+									backgroundImage: `url(${book?.formats["image/jpeg"]})`,
+								}}></div>
 							<div className="desc-book__info">
-								<p className="desc-book__title">{title}</p>
+								<p className="desc-book__title">{book.title}</p>
 								<div className="desc-book__autors">
 									<span className="desc-book__span">By</span>
-									{authors.map((item, index) => (
+									{book.authors?.map((item, index) => (
 										<Link
 											to={`/search/author/${item.name}`}
 											key={index}
 											className="desc-book__name">
 											{item.name}
 											<span className="desc-book__years">
-												({item.birth_year} - {item.death_year})
+												({item?.birth_year} - {item.death_year})
 											</span>
 										</Link>
 									))}
@@ -97,7 +100,7 @@ export function BookDescription() {
 								<div className="desc-book__bookshelves">
 									Bookshelves:
 									<div className="desc-book__box">
-										{bookshelves.map((item, i) => (
+										{book?.bookshelves?.map((item, i) => (
 											<p key={i} className="desc-book__desc">
 												{item}
 											</p>
@@ -106,17 +109,18 @@ export function BookDescription() {
 								</div>
 								<div className="desc-book__translators">
 									translators:
-									{(translators.length &&
-										translators.map((item, i) => <p key={i}>{item}</p>)) || (
+									{(book?.translators?.length &&
+										book?.translators?.map((item, i) => <p key={i}>{item.name}</p>)) || (
 										<span>absent</span>
 									)}
 								</div>
+
 								<div className="desc-book__languages">
 									<span>
 										<LanguageIcon />
 										languages:
 									</span>
-									{languages.map((item, i) => (
+									{book.languages?.map((item, i) => (
 										<Link key={i} to={`/search/books-languages/${item}`}>
 											{item}
 										</Link>
@@ -128,7 +132,7 @@ export function BookDescription() {
 										Subjects:
 									</span>
 									<div className="desc-book__subjects-info">
-										{subjects.map((item, i) => (
+										{book.subjects?.map((item, i) => (
 											<p key={i} to={`search/${book.id}`}>
 												{item}
 											</p>
@@ -142,9 +146,10 @@ export function BookDescription() {
 								/>
 							</div>
 						</div>
+						{console.log(book?.formats["image/jpeg"])}
 						<Collapse />
+						<SimilarBook />
 					</div>
-					<SimilarBook />
 				</div>
 			</div>
 		);

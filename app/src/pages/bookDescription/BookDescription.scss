@@ -46,7 +46,9 @@
         letter-spacing: 1.16px;
         color: #121823;
     }
-
+&__translators{
+    display: flex;
+}
     &__autors {
         margin-top: 5px;
         display: flex;
