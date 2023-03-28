@@ -48,13 +48,12 @@ export function Header() {
 		e.preventDefault();
 		const list = document.querySelector(".header__list");
 		const form = document.querySelector(".header__form");
-		// const search = document.querySelector(".advanced-search");
+		const search = document.querySelector(".advanced-search");
 
 		toggleClass(list, "hidden");
 		toggleClass(form, "hidden");
-		// addClass(search, "hidden");
+		addClass(search, "hidden");
 	};
-
 
 	const advancedSearch = (e) => {
 		e.preventDefault();
@@ -63,10 +62,19 @@ export function Header() {
 
 	// submit form
 	const formSubmin = (e) => {
+	
 		const value = e.target.value;
 		if (e.keyCode === 13) {
 			e.preventDefault();
-			document.querySelector(".advanced-search").classList.add("hidden");
+		
+			e.target.value = "";
+			const list = document.querySelector(".header__list");
+			const form = document.querySelector(".header__form");
+			const search = document.querySelector(".advanced-search");
+
+			toggleClass(list, "hidden");
+			toggleClass(form, "hidden");
+			addClass(search, "hidden");
 
 			if (params_search.search_by === "book") {
 				const params = bookParams(paginations, value, params_search);
@@ -86,18 +94,14 @@ export function Header() {
 	};
 
 	const keyUp = (e) => {
-		console.log(typeof e.target.value);
-
 		if (params_search.search_by === "id") {
 			e.target.value = e.target.value.replace(/[^\d]/g, "");
 
-			if (typeof e.target.value === "string") {
-				document.querySelector(".header__form").classList.add("_error");
+			if (e.target.value.length >= 1) {
+				document.querySelector(".header__form").classList.remove("_error");
 				return;
 			}
-			// if (typeof  e.target. === "number"){
-			document.querySelector(".header__form").classList.remove("_error");
-			// }
+			document.querySelector(".header__form").classList.add("_error");
 		}
 	};
 	return (
@@ -105,31 +109,29 @@ export function Header() {
 			<div className="header__container">
 				<Link to="/" className="header__logo"></Link>
 				<div className="header__content">
-					<form className="header__form form hidden">
+					<div className="header__form hidden">
+					
+					<form className="form ">
 						<input
 							onKeyDown={(e) => formSubmin(e)}
-							// onChange={(e) => handleChange(e)}
 							className="header__input"
 							type="text"
 							placeholder="Search by Title or Autor "
 							onKeyUp={keyUp}
-							// value={'topik'}
 						/>
+						<p className="text-error">enter the number</p>
 						<CloseIcon className="header__close" onClick={searchClick} />
 					</form>
 					<button className="header__search-link" onClick={advancedSearch}>
 						Advanced Search
 					</button>
 					<AdvancedSearch />
+					</div>
 					<ul className="header__list">
 						{links.map((item, index) => (
 							<React.Fragment key={index}>
 								<li className={item.classNameItem}>
-									<a
-										href={item.url}
-										className={item.classNameLink}
-										// onClick={preventDefaultLink}
-									>
+									<a href={item.url} className={item.classNameLink}>
 										{item.name}
 									</a>
 								</li>
@@ -138,12 +140,9 @@ export function Header() {
 					</ul>
 				</div>
 				<div className="header__theme">
-					<Theme />{" "}
+					<Theme />
 				</div>
-				{/* <div className="header__login">Hi, 	Natallia</div> */}
 				<div className="header__box">
-					{/* <div className="header__name">Hi, 	Natallia</div> */}
-
 					<Link to={"/favorite"} className="header__favorite">
 						<FavoriteBorderIcon className="fav" />
 					</Link>

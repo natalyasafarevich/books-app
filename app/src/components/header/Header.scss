@@ -190,6 +190,27 @@
         right: 0;
         bottom: -30px;
     }
+
+    &__box-form {
+        position: relative;
+    }
+
+    .text-error {
+        opacity: 0;
+        position: absolute;
+    }
+
+
+    ._error {
+    
+        border-color: rgba(255, 0, 0, 0.97);
+
+        .text-error {
+            opacity: 1;
+            color: rgba(255, 0, 0, 0.97);
+        }
+
+    }
 }
 
 .hidden {
