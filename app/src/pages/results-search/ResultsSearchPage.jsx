@@ -30,6 +30,7 @@ export default function ResultsSearchPage() {
 
 	useEffect(() => {
 		console.log(paginations)
+		// document.querySelector('.advanced-search').classList.add('hidden')
 		dispatch(getSearchBooks(`page=${paginations}&search=${params.name}`));
 	}, [paginations]);
 

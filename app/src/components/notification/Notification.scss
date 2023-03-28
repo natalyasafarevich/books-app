@@ -68,20 +68,25 @@
 
 @keyframes fade {
   from {
+    z-index: -9;
     opacity: 0;
   }
 
   to {
+    z-index: 9; 
     opacity: 1;
   }
 }
 
 @keyframes hidden {
   from {
+    z-index: 9;
     opacity: 1;
+    
   }
 
   to {
+    z-index: -9;
     opacity: 0;
   }
 }

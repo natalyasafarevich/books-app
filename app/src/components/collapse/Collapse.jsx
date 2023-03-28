@@ -37,22 +37,22 @@ export default function Collapse() {
 				<div className="collapse__item  active" data-info="read">
 					<p className="collapse__name h4">Download</p>
 					<div className="collapse__flex">
-						<a className="collapse__link" href={book.formats["application/epub+zip"]}>
+						<a className="collapse__link" href={book?.formats["application/epub+zip"]}>
 							zip
 						</a>
-						<a className="collapse__link" href={book.formats["application/epub+zip"]}>
+						<a className="collapse__link" href={book?.formats["application/epub+zip"]}>
 							epub
 						</a>
 						<a
 							className="collapse__link"
 							href={
-								book.formats["text/plain; charset=utf-8"] || book.formats["text/plain"]
+								book?.formats["text/plain; charset=utf-8"] || book.formats["text/plain"]
 							}>
 							txt
 						</a>
 						<a
 							className="collapse__link"
-							href={book.formats["text/html"]}
+							href={book?.formats["text/html"]}
 							target="_blank">
 							Read this book online
 						</a>

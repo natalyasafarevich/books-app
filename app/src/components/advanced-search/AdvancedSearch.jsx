@@ -7,6 +7,7 @@ import { addClass, removeClass } from "../../helper/events";
 export default function AdvancedSearch() {
 	const dispatch = useDispatch();
 
+	// validation
 	const searchSettings = (e) => {
 		e.preventDefault();
 
@@ -40,7 +41,7 @@ export default function AdvancedSearch() {
 	};
 
 	// input is disabled
-	const idClicke = (e) => {
+	const handleClicke = (e) => {
 		const elem = document.querySelector(".advanced-search__checkbox");
 
 		if (e.target.nextElementSibling?.getAttribute("datasearch") !== "id") {
@@ -59,15 +60,15 @@ export default function AdvancedSearch() {
 		document.querySelectorAll(".disabled input").forEach((item) => {
 			item.disabled = true;
 		});
-
-		// console.log(document.querySelector('.header__input').type = 'number')
 	};
+
+
 
 	return (
 		<div className="advanced-search hidden">
 			<div className="advanced-search__container">
 				<div className="advanced-search__form ">
-					<div className="advanced-search__radio" onClick={idClicke}>
+					<div className="advanced-search__radio" onClick={handleClicke}>
 						<p className="advanced-search__title">search by</p>
 						<div className="advanced-search__box">
 							<input type="radio" name="advanced-search" id="books" defaultChecked />

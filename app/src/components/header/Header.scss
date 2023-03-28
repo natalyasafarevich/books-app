@@ -144,7 +144,7 @@
     }
 
     &__form {
-        position: relative; 
+        position: relative;
         width: 100%;
         position: relative;
         border-bottom: 1px solid #cedce2;
@@ -175,11 +175,20 @@
         }
     }
 
-    &__serch-link {
+    &__search-link {
+        font-weight: 500;
+        // text-transform: uppercase;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+        background: transparent;
+        text-align: center;
+
+        color: #17A2B8;
         cursor: pointer;
         position: absolute;
         right: 0;
-        bottom: -35px;
+        bottom: -30px;
     }
 }
 
