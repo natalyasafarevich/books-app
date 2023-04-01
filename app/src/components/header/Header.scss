@@ -65,11 +65,11 @@
         letter-spacing: 1px;
         text-transform: uppercase;
 
-        color: var(--grey-color);
+        color: var(--secondary-color);
 
         &:hover,
         &:active {
-            color: var(--dark-color);
+            color: var(--brand-color);
 
         }
 
@@ -79,7 +79,7 @@
                 display: block;
                 width: 40%;
                 height: 2px;
-                background: var(--orange-color);
+                background: var(--accent-color);
             }
 
             &::before {
@@ -91,21 +91,22 @@
                 width: 20px;
                 height: 20px;
                 background: center/cover no-repeat url(../../img/icons8-github.gif);
+                border-radius: 50%;
             }
 
             position: relative;
-            color: var(--dark-color);
+            color: var(--brand-color);
 
         }
     }
 
     &__search {
         .fav {
-            color: #ffffff;
+            color: var(--main-color);
         }
 
         .fav:hover {
-            color: #ffffff;
+            color: var(--main-color);
         }
 
         &:hover {
@@ -120,7 +121,7 @@
         height: 40px;
         border-radius: 5px;
         font-size: 15px;
-        background-color: var(--dark-color);
+        background-color: var(--brand-color);
 
 
     }
@@ -149,7 +150,7 @@
 
     &__favorite {
         position: relative;
-        color: var(--grey-color);
+        color: var(--secondary-color);
 
         &::after {
             content: attr(databooks);
@@ -159,8 +160,8 @@
             right: -2px;
             width: 18px;
             height: 18px;
-            background-color: var(--dark-color);
-            color: var(--main-bg);
+            background-color: var(--brand-color);
+            color: var(--inverse-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -178,7 +179,7 @@
         // font-size: 18px;
         // line-height: 22px;
         // letter-spacing: -0.05em;
-        // color: var(--dark-color);
+        // color: var(--brand-color);
         // text-transform: uppercase;
         position: relative;
         // background-color: #f8f9fa;

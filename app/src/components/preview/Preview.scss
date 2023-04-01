@@ -1,6 +1,6 @@
 .preview {
     position: relative;
-    background-color: #fefefe;
+    background-color: var(--inverse-color);
     background-image: url(../../img/bg-prewew.png);
 
     &_link {
@@ -55,9 +55,10 @@
         letter-spacing: 1px;
         font-weight: 700;
         font-size: 64px;
+        color: var( --brand-color);
 
         span {
-            color: var(--orange-color);
+            color: var(--accent-color);
             text-align: left;
             line-height: 72px;
             letter-spacing: 1px;
@@ -82,11 +83,11 @@
         font-weight: 400;
         font-size: 25px;
         line-height: 26px;
-        color: var(--grey-color);
+        color: var(--secondary-color);
     }
 
     &__info {
-        background: var(--white-color);
+        background: var(--main-color);
         box-shadow: 0px 25px 50px rgba(189, 189, 189, 0.25);
         border-radius: 15px;
         display: flex;
@@ -100,7 +101,7 @@
     &__box {
         width: 65px;
         height: 65px;
-        background: var(--dark-color);
+        background: var(--brand-color);
         min-width: 65px;
         border-radius: 9px;
         display: flex;
@@ -134,5 +135,6 @@
 
         }
     }
-// .tracking-in-expand{-webkit-animation:tracking-in-expand .8s ease-in-out both;animation:tracking-in-expand .8s ease-in-out both}
+
+    // .tracking-in-expand{-webkit-animation:tracking-in-expand .8s ease-in-out both;animation:tracking-in-expand .8s ease-in-out both}
 }

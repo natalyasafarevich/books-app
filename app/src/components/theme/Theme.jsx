@@ -6,10 +6,9 @@ import { setThemeDark, setThemeLight } from "../../store/theme/actions";
 import "./Theme.scss";
 
 export default function Theme() {
-
 	const dispatch = useDispatch();
 	const theme = useSelector((state) => state.theme.isLight);
-	
+
 	useEffect(() => {
 		localStorage.setItem("isLigthTheme", theme);
 		if (theme) {
@@ -27,10 +26,16 @@ export default function Theme() {
 		}
 	};
 	return (
-		<div className="theme">
-			{(theme && <DarkModeIcon onClick={changeTheme} />) || (
-				<DarkModeOutlinedIcon onClick={changeTheme} />
+		<>
+			{(theme && (
+				<div className="theme"  style={{ color: "white" }}>
+					<DarkModeIcon  onClick={changeTheme} />
+				</div>
+			)) || (
+				<div className="theme" >
+					<DarkModeOutlinedIcon onClick={changeTheme} />
+				</div>
 			)}
-		</div>
+		</>
 	);
 }

@@ -13,7 +13,7 @@ body,
   flex-direction: column;
   /* justify-content: space-between  ; */
 }
-footer{
+footer {
   flex-grow: 1;
 }
 html {
@@ -22,7 +22,7 @@ html {
 .h4 {
   font-weight: 600;
   margin: 0 0 20px;
-  color: var(--dark-color);
+  color: var(--brand-color);
   line-height: 1.4;
   margin: 0;
 }
@@ -30,7 +30,7 @@ html {
   font-size: 25px;
   font-weight: 600;
   margin: 0 0 20px;
-  color: var(--dark-color);
+  color: var(--brand-color);
   line-height: 1.4;
 }
 .wrapper {
@@ -45,7 +45,7 @@ html {
   font-size: 48px;
   line-height: 56px;
   text-align: center;
-  color: var(--dark-color);
+  color: var(--brand-color);
   font-weight: 700;
 }
 .main {
@@ -55,6 +55,13 @@ html {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+
+.pagination div,
+.pagination button{
+
+  
+  color: var(--brand-color);
 }
 .pagination li:nth-child(1) {
   display: none;

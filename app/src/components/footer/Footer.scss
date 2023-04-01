@@ -3,12 +3,12 @@
   align-items: flex-end;
 
   &__container {
-    background: var(--dark-color);
+    background: var(--primiry-color);
 
     width: 100%;
     margin: 0 auto;
     padding: 30px 0;
-    color: var(--main-bg);
+    color: var(--inverse-color);
   }
 
   &__title {
@@ -27,7 +27,7 @@
 
       margin-left: 5px;
       text-transform: uppercase;
-      color: var(--main-bg);
+      color: var(--inverse-color);
       border-bottom: 1px solid;
     }
   }

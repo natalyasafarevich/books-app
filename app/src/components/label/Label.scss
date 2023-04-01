@@ -29,7 +29,7 @@
         font-size: 19px;
         line-height: 27px;
         width: 80%;
-        color: var(--grey-color);
+        color: var(--secondary-color);
         margin: 0px auto 40px;
 
 
@@ -42,7 +42,7 @@
         right: 0;
         bottom: 70%;
         text-transform: uppercase;
-        color: var(--grey-color);
+        color: var(--secondary-color);
         font-size: 15px;
         text-align: center;
         margin: 0px auto 0;
@@ -56,15 +56,15 @@
             width: 50%;
             height: 0.5px;
             position: absolute;
-            background: var(--dark-color);
+            background: var(--brand-color);
             bottom: -2px;
         }
 
         &:hover {
-          
+
 
             transform: scale(1.1);
-            color: var(--dark-color)
+            color: var(--brand-color)
         }
     }
 }

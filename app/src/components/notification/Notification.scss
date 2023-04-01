@@ -16,14 +16,14 @@
   z-index: 9999;
 
   &__container {
-    background: #E6FAF5;
+    // background: #E6FAF5;
     background: #20315C;
     border-radius: 10px;
     align-items: center;
     padding: 15px 30px;
     overflow: hidden;
     position: relative;
-    color: var(--main-bg);
+    color: var(--brand-color);
     max-width: 567px;
     width: auto;
     display: flex;
@@ -73,7 +73,7 @@
   }
 
   to {
-    z-index: 9999; 
+    z-index: 9999;
     opacity: 1;
   }
 }
@@ -82,7 +82,7 @@
   from {
     z-index: 9;
     opacity: 1;
-    
+
   }
 
   to {

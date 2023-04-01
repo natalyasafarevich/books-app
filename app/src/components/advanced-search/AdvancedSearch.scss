@@ -4,9 +4,9 @@
   right: 0;
   width: 100%;
   z-index: 9;
-&.disabled{
-  
-}
+
+  &.disabled {}
+
   &.hidden {
     z-index: -9;
     display: block;
@@ -140,7 +140,7 @@
   &__button {
     background: #17A2B8;
     border: none;
-    color: var(--white-color);
+    color: var(--main-color);
     max-width: 120px;
     text-transform: uppercase;
     width: 100%;
