@@ -55,17 +55,19 @@ export default function ResultsSearchPage() {
 
 	return (
 		<div className="results-search">
+							{/* <Load /> */}
+
 			<div className="results-search__title">
 				<div className="result-title main">
 					search by request:&nbsp;
 					{(search_params?.books?.results?.length === 0 && (
 						<span>
-							{params.name || params.author_name || params.topic || params.lang}{" "}
+							"{params.name || params.author_name || params.topic || params.lang}"
 							nothing is found
 						</span>
 					)) || (
 						<span>
-							{params.name || params.author_name || params.topic || params.lang}
+						"	{params.name || params.author_name || params.topic || params.lang}"
 							
 							(sorted by popularity)
 						</span>
@@ -79,10 +81,9 @@ export default function ResultsSearchPage() {
 						<Selection books={results.topic} />
 						<Paginations state={search_params?.books} />
 					</div>
-
+				
 					<div className="results-search__container">
 						<div className="results-search__row">
-							<Load />
 							<Error />
 							{search_params?.books?.results?.map((item, i) => (
 								<BookCard book={item} key={i} />

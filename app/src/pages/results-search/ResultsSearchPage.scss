@@ -33,8 +33,15 @@
 &__flex{
   display: flex;justify-content: space-between;
   padding: 50px 0 25px;
+  position: relative;
+  z-index: 9;
+}
+.lodaing__container{
+  background-position: bottom;
 }
   &__title {
+    position: relative;
+    z-index: 9;
     padding: 15px;
     font-size: 20px;
     color: var(--dark-color);

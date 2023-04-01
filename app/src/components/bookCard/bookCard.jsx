@@ -57,7 +57,7 @@ function BookCard({ book }) {
 
 	return (
 		<>
-			<div className={[`book-card`]}>
+			<Link to={`/book/${book.id}`}className={[`book-card`]}>
 				<div className="book-card__container">
 					<div className="book-card__box">
 						{book.formats["image/jpeg"]  === undefined ? <div
@@ -68,13 +68,13 @@ function BookCard({ book }) {
 					
 					/>}
 						<div className="book-card__content">
-							<div className="book-card__bg"></div>
-							<div className="book-card__links">
-								<Link to={`/book/${book.id}`} className="book-card__link ">
+							{/* <div className="book-card__bg"></div> */}
+							{/* <div className="book-card__links"> */}
+								{/* <Link to={`/book/${book.id}`} className="book-card__link ">
 									<RemoveRedEyeOutlinedIcon className="book-card__icon book-card__icon_eye" />
-								</Link>
+								</Link> */}
 
-								{isFavorite && (
+								{/* {isFavorite && (
 									<button
 										className="book-card__link book-card__link_add"
 										onClick={deleteFavorite}>
@@ -87,21 +87,38 @@ function BookCard({ book }) {
 										onClick={addFavorite}>
 										<FavoriteBorderIcon className="book-card__icon fav" />
 									</button>
-								)}
-							</div>
+								)} */}
+							{/* </div> */}
 						</div>
 					</div>
 					<div className="book-card__info">
+					{isFavorite && (
+									<button
+										className="book-card__link book-card__link_add"
+										onClick={deleteFavorite}>
+											remove from
+										<FavoriteIcon className="book-card__icon fav active" />
+									</button>
+								)}
+								{!isFavorite && (
+									<button
+										className="book-card__link book-card__link_add"
+										onClick={addFavorite}>
+											add to
+										<FavoriteBorderIcon className="book-card__icon fav" />
+									</button>
+								)}
 						<div className="book-card__subject"></div>
-						<Link to={`/book/${book.id}`} className="book-card__name">
+						<p to={`/book/${book.id}`} className="book-card__name">
 							{book.title}
-						</Link>
+						</p>
 						<p className="book-card__author">
 							<span>by</span> {book.authors[0]?.name}
 						</p>
 					</div>
+				
 				</div>
-			</div>
+			</Link>
 		</>
 	);
 }

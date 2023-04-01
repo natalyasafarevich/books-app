@@ -13,7 +13,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 999;
+  z-index: 9999;
 
   &__container {
     background: #E6FAF5;
@@ -73,7 +73,7 @@
   }
 
   to {
-    z-index: 9; 
+    z-index: 9999; 
     opacity: 1;
   }
 }

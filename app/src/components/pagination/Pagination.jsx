@@ -32,17 +32,15 @@ export default function Paginations({ state }) {
 	};
 
 	return (
-		<Stack spacing={2}>
-			<Pagination
-				onClick={paginationNumber}
-				count={items_pagination.length}
-				renderItem={(item) => (
-					<PaginationItem
-						slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
-						{...item}
-					/>
-				)}
-			/>
-		</Stack>
+		<div className="pagination">
+			<Stack spacing={2}>
+				<Pagination
+					// className="pagination"
+					onClick={paginationNumber}
+					count={items_pagination.length}
+					renderItem={(item) => <PaginationItem {...item} />}
+				/>
+			</Stack>
+		</div>
 	);
 }

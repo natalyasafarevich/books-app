@@ -1,6 +1,6 @@
 import './App.css';
 import {Header} from './components/header/Header';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, useParams} from "react-router-dom";
 import './Normalize.css';
 import {BookDescription} from './pages/bookDescription/BookDescription';
 import Main from './pages/mainPage/MainPage';
@@ -14,9 +14,13 @@ import {useNavigate} from 'react-router-dom';
 import Notification from './components/notification/Notification';
 import {useSelector} from 'react-redux';
 import SearchPage from './pages/search/SearchPage';
+import Load from './components/load/Load';
+import Footer from './components/footer/Footer';
 
 function App() {
+  const params = useParams()
   const theme = useSelector(state => state.theme.isLight)
+  // const load = useSelector((state) => state.loading.isLoading);
   useEffect(() => {
     if (theme) {
       document.querySelector('body').setAttribute('data-theme', 'dark');
@@ -31,15 +35,19 @@ function App() {
   const navigate = useNavigate()
   useEffect(() => {
     ScrollToTop()
-  }, [navigate])
+  }, [navigate, params])
   return (
     <>
-<Notification/>
+
+
+      <Notification/>
       <div className="wrapper">
         <div className='main'>
           <Header/>
+
         </div>
       </div>
+      <Load/>
       <Routes>
         <Route path="/"
           element={<Main/>}/>
@@ -51,18 +59,19 @@ function App() {
           element={<FavoritesBook/>}/>
         <Route path={"/search/books-languages/:lang"}
           element={<ResultsSearchPage/>}/>
-           <Route path={"/search"}
+        <Route path={"/search"}
           element={<SearchPage/>}/>
-          
+
         <Route path={"/search/author/:author_name"}
           element={<ResultsSearchPage/>}/>
         <Route path={"/search/:name"}
           element={<ResultsSearchPage/>}/>
-          <Route path={"/search/topic/:topic"}
+        <Route path={"/search/topic/:topic"}
           element={<ResultsSearchPage/>}/>
         <Route path='*'
           element={<NotFound/>}/>
       </Routes>
+      <Footer/>
     </>
 
   );

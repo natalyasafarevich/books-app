@@ -1,4 +1,7 @@
 .header {
+    position: relative;
+    z-index: 9;
+
     &__container {
         display: flex;
         justify-content: space-between;
@@ -322,6 +325,6 @@
 //     color: yellow;
 // }
 
-.disabled{
+.disabled {
     opacity: 0.5;
 }

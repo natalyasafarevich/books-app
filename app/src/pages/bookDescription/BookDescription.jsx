@@ -83,7 +83,16 @@ export function BookDescription() {
 								}}></div>}
 							<div className="desc-book__info">
 								<p className="desc-book__title">{book.title}</p>
+								<div className="desc-book__bookshelves">
+									ID:
+									<div className="desc-book__box">
+											<p  className="desc-book__desc">
+												{book.id}
+											</p>
+									</div>
+								</div>
 								<div className="desc-book__autors">
+
 									<span className="desc-book__span">By</span>
 									{book.authors?.map((item, index) => (
 										<Link

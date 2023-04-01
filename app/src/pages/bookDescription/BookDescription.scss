@@ -1,24 +1,31 @@
 .desc-book {
     &__container {
         display: flex;
+        align-items: center;
         margin: 0 -10px;
-
-        width: 73%;
+        width: 78%;
+        padding: 25px 0 0;
         justify-content: space-between;
+    }
+
+    &__box {
+        padding-left: 10px;
     }
 
     &__img {
         &_undefined {
             background: center/contain no-repeat url(../../img/undraw_creative_thinking_re_9k71.svg);
         }
-
-        max-width: 384px;
+        max-width: 350px;
         width: 100%;
-        height: 500px;
-        background-size: cover;
-        border-radius: 10px;
+        height: 300px;
+        background-size: contain;
+        background-position: center;
+        border-radius: 0;
         margin: 0 10px;
         background-repeat: no-repeat;
+        // box-shadow: 1.50765px 18.0918px 45.2295px -15.0765px rgba(0, 0, 0, 0.2), -6.0306px 9.0459px 30.153px rgba(0, 0, 0, 0.25), 0px 64.8289px 42.2142px -24.1224px rgba(0, 0, 0, 0.35);
+        border-radius: 9.0459px;
 
     }
 
@@ -39,7 +46,7 @@
 
     &__info {
         margin: 0 10px;
-        max-width: 45%;
+        // max-width: 45%;
         width: 100%;
     }
 
@@ -80,6 +87,10 @@
     }
 
     &__bookshelves {
+        &:first-of-type {
+            margin-top: 20px;
+        }
+
         display: flex;
         font-weight: 400;
         font-size: 16px;

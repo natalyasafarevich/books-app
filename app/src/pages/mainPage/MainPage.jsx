@@ -37,7 +37,7 @@ export default function Main() {
 					<Books info={label_language} books={books_ru} link='books-languages/fr' />
 				</div>
 			</div>
-			<Footer/>
+	
 		</>
 	);
 }

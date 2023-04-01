@@ -43,6 +43,14 @@ html {
   width: 100%;
   margin: 0 auto;
 }
+.overflow-hidden{
+  overflow: hidden;
+}
+.pagination li:nth-child(1){
+display: none;
+}.pagination li:last-of-type{
+  display: none;
+  }
 /* .App {
   text-align: center;
 }
