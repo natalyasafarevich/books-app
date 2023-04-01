@@ -1,6 +1,8 @@
 import { Preview } from "../../components/preview/Preview";
 import Books from "../../components/books/Books";
 import Genres from "../../components/genres/Genres";
+import Footer from "../../components/footer/Footer";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { info } from "../../helper/defaultInfo";
@@ -35,6 +37,7 @@ export default function Main() {
 					<Books info={label_language} books={books_ru} link='books-languages/fr' />
 				</div>
 			</div>
+			<Footer/>
 		</>
 	);
 }

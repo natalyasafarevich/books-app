@@ -79,6 +79,18 @@
                 background: var(--orange-color);
             }
 
+            &::before {
+                content: '';
+                position: absolute;
+                right: -15PX;
+                top: -15px;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: center/cover no-repeat url(../../img/icons8-github.gif);
+            }
+
+            position: relative;
             color: var(--dark-color);
 
         }
@@ -309,3 +321,7 @@
 // .fa-sun {
 //     color: yellow;
 // }
+
+.disabled{
+    opacity: 0.5;
+}

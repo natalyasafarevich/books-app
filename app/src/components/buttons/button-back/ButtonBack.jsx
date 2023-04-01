@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./ButtonBack.scss";
 
 export default function ButtonBack() {
@@ -7,7 +7,7 @@ export default function ButtonBack() {
 
 	return (
 		<button onClick={() => navigate(-1)} className="button-back">
-			<ArrowBackIosIcon /> Back
+			<KeyboardBackspaceIcon fontSize="20" /> Back
 		</button>
 	);
 }

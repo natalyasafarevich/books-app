@@ -30,7 +30,7 @@ export const info = {
       },
       {
         url: "https://github.com/natalyasafarevich/bookstore",
-        name: "About project",
+        name: "About the project",
         classNameLink: "header__link header__link_active",
         classNameItem: "header__item"
       },

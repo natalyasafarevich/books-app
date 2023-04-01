@@ -4,7 +4,7 @@ import "./NotFound.scss";
 export default function NotFound() {
 	return (
 		<div className="not-found">
-			<ButtonBack />
+	
 			<div className="not-found__container">
 				<div className="not-found__img"></div>
 
@@ -14,6 +14,7 @@ export default function NotFound() {
 						The page you are looking for might have been removed, had its name
 						changed, or is temporarily unavailable.
 					</p>
+					<ButtonBack />
 				</div>
 			</div>
 		</div>
