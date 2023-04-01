@@ -30,32 +30,48 @@ export default function Collapse() {
 				</p>
 				<p className="collapse__title" data-name="details">
 					Book Details
-					
 				</p>
 			</div>
 			<div className="collapse__row ">
 				<div className="collapse__item  active" data-info="read">
 					<p className="collapse__name h4">Download</p>
 					<div className="collapse__flex">
-						<a className="collapse__link" href={book?.formats["application/epub+zip"]}>
-							zip
-						</a>
-						<a className="collapse__link" href={book?.formats["application/epub+zip"]}>
-							epub
-						</a>
-						<a
-							className="collapse__link"
-							href={
-								book?.formats["text/plain; charset=utf-8"] || book.formats["text/plain"]
-							}>
-							txt
-						</a>
-						<a
+						{book?.formats["application/epub+zip"] && (
+							<a
+								className="collapse__link"
+								href={book?.formats["application/epub+zip"]}>
+								zip
+							</a>
+						)}
+						{book?.formats["application/epub+zip"] && (
+							<a
+								className="collapse__link"
+								href={book?.formats["application/epub+zip"]}>
+								epub
+							</a>
+						)}
+						{book?.formats["text/plain; charset=utf-8"] ||
+							(book.formats["text/plain"] && (
+								<a
+									className="collapse__link"
+									href={
+										book?.formats["text/plain; charset=utf-8"] ||
+										book.formats["text/plain"]
+									}>
+									txt
+								</a>
+							))}
+	{
+							(book.formats["text/html"] && (
+								<a
 							className="collapse__link"
 							href={book?.formats["text/html"]}
 							target="_blank">
 							Read this book online
 						</a>
+							))}
+
+						
 					</div>
 				</div>
 				<div className="collapse__item" data-info="details">

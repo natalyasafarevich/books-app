@@ -23,11 +23,14 @@
     }
 
     &__img {
+        &_undefined{
+           background:center/contain no-repeat url(../../img/undraw_creative_thinking_re_9k71.svg);
+        }
         display: block;
         margin: 0 auto;
         filter: drop-shadow(9px 10px 5px rgba(92, 92, 92, 0.2));
         border-radius: 0px 10px 10px 0px;
-        width: 84%;
+        width: 84%; 
         height: 227px;
         background-repeat: no-repeat;
         background-size:  100%;

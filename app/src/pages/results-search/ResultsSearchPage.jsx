@@ -25,21 +25,27 @@ export default function ResultsSearchPage() {
 
 	useEffect(() => {
 		dispatch(setResetPage());
-	}, []);
+	}, [params]);
 
 	useEffect(() => {
+
+
 		if (params.name === "books") {
+			// dispatch(setResetPage());
 			dispatch(getSearchBooks(`page=${paginations}`));
 			return;
 		}
 		if (params.lang) {
-			dispatch(getSearchBooks(`languages=${params.lang}`));
+			// dispatch(setResetPage());
+			dispatch(getSearchBooks(`page=${paginations}&languages=${params.lang}`));
 			return;
 		}
 		if (params.topic) {
+			// dispatch(setResetPage());
 			dispatch(getSearchBooks(`page=${paginations}&topic=${params.topic}`));
 			return;
 		}
+		// dispatch(setResetPage());
 		dispatch(
 			getSearchBooks(
 				`page=${paginations}&search=${params.name || params.author_name}`

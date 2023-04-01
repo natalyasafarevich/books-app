@@ -18,7 +18,6 @@ export default function Main() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(setBooks("1"));
-		console.log(books)
 		dispatch(setBookLanguage("fr"));
 	}, []);
 	return (

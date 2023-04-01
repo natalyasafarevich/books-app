@@ -2,12 +2,16 @@
     &__container {
         display: flex;
         margin: 0 -10px;
- 
+
         width: 73%;
         justify-content: space-between;
     }
 
     &__img {
+        &_undefined {
+            background: center/contain no-repeat url(../../img/undraw_creative_thinking_re_9k71.svg);
+        }
+
         max-width: 384px;
         width: 100%;
         height: 500px;
@@ -46,9 +50,11 @@
         letter-spacing: 1.16px;
         color: #121823;
     }
-&__translators{
-    display: flex;
-}
+
+    &__translators {
+        display: flex;
+    }
+
     &__autors {
         margin-top: 5px;
         display: flex;

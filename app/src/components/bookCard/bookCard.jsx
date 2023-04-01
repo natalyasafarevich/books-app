@@ -60,11 +60,13 @@ function BookCard({ book }) {
 			<div className={[`book-card`]}>
 				<div className="book-card__container">
 					<div className="book-card__box">
-						<div
-							style={{ backgroundImage: `url(${book.formats["image/jpeg"]})` }}
-							className="book-card__img"
-							alt="img book"
-						/>
+						{book.formats["image/jpeg"]  === undefined ? <div
+							className="book-card__img book-card__img_undefined"
+						/>:<div
+						style={{ backgroundImage: `url(${book?.formats["image/jpeg"]})` }}
+						className="book-card__img"
+					
+					/>}
 						<div className="book-card__content">
 							<div className="book-card__bg"></div>
 							<div className="book-card__links">

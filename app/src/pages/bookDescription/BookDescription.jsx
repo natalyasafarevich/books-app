@@ -29,11 +29,8 @@ export function BookDescription() {
 	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 	const book = useSelector((state) => state.current_book.currentBook);
 
-	// const { title, bookshelves, authors, translators, languages, subjects } = book;
-
 	// useEffect
 	useEffect(() => {
-		console.log(params);
 		ScrollToTop();
 		dispatch(setCurrentBook(params.isbn));
 	}, [params]);
@@ -74,13 +71,16 @@ export function BookDescription() {
 					<div className="desc-book">
 						<Load />
 						<Error />
+					
 
 						<div className="desc-book__container">
-							<div
+						{book?.formats["image/jpeg"] === undefined ? 	<div
+								className="desc-book__img desc-book__img_undefined"
+								></div> : <div
 								className="desc-book__img"
 								style={{
 									backgroundImage: `url(${book?.formats["image/jpeg"]})`,
-								}}></div>
+								}}></div>}
 							<div className="desc-book__info">
 								<p className="desc-book__title">{book.title}</p>
 								<div className="desc-book__autors">
@@ -146,7 +146,6 @@ export function BookDescription() {
 								/>
 							</div>
 						</div>
-						{console.log(book?.formats["image/jpeg"])}
 						<Collapse />
 						<SimilarBook />
 					</div>
@@ -154,4 +153,5 @@ export function BookDescription() {
 			</div>
 		);
 	}
+	return <span>error</span>;
 }
