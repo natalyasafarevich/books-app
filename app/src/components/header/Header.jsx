@@ -1,6 +1,7 @@
 import "./Header.scss";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Link as ScrollLink } from 'react-scroll'
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";

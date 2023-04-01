@@ -37,7 +37,7 @@ function App() {
     ScrollToTop()
   }, [navigate, params])
   return (
-    <>
+    <div className='app'>
 
 
       <Notification/>
@@ -72,7 +72,7 @@ function App() {
           element={<NotFound/>}/>
       </Routes>
       <Footer/>
-    </>
+    </div>
 
   );
 }

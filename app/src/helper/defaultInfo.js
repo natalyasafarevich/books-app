@@ -18,16 +18,11 @@ export const info = {
         classNameItem: "header__item"
       },
        {
-        url: "/genres",
-        name: "Genres",
+        url: "/search/books",
+        name: "books",
         classNameLink: "header__link",
         classNameItem: "header__item"
-      }, {
-        url: "/articles",
-        name: "Articles",
-        classNameLink: "header__link",
-        classNameItem: "header__item"
-      },
+      }, 
       {
         url: "https://github.com/natalyasafarevich/bookstore",
         name: "About the project",

@@ -18,7 +18,7 @@ SwiperCore.use([Pagination]);
 function Books({ books, info ,link}) {
 	const [swiper, setSwiper] = useState(null);
 	return (
-		<div className="books-container">
+		<div className="books-container " id="books">
 			<div className="books-container__box">
 				<Label info={info} link={link} />
 			</div>
