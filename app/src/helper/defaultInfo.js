@@ -14,7 +14,7 @@ export const info = {
       {
         url: "/",
         name: "Home",
-        classNameLink: "header__link header__link_active",
+        classNameLink: "header__link ",
         classNameItem: "header__item"
       },
        {
@@ -31,7 +31,7 @@ export const info = {
       {
         url: "https://github.com/natalyasafarevich/bookstore",
         name: "About project",
-        classNameLink: "header__link",
+        classNameLink: "header__link header__link_active",
         classNameItem: "header__item"
       },
     ]

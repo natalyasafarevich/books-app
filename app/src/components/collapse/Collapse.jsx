@@ -70,8 +70,6 @@ export default function Collapse() {
 							Read this book online
 						</a>
 							))}
-
-						
 					</div>
 				</div>
 				<div className="collapse__item" data-info="details">

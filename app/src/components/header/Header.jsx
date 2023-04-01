@@ -1,6 +1,6 @@
 import "./Header.scss";
 import React, { useState } from "react";
-import { Link, redirect, useNavigate, useNavigation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,21 +8,15 @@ import { info } from "../../helper/defaultInfo";
 import {
 	addClass,
 	bookParams,
-	idParams,
-	removeClass,
 	toggleClass,
 	topicParams,
 } from "../../helper/events";
 import { useDispatch, useSelector } from "react-redux";
-import { setTopic } from "../../store/topic/actions";
-import { errorOn } from "../../store/error/actions";
-import { setSearchBook } from "../../store/books/search/actions";
 import Theme from "../theme/Theme";
 import AdvancedSearch from "../advanced-search/AdvancedSearch";
 import { getSearchBooks } from "../../store/paramsSearch/actions";
 import { setCurrentBook } from "../../store/books/current/actions";
 import { useEffect } from "react";
-import { toNumber } from "lodash";
 
 export function Header() {
 	const dispatch = useDispatch();
@@ -30,6 +24,7 @@ export function Header() {
 
 	const params_search = useSelector((state) => state.search_params);
 	const paginations = useSelector((state) => state.pagination.page);
+	const faivorite = useSelector((state) => state.favorite_books.favoriteBooks.length);
 	const { links } = info.header;
 
 	useEffect(() => {
@@ -61,11 +56,10 @@ export function Header() {
 
 	// submit form
 	const formSubmin = (e) => {
-	
 		const value = e.target.value;
 		if (e.keyCode === 13) {
 			e.preventDefault();
-		
+
 			e.target.value = "";
 			const list = document.querySelector(".header__list");
 			const form = document.querySelector(".header__form");
@@ -109,22 +103,21 @@ export function Header() {
 				<Link to="/" className="header__logo"></Link>
 				<div className="header__content">
 					<div className="header__form hidden">
-					
-					<form className="form ">
-						<input
-							onKeyDown={(e) => formSubmin(e)}
-							className="header__input"
-							type="text"
-							placeholder="Search by Title or Autor "
-							onKeyUp={keyUp}
-						/>
-						<p className="text-error">enter the number</p>
-						<CloseIcon className="header__close" onClick={searchClick} />
-					</form>
-					<button className="header__search-link" onClick={advancedSearch}>
-						Advanced Search
-					</button>
-					<AdvancedSearch />
+						<form className="form ">
+							<input
+								onKeyDown={(e) => formSubmin(e)}
+								className="header__input"
+								type="text"
+								placeholder="Search by Title or Autor "
+								onKeyUp={keyUp}
+							/>
+							<p className="text-error">enter the number</p>
+							<CloseIcon className="header__close" onClick={searchClick} />
+						</form>
+						<button className="header__search-link" onClick={advancedSearch}>
+							Advanced Search
+						</button>
+						<AdvancedSearch />
 					</div>
 					<ul className="header__list">
 						{links.map((item, index) => (
@@ -138,15 +131,19 @@ export function Header() {
 						))}
 					</ul>
 				</div>
-				<div className="header__theme">
-					<Theme />
-				</div>
+
 				<div className="header__box">
-					<Link to={"/favorite"} className="header__favorite">
-						<FavoriteBorderIcon className="fav" />
-					</Link>
-					<div className="header__search" onClick={searchClick}>
-						<SearchIcon className="fav " />
+					<div className="header__theme">
+						<Theme />
+					</div>
+					<div className="header__btns">
+						<Link to={"/favorite"} className="header__favorite" databooks={faivorite}>
+							<FavoriteBorderIcon className="fav" />
+						</Link>
+
+						<div className="header__search" onClick={searchClick}>
+							<SearchIcon className="fav " />
+						</div>
 					</div>
 				</div>
 			</div>

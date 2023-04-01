@@ -65,9 +65,22 @@
         color: var(--grey-color);
 
         &:hover,
-        &:active,
-        &_active {
+        &:active {
             color: var(--dark-color);
+
+        }
+
+        &_active {
+            &::after {
+                content: '';
+                display: block;
+                width: 40%;
+                height: 2px;
+                background: var(--orange-color);
+            }
+
+            color: var(--dark-color);
+
         }
     }
 
@@ -98,7 +111,7 @@
     }
 
     &__box {
-        max-width: 100px;
+        max-width: 200px;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -113,9 +126,47 @@
         background-repeat: no-repeat;
     }
 
+    &__btns {
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+    }
+
     &__favorite {
         position: relative;
-        background-color: #f8f9fa;
+        color: var(--grey-color);
+
+        &::after {
+            content: attr(databooks);
+            position: absolute;
+            font-size: 10px;
+            bottom: 19px;
+            right: -2px;
+            width: 18px;
+            height: 18px;
+            background-color: var(--dark-color);
+            color: var(--main-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        // svg {
+        //     transform: rotate(30deg);
+        //     right: -15px;
+        //     top: -10px;
+        //     position: absolute;
+        // }
+
+        // font-weight: 600;
+        // font-size: 18px;
+        // line-height: 22px;
+        // letter-spacing: -0.05em;
+        // color: var(--dark-color);
+        // text-transform: uppercase;
+        position: relative;
+        // background-color: #f8f9fa;
         width: 40px;
         height: 40px;
         border-radius: 5px;
@@ -202,7 +253,7 @@
 
 
     ._error {
-    
+
         border-color: rgba(255, 0, 0, 0.97);
 
         .text-error {
