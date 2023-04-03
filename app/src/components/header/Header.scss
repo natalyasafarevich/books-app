@@ -43,7 +43,8 @@
         height: 80px;
         background-size: contain;
         background-repeat: no-repeat;
-        background-image: url(../../img/books-low-resolution-logo-color-on-transparent-background.png);
+        background-position: center;
+        background-image: url(../../img/books-low-resolution-logo-black-on-transparent-background.svg);
     }
 
     &__list {
@@ -210,7 +211,9 @@
 
     }
 
-    &__form {
+    &__form { svg{
+        color: var(--brand-color);
+    }
         position: relative;
         width: 100%;
         position: relative;

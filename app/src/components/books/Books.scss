@@ -26,6 +26,9 @@
 }
 
 .swiper-container {
+    svg{
+        color: var(--brand-color);
+    }
     position: absolute;
     top: 28%;
     left: -5%;

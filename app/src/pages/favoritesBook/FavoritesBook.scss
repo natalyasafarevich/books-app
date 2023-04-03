@@ -4,14 +4,9 @@
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
-       
-        // width: 70%;
-        // justify-content: center;
-        // flex-direction: row-reverse; 
-        // justify-content: flex-start;
+        max-width: 85%;
     }
 
-    .book-card__info {}
 
     .book-card__img {
         background-position: center;
@@ -36,7 +31,7 @@
         font-weight: 500;
         font-size: 24px;
         line-height: 29px;
-        color: #1C2A39;
+        color: var(--brand-color);
         text-transform: uppercase;
         width: max-content;
         margin: 0 auto 35px;

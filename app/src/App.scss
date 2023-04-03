@@ -5,6 +5,7 @@
 * {
   transition: all 0.3s ease;
 }
+
 html,
 body,
 .app {
@@ -13,12 +14,15 @@ body,
   flex-direction: column;
   /* justify-content: space-between  ; */
 }
+
 footer {
   flex-grow: 1;
 }
+
 html {
   overflow-x: hidden;
 }
+
 .h4 {
   font-weight: 600;
   margin: 0 0 20px;
@@ -26,6 +30,7 @@ html {
   line-height: 1.4;
   margin: 0;
 }
+
 .h2 {
   font-size: 25px;
   font-weight: 600;
@@ -33,6 +38,7 @@ html {
   color: var(--brand-color);
   line-height: 1.4;
 }
+
 .wrapper {
   position: relative;
   font-family: "Jost", sans-serif;
@@ -41,6 +47,7 @@ html {
   margin: 0 auto;
   padding: px 0px;
 }
+
 .title {
   font-size: 48px;
   line-height: 56px;
@@ -48,27 +55,61 @@ html {
   color: var(--brand-color);
   font-weight: 700;
 }
+
 .main {
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
 }
+
 .overflow-hidden {
   overflow: hidden;
 }
 
 .pagination div,
-.pagination button{
+.pagination button {
 
-  
+
   color: var(--brand-color);
 }
+
 .pagination li:nth-child(1) {
   display: none;
 }
+
 .pagination li:last-of-type {
   display: none;
 }
+
+body[data-theme="dark"] {
+  .preview__info {
+    box-shadow: 0px 25px 50px rgba(60, 60, 60, 0.25)
+  }
+
+  .preview__box svg {
+    color: var(--main-color);
+    // }  
+  }
+
+  .book-card__img {
+    filter: drop-shadow(9px 10px 5px rgba(0, 0, 0, 0.2));
+  }
+  .header__logo {
+    
+    background-image: url(../src/img/books-low-resolution-logo-white-on-transparent-background.svg);
+}
+  .loading {
+    background-color: var(--primiry-color);
+
+    &__container {
+      width: 400px;
+      height: 400px;
+      background: center/contain no-repeat url(../src/img/animation_500_lg0tp3ax.gif);
+    }
+  }
+}
+
+// VRV
 /* .App {
   text-align: center;
 }

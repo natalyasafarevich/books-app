@@ -36,8 +36,9 @@
   }
 
   &__desc {
+    color: var(--brand-color);
     opacity: 0;
-    background: rgba(255, 255, 255, 0.88);
+    background:var(--main-color);
     border-radius: 6px 6px 0 0;
     width: 100%;
     padding: 14px;

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {Header} from './components/header/Header';
 import {Routes, Route, useParams} from "react-router-dom";
 import './Normalize.css';

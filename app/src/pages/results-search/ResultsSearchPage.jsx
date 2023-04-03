@@ -78,7 +78,7 @@ export default function ResultsSearchPage() {
 			<div className="wrapper">
 				<div className="main">
 					<div className="results-search__flex">
-						<Selection books={results.topic} />
+						{/* <Selection books={results.topic} /> */}
 						<Paginations state={search_params?.books} />
 					</div>
 				
