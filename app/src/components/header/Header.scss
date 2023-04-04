@@ -346,4 +346,12 @@
     }
 }
 
-@media (max-width: 575.98px) {}
+@media (max-width: 575.98px) {
+    .header__container{
+        padding: 16px ;
+    }
+    .header__logo {
+        width: 93px;
+        height: 33px;}
+    }  
+    

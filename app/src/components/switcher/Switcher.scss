@@ -1,7 +1,7 @@
-
 .mobile-menu {
   display: none;
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -73,8 +73,25 @@ input:checked+.slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
 @media (max-width: 767.98px) {
-  .mobile-menu{
+  .mobile-menu {
     display: block;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+  .switch {
+    height: 24px;
+  }
+
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
   }
 }

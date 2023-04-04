@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
@@ -17,6 +17,12 @@ SwiperCore.use([Pagination]);
 
 function Books({ books, info ,link}) {
 	const [swiper, setSwiper] = useState(null);
+	const [swiperCount, setSwiperCount] = useState(4);
+	useEffect(() => {
+		if(window.innerWidth < 575){
+			setSwiperCount(3)
+		}
+	}, [window.innerWidth]);
 	return (
 		<div className="books-container " id="books">
 			<div className="books-container__box">
@@ -29,7 +35,7 @@ function Books({ books, info ,link}) {
 					onSwiper={(swiper) => {
 						setSwiper(swiper);
 					}}
-					slidesPerView={4}
+					slidesPerView={swiperCount}
 					modules={[Navigation]}
 					className="book-slider">
 					{books.length &&
