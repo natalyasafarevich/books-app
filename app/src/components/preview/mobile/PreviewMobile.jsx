@@ -25,7 +25,7 @@ export default function PreviewMobile() {
 				<div className="preview-mobile">
 					<div className="preview-mobile__container">
 						<p className="preview-mobile__title">Begin reading</p>
-						<Link className="preview-mobile__box">
+						<Link to={`/book/${book.id}`} className="preview-mobile__box">
 							{(book?.formats["image/jpeg"] === undefined && (
 								<div className="preview-mobile__image preview-mobile__undefined"></div>
 							)) || (
@@ -39,7 +39,7 @@ export default function PreviewMobile() {
 							<div className="preview-mobile__info">
 								<p className="preview-mobile__name">{book.title}</p>
 								<p className="preview-mobile__author">{book.authors[0].name}</p>
-								{book.subjects.map((item, index) => (
+								{book.subjects.slice(0,2).map((item, index) => (
 									<p key={index} className="preview-mobile__subjects">
 										{item}
 									</p>
