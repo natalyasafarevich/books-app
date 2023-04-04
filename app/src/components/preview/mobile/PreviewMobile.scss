@@ -1,0 +1,91 @@
+.preview-mobile {
+  &__container {
+    padding: 0 16px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--brand-color);
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    padding: 16px 16px 0 16px;
+    background: linear-gradient(80.23deg, #EA3E34 0.71%, #313333 38.39%);
+    border-radius: 8px;
+    backdrop-filter: blur(25px);
+  }
+
+  &__image {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+    width: 150px;
+    height: 180px;
+    margin-right: 15px;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: var(--inverse-color);
+  }
+
+  &__subjects {
+    color: var(--inverse-color);
+    font-size: 10px;
+    line-height: 10px;
+    opacity: 0.5;
+    margin-top: 5px;
+  }
+
+  &__author {
+    margin: 10px 0 15px;
+    font-size: 15px;
+    line-height: 17px;
+    color: var(--inverse-color);
+    opacity: 0.7;
+  }
+
+  &__undefined {
+    // width: 200px;
+    min-width: 150px;
+    background-color: red;
+    background: bottom/contain no-repeat url(../../../img/undraw_creative_thinking_re_9k71.svg);
+  }
+}
+
+
+@media (max-width: 575.98px) {
+  .preview-mobile {
+    &__image {
+      width: 99px;
+      height: 130px;
+    }
+
+    &__name {
+      font-size: 14px;
+      line-height: 17px
+    }
+
+    &__subjects {
+      margin-top: 2px;
+      font-size: 8px;
+      line-height: 10px;
+    }
+
+    &__author {
+      margin: 4px 0;
+      font-size: 10px;
+      line-height: 12px;
+    }
+    &__undefined {
+      min-width: 99px;
+    }
+    &__info {}
+  }
+}

@@ -26,9 +26,10 @@
 }
 
 .swiper-container {
-    svg{
+    svg {
         color: var(--brand-color);
     }
+
     position: absolute;
     top: 28%;
     left: -5%;
@@ -43,3 +44,20 @@
     cursor: pointer;
     transform: scale(2);
 }
+
+@media (max-width: 1399.98px) {
+    .swiper-container {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .books-container__box{
+        width: auto;
+        max-width: 100%;
+        padding: 0 16px;
+        margin: 0 0 16px;
+    }
+}
+
+@media (max-width: 575.98px) {}

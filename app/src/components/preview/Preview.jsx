@@ -4,6 +4,7 @@ import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import "./Preview.scss";
+import PreviewMobile from "./mobile/PreviewMobile";
 
 const theme = createTheme({
 	palette: {
@@ -14,51 +15,55 @@ const theme = createTheme({
 });
 export function Preview() {
 	return (
-		<ThemeProvider theme={theme}>
-			<div className="preview ">
-				<div className="preview__container">
-					<div className="preview__text">
-						<p className="preview__title " >
-							Read <span>Books </span> Online
-						</p>
-						<p className="preview__desc">
-							Let you read books online without leaving website
-						</p>
-					</div>
-					<div className="preview__image"></div>
-				</div>
-				<div className="preview__info">
-					<div className="preview__item">
-						<div className="preview__box">
-							<MenuBookOutlinedIcon fontSize="large" color="primary" />
+		<>
+			<ThemeProvider theme={theme}>
+				<div className="preview ">
+					<div className="preview__container">
+						<div className="preview__text">
+							<p className="preview__title ">
+								Read <span>Books </span> Online
+							</p>
+							<p className="preview__desc">
+								Let you read books online without leaving website
+							</p>
 						</div>
-						<p>
-							Read books Online
-							<span>Over 7.000 of books</span>
-						</p>
+						<div className="preview__image"></div>
 					</div>
-					<div className="preview__item">
-						<div className="preview__box">
-							<TranslateOutlinedIcon fontSize="large" color="primary" />
+					<div className="preview__info">
+						<div className="preview__item">
+							<div className="preview__box">
+								<MenuBookOutlinedIcon fontSize="large" color="primary" />
+							</div>
+							<p>
+								Read books Online
+								<span>Over 7.000 of books</span>
+							</p>
 						</div>
+						<div className="preview__item">
+							<div className="preview__box">
+								<TranslateOutlinedIcon fontSize="large" color="primary" />
+							</div>
 
-						<p>
-							books on different languages
-							<span>ALL ACROSS THE WORLD</span>
-						</p>
-					</div>
-					<div className="preview__item">
-						<div className="preview__box">
-							<FavoriteOutlinedIcon fontSize="large" color="primary" />
+							<p>
+								books on different languages
+								<span>ALL ACROSS THE WORLD</span>
+							</p>
 						</div>
+						<div className="preview__item">
+							<div className="preview__box">
+								<FavoriteOutlinedIcon fontSize="large" color="primary" />
+							</div>
 
-						<p>
-							Add to favorites
-							<span>Not to lose books</span>
-						</p>
+							<p>
+								Add to favorites
+								<span>Not to lose books</span>
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</ThemeProvider>
+
+				<PreviewMobile />
+			</ThemeProvider>
+		</>
 	);
 }

@@ -13,6 +13,7 @@
         max-width: max-content;
         width: 100%;
         min-width: 500px;
+        margin-right: 15px;
 
     }
 
@@ -39,6 +40,7 @@
     }
 
     &__logo {
+        margin-right: 15px;
         width: 200px;
         height: 80px;
         background-size: contain;
@@ -211,9 +213,11 @@
 
     }
 
-    &__form { svg{
-        color: var(--brand-color);
-    }
+    &__form {
+        svg {
+            color: var(--brand-color);
+        }
+
         position: relative;
         width: 100%;
         position: relative;
@@ -281,54 +285,65 @@
         }
 
     }
+
+    &__burger {
+        display: none;
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+
+        svg {
+            font-size: 35px;
+        }
+    }
 }
 
 .hidden {
     display: none;
 }
 
-// .checkbox {
-//     opacity: 0;
-//     position: absolute;
-// }
-
-// .label-checkbox {
-//     width: 50px;
-//     height: 26px;
-//     background-color: #111;
-//     display: flex;
-//     border-radius: 50px;
-//     align-items: center;
-//     justify-content: space-between;
-//     padding: 5px;
-//     position: relative;
-//     transform: scale(1.5);
-// }
-
-// .ball {
-//     width: 20px;
-//     height: 20px;
-//     background-color: white;
-//     position: absolute;
-//     top: 2px;
-//     left: 2px;
-//     border-radius: 50%;
-//     transition: transform 0.2s linear;
-// }
-
-// /*  target the elemenent after the label*/
-// .checkbox:checked+.label-checkbox .ball {
-//     transform: translateX(24px);
-// }
-
-// .fa-moon {
-//     color: pink;
-// }
-
-// .fa-sun {
-//     color: yellow;
-// }
-
 .disabled {
     opacity: 0.5;
 }
+
+@media (max-width: 1399.98px) {}
+
+@media (max-width: 1199.98px) {
+    .header__container {
+        padding: 20px 15px;
+    }
+
+    .header__content {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .header__box {
+        max-width: 111px;
+    }
+
+    .header__btns {
+        width: 82%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header__logo {
+        margin-right: 0px;
+        width: 136px;
+        height: 36px;
+    }    .header{
+        &__burger{
+            display: block;
+        }
+    }
+
+    .header__box,
+    .header__content {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {}

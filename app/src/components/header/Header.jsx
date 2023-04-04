@@ -16,8 +16,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Theme from "../theme/Theme";
 import AdvancedSearch from "../advanced-search/AdvancedSearch";
 import { getSearchBooks } from "../../store/paramsSearch/actions";
+import MenuIcon from '@mui/icons-material/Menu';
 import { setCurrentBook } from "../../store/books/current/actions";
 import { useEffect } from "react";
+import Switcher from "../switcher/Switcher";
 
 export function Header() {
 	const dispatch = useDispatch();
@@ -102,6 +104,9 @@ export function Header() {
 		<header className="header">
 			<div className="header__container">
 				<Link to="/" className="header__logo"></Link>
+				<button className="header__burger">
+				<Switcher/>
+				</button>
 				<div className="header__content">
 					<div className="header__form hidden">
 						<form className="form ">

@@ -9,7 +9,7 @@ export default function Label({ info, link }) {
 			<p className="label__title title">{info.title}</p>
 			<p className="label__desc">{info.desc}</p>
 			<Link className="label__link" to={`/search/${link}`}>
-				see all
+				Show all
 				<LastPageIcon/>
 			</Link>
 		</div>
