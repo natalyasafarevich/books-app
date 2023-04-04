@@ -1,0 +1,71 @@
+.footer-mobile {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 99;
+  left: 0;
+  height: 70px;
+  background: #181A1A;
+  color: #C4CCCC;
+  border-top: 1px solid #313333;
+  ;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+
+  }
+
+  &__item {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #C4CCCC;
+    padding: 15px 0;
+    &::before {
+      content: '';
+      display: block;
+      width: 21px;
+      height: 21px;
+      margin-bottom: 8px;
+
+    }
+    &.active {
+      font-weight: 600;
+      color: #CDE7BE;
+      background: linear-gradient(180deg, #1E211C 0%, #181919 55.3%);
+
+      &.footer-mobile__item_home::before {
+        background: center/cover no-repeat url(../../../img/akar-icons_home-alt1.svg);
+      }
+
+      &.footer-mobile__item_search::before {
+        background: center/cover no-repeat url(../../../img/akar-icons_search-active.svg);
+      }
+
+      &_favorite::before {
+        background: center/cover no-repeat url(../../../img/akar-icons_favorite-active.svg);
+      }
+    }
+
+  
+
+    &_home::before {
+      background: center/cover no-repeat url(../../../img/home.svg);
+    }
+
+    &_search::before {
+      background: center/cover no-repeat url(../../../img/akar-icons_search.svg);
+    }
+
+    &_favorite::before {
+      background: center/cover no-repeat url(../../../img/akar-icons_favorite.svg);
+    }
+  }
+}

@@ -21,6 +21,7 @@ import {
 	setNotificationAdd,
 	setNotificationRemove,
 } from "../../store/notification/actions";
+import MobileDesc from "./mobile-desc/MobileDesc";
 export function BookDescription() {
 	const [isFavorite, setIsFavorite] = useState();
 	const params = useParams();
@@ -66,100 +67,139 @@ export function BookDescription() {
 
 	if (Object.keys(book).length) {
 		return (
-			<div className="wrapper">
-				<div className="main">
-					<div className="desc-book">
-						<Load />
-						<Error />
-					
-
-						<div className="desc-book__container">
-						{book?.formats["image/jpeg"] === undefined ? 	<div
-								className="desc-book__img desc-book__img_undefined"
-								></div> : <div
-								className="desc-book__img"
-								style={{
-									backgroundImage: `url(${book?.formats["image/jpeg"]})`,
-								}}></div>}
-							<div className="desc-book__info">
-								<p className="desc-book__title">{book.title}</p>
-								<div className="desc-book__bookshelves">
-									ID:
-									<div className="desc-book__box">
-											<p  className="desc-book__desc">
-												{book.id}
-											</p>
+			<>
+				<div className="wrapper desc-wrapper">
+					<div className="main">
+						<div className="desc-book">
+							<Load />
+							<Error />
+							<div className="desc-book__container">
+								{book?.formats["image/jpeg"] === undefined ? (
+									<div className="desc-book__img desc-book__img_undefined">
+										<div className="desc-book__img desc-book__img_undefined"></div>
 									</div>
+								) : (
+									<div
+										className="desc-book__img"
+										style={{
+											backgroundImage: `url(${book?.formats["image/jpeg"]})`,
+										}}>
+										<div
+											style={{
+												backgroundImage: `url(${book?.formats["image/jpeg"]})`,
+											}}></div>
+									</div>
+								)}
+								<div className="book-mobile_button">
+									<FavoriteButton
+										isFavorite={isFavorite}
+										deleteFavorite={deleteFavorite}
+										addFavorite={addFavorite}
+									/>
 								</div>
-								<div className="desc-book__autors">
-
-									<span className="desc-book__span">By</span>
-									{book.authors?.map((item, index) => (
-										<Link
-											to={`/search/author/${item.name}`}
-											key={index}
-											className="desc-book__name">
-											{item.name}
-											<span className="desc-book__years">
-												({item?.birth_year} - {item.death_year})
-											</span>
-										</Link>
-									))}
-								</div>
-								<div className="desc-book__bookshelves">
-									Bookshelves:
-									<div className="desc-book__box">
-										{book?.bookshelves?.map((item, i) => (
-											<p key={i} className="desc-book__desc">
-												{item}
-											</p>
+								<div className="book-mobile__desc">
+									<p className="desc-book__title">{book.title}</p>
+									<div className="desc-book__autors">
+										{book.authors?.map((item, index) => (
+											<Link
+												to={`/search/author/${item.name}`}
+												key={index}
+												className="desc-book__name">
+												{item.name}
+											</Link>
 										))}
 									</div>
+									<div className="desc-book__subjects">
+									
+										<div className="desc-book__subjects-info">
+											{book.subjects?.map((item, i) => (
+												<div className="book-border">
+													{item}
+													</div>
+											))}
+										</div>
+									</div>
+								
+								
 								</div>
-								<div className="desc-book__translators">
-									translators:
-									{(book?.translators?.length &&
-										book?.translators?.map((item, i) => <p key={i}>{item.name}</p>)) || (
-										<span>absent</span>
-									)}
-								</div>
-
-								<div className="desc-book__languages">
-									<span>
-										<LanguageIcon />
-										languages:
-									</span>
-									{book.languages?.map((item, i) => (
-										<Link key={i} to={`/search/books-languages/${item}`}>
-											{item}
-										</Link>
-									))}
-								</div>
-								<div className="desc-book__subjects">
-									<span>
-										<SubjectIcon />
-										Subjects:
-									</span>
-									<div className="desc-book__subjects-info">
-										{book.subjects?.map((item, i) => (
-											<p key={i} to={`search/${book.id}`}>
-												{item}
-											</p>
+								<div className="desc-book__info">
+									<p className="desc-book__title">{book.title}</p>
+									<div className="desc-book__bookshelves">
+										ID:
+										<div className="desc-book__box">
+											<p className="desc-book__desc">{book.id}</p>
+										</div>
+									</div>
+									<div className="desc-book__autors">
+										<span className="desc-book__span">By</span>
+										{book.authors?.map((item, index) => (
+											<Link
+												to={`/search/author/${item.name}`}
+												key={index}
+												className="desc-book__name">
+												{item.name}
+												<span className="desc-book__years">
+													({item?.birth_year} - {item.death_year})
+												</span>
+											</Link>
 										))}
 									</div>
+									<div className="desc-book__bookshelves">
+										Bookshelves:
+										<div className="desc-book__box">
+											{book?.bookshelves?.map((item, i) => (
+												<p key={i} className="desc-book__desc">
+													{item}
+												</p>
+											))}
+										</div>
+									</div>
+									<div className="desc-book__translators">
+										translators:
+										{(book?.translators?.length &&
+											book?.translators?.map((item, i) => <p key={i}>{item.name}</p>)) || (
+											<span>absent</span>
+										)}
+									</div>
+
+									<div className="desc-book__languages">
+										<span>
+											<LanguageIcon />
+											languages:
+										</span>
+										{book.languages?.map((item, i) => (
+											<Link key={i} to={`/search/books-languages/${item}`}>
+												{item}
+											</Link>
+										))}
+									</div>
+									<div className="desc-book__subjects">
+										<span>
+											<SubjectIcon />
+											Subjects:
+										</span>
+										<div className="desc-book__subjects-info">
+											{book.subjects?.map((item, i) => (
+												<p key={i} to={`search/${book.id}`}>
+													{item}
+												</p>
+											))}
+										</div>
+									</div>
+									<FavoriteButton
+										isFavorite={isFavorite}
+										deleteFavorite={deleteFavorite}
+										addFavorite={addFavorite}
+									/>
 								</div>
-								<FavoriteButton
-									isFavorite={isFavorite}
-									deleteFavorite={deleteFavorite}
-									addFavorite={addFavorite}
-								/>
 							</div>
+							<Collapse />
+							<SimilarBook />
 						</div>
-						<Collapse />
-						<SimilarBook />
 					</div>
 				</div>
-			</div>
+				<MobileDesc />
+			</>
 		);
 	}
 	return <span>error</span>;

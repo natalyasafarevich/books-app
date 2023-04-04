@@ -152,6 +152,7 @@
     .book-card__img {
         width: 150px;   
         height: 180px;
+        background-position-x:center ;
 
     }
 
@@ -183,7 +184,7 @@
 
 @media (max-width: 575.98px) {
     .book-card__img {
-        background-position-x: initial;
+        background-position-x: center;
         filter: none;
         width: 128px;
         height: 154px;

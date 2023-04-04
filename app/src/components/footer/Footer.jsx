@@ -1,7 +1,9 @@
 import "./Footer.scss";
+import FooterMobile from "./footer-mobile/FooterMobile";
 
 export default function Footer() {
 	return (
+		<>
 		<footer className="footer">
 			<div className="footer__container">
 				<p className="footer__title">
@@ -10,5 +12,7 @@ export default function Footer() {
 				</p>
 			</div>
 		</footer>
+		<FooterMobile/>
+		</>
 	);
 }
