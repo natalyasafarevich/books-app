@@ -95,7 +95,7 @@
             line-height: 22px;
             text-transform: none;
             display: flex;
-            // align-items: center;
+            align-items: center;
 
             &::after {
                 content: '';
@@ -120,4 +120,28 @@
         justify-content: space-between;
         align-items: center;
     }
+}
+
+@media (max-width: 575.98px) {
+    .label__link {
+        align-items: center;
+        font-size: 12px;
+        line-height: 14px;
+        &:hover{
+            transform: none;
+        }
+
+        &::after {
+            position: relative;
+            top: -1px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .label__title {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
 }
