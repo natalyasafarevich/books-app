@@ -1,4 +1,5 @@
 import "./AdvancedSearch.scss";
+
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
 import { getParams } from "../../store/paramsSearch/actions";

@@ -10,7 +10,7 @@ export default function FavoritesBook() {
 	return (
 		<div className="wrapper">
 			<div className="favorite-books">
-				<p className="favorite-books__title title"> your favorite books</p>
+				<p className="favorite-books__title title"> My Library</p>
 
 				<div className="favorite-books__container category">
 					{favoriteBooks.map((book, index) => (

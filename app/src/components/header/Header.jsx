@@ -123,7 +123,8 @@ export function Header() {
 						<button className="header__search-link" onClick={advancedSearch}>
 							Advanced Search
 						</button>
-						<AdvancedSearch />
+						{window.innerWidth > 768 && 		<AdvancedSearch />}
+				
 					</div>
 					<ul className="header__list">
 						{links.map((item, index) => (

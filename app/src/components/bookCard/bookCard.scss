@@ -150,15 +150,16 @@
 
 @media (max-width: 767.98px) {
     .book-card__img {
-        width: 150px;   
+        width: 150px;
         height: 180px;
-        background-position-x:center ;
+        background-position-x: center;
 
     }
 
     .book-card__link {
         display: none;
     }
+
     .book-card__container {
         margin-right: 15px;
     }
@@ -188,5 +189,11 @@
         filter: none;
         width: 128px;
         height: 154px;
+    }
+}
+
+@media (max-width: 574.98px) {
+    .book-card__img {
+        // background-position-x: -4px;
     }
 }

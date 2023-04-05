@@ -21,7 +21,7 @@ export default function PreviewMobile() {
 	if (Object.keys(book).length && window.innerWidth < 768) {
 		return (
 			<>
-				{console.log(book)}
+				{/* {console.log(book)} */}
 				<div className="preview-mobile">
 					<div className="preview-mobile__container">
 						<p className="preview-mobile__title">Begin reading</p>

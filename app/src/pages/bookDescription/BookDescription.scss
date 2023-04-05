@@ -409,14 +409,28 @@
         border-radius: 0;
         backdrop-filter: blur(6px);
     }
-    .collapse__row{margin: 0;
+
+    .collapse__row {
+        margin: 0;
     }
-    .collapse__flex{
+
+    .collapse__flex {
         flex-wrap: wrap;
     }
-    .collapse__link{
+
+    .collapse__link {
         margin-bottom: 15px;
     }
 }
 
-@media (max-width: 575.98px) {}
+@media (max-width: 575.98px) {
+    .desc-book .book-card__img {
+        background-position-x: center;
+      }
+    .book-mobile_button .add-favotive {
+        font-size: 11px;
+        padding: 15px 0;
+        height: max-content;
+        margin: -40px auto 0;
+    }
+}

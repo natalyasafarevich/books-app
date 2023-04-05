@@ -16,6 +16,7 @@ import {useSelector} from 'react-redux';
 import SearchPage from './pages/search/SearchPage';
 import Load from './components/load/Load';
 import Footer from './components/footer/Footer';
+import Explore from './pages/explore/Explore';
 
 function App() {
   const params = useParams()
@@ -70,6 +71,8 @@ function App() {
           element={<ResultsSearchPage/>}/>
         <Route path='*'
           element={<NotFound/>}/>
+        <Route path='/explore'
+          element={<Explore/>}/>
       </Routes>
       <Footer/>
     </div>
