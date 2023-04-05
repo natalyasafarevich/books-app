@@ -73,8 +73,12 @@ export default function ResultsSearchPage() {
 						</span>
 					)}
 				</div>
+				<div className="mobile-results">
+					<p className="mobile-results__title">
+							{params.name || params.author_name || params.topic || params.lang}</p>
+				</div>
 			</div>
-
+	
 			<div className="wrapper">
 				<div className="main">
 					<div className="results-search__flex">

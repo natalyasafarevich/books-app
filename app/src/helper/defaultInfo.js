@@ -81,5 +81,13 @@ export const info = {
         image_url: genres_img_5
       },
     ]
+  },
+ explore: {
+    label_arrivals: {
+      label: "Read new",
+      title: "Short stories",
+      desc: `Reading helps you developing your
+		communication skills`
+    },
   }
 }

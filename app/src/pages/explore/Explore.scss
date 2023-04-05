@@ -7,6 +7,9 @@
   &__container {
     padding: 0 16px;
   }
+  .books-container__box{
+    padding: 0;
+  }
 
   &__box {
     margin: 0 0 41px;
@@ -62,7 +65,9 @@
     flex-wrap: wrap;
     margin: 0 -4px;
   }
-
+  .books-container__row{
+    padding: 0;
+  }
   &__item {
     background: #313333;
     border-radius: 8px;

@@ -10,13 +10,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSearchBooks } from "../../store/paramsSearch/actions";
 import { Link, useNavigate } from "react-router-dom";
 import { setCurrentBook } from "../../store/books/current/actions";
+import Books from "../../components/books/Books";
+import { useEffect } from "react";
+import { info } from "../../helper/defaultInfo";
 
 export default function Explore() {
-	const navigate = useNavigate();
-
-	const params_search = useSelector((state) => state.search_params);
-	const paginations = useSelector((state) => state.pagination.page);
 	const dispatch = useDispatch();
+	const books = useSelector((state) => state?.search_params?.books);
+
+	const navigate = useNavigate();
+	const paginations = useSelector((state) => state.pagination.page);
+
+  useEffect(()=>{
+    dispatch(getSearchBooks(`page=1&topic=Short stories`));
+//  console.log(books) // setTopic
+  },[])
+	const params_search = useSelector((state) => state.search_params);
 	const formSubmin = (e) => {
 		const value = e.target.value;
 		if (e.keyCode === 13) {
@@ -28,7 +37,7 @@ export default function Explore() {
 			navigate(`/search/${value}`);
 		}
 	};
-
+  const { label_arrivals, label_language } = info.explore;
 	const topic = [
 		{
 			name: "fiction ",
@@ -77,15 +86,20 @@ export default function Explore() {
 				</div>
 				<div className="explore__topics">
 					<p className="explore__subtitle">Topics</p>
-<div className="explore__row">
-
-					{topic.map((item, index) => (
-						<Link className='explore__item' key={index} to={`/search/topic/${item.name}`}>
-							{item.name}
-						</Link>
-					))}
+					<div className="explore__row">
+						{topic.map((item, index) => (
+							<Link
+								className="explore__item"
+								key={index}
+								to={`/search/topic/${item.name}`}>
+								{item.name}
+							</Link>
+						))}
+					</div>
 				</div>
+					<Books info={label_arrivals} books={books?.results} link="books" />
+
 			</div>
-		</div></div>
+		</div>
 	);
 }

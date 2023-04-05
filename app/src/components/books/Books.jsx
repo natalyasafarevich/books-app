@@ -38,8 +38,8 @@ function Books({ books, info ,link}) {
 					slidesPerView={swiperCount}
 					modules={[Navigation]}
 					className="book-slider">
-					{books.length &&
-						books.map((book, index) => (
+					{books?.length &&
+						books?.map((book, index) => (
 							<SwiperSlide  key={index}>
 								<BookCard key={index} book={book} />
 							</SwiperSlide>
