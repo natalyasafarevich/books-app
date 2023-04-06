@@ -14,6 +14,7 @@ import Paginations from "../../components/pagination/Pagination";
 import { useState } from "react";
 import { setResetPage } from "../../store/pagination/actions";
 import { getSearchBooks } from "../../store/paramsSearch/actions";
+import ButtonBack from "../../components/buttons/button-back/ButtonBack";
 
 export default function ResultsSearchPage() {
 	const params = useParams();
@@ -67,7 +68,7 @@ export default function ResultsSearchPage() {
 						</span>
 					)) || (
 						<span>
-						"	{params.name || params.author_name || params.topic || params.lang}"
+						"{params.name || params.author_name || params.topic || params.lang}"
 							
 							(sorted by popularity)
 						</span>
@@ -80,7 +81,7 @@ export default function ResultsSearchPage() {
 			</div>
 	
 			<div className="wrapper">
-				<div className="main">
+				<div className="main results-search__main">
 					<div className="results-search__flex">
 						{/* <Selection books={results.topic} /> */}
 						<Paginations state={search_params?.books} />

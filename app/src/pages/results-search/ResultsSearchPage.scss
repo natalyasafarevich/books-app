@@ -73,19 +73,35 @@
 }
 
 @media (max-width: 767.98px) {
-    .results-search__flex {
-    padding: 8px 0;
-    }
+  .results-search__row {
+    padding: 0 10px 10px;
+  }
+  .results-search__flex {
+    justify-content: center;
+    padding: 0px 0 90px;
+  }
 
   .mobile-results {
+    &__title {
+      width: max-content;
+      border-bottom: 2px solid #CDE7BE;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      color: var(--brand-color);
+      margin: 0 0 25px;
+    }
+
     display: block;
   }
-  .results-search__title{
+
+  .results-search__title {
     background: transparent;
     padding: 5px 16px;
     color: var(--brand-color);
   }
-  .result-title{
+
+  .result-title {
     display: none;
   }
 
@@ -102,6 +118,11 @@
     .book-card__name {
       max-width: 100%;
     }
+  }
+
+  .results-search__main {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
