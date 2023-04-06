@@ -51,6 +51,11 @@ export function BookDescription() {
 	useEffect(() => {
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
 		if (getBooks) {
+			if (getBooks.length === 0) {
+				setIsFavorite(true);
+				return;
+			}
+
 			getBooks.map((item) => {
 				if (item.id !== book.id) {
 					setIsFavorite(true);
@@ -58,6 +63,8 @@ export function BookDescription() {
 					setIsFavorite(false);
 				}
 			});
+		} else {
+			setIsFavorite(false);
 		}
 	}, [params, favorBooks, deleteFavorite, addFavorite]);
 
@@ -110,17 +117,14 @@ export function BookDescription() {
 										))}
 									</div>
 									<div className="desc-book__subjects">
-									
 										<div className="desc-book__subjects-info">
 											{book.subjects?.map((item, i) => (
-												<div className="book-border">
+												<div className="book-border" key={i}>
 													{item}
-													</div>
+												</div>
 											))}
 										</div>
 									</div>
-								
-								
 								</div>
 								<div className="desc-book__info">
 									<p className="desc-book__title">{book.title}</p>

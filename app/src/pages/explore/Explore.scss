@@ -1,11 +1,14 @@
 .explore {
-
+// background-color: red;
   // .advanced-search.hidden{
   //   opacity: 1;
   //   z-index: 1;
   //   position: relative;
   &__container {
     padding: 0 16px;
+  }
+  .books-container {
+    margin-bottom: 50px;
   }
   .books-container__box{
     padding: 0;
