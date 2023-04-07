@@ -23,7 +23,6 @@ export default function Explore() {
 
   useEffect(()=>{
     dispatch(getSearchBooks(`page=1&topic=Short stories`));
-//  console.log(books) // setTopic
   },[])
 	const params_search = useSelector((state) => state.search_params);
 	const formSubmin = (e) => {

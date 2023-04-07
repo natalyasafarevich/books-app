@@ -15,23 +15,25 @@
 @media (max-width: 1399.98px) {}
 
 @media (max-width: 1199.98px) {
-  .wrapper {
-    // padding: 0 10px;
-    // width: auto;
+  .similar-book__title {
+    padding: 0 16px;
   }
+
 }
 
-@media (max-width: 991.98px) {}
+
 
 @media (max-width: 767.98px) {
-  .similar-book__row{
-    overflow-x: scroll  ;
+
+  .similar-book__row {
+    overflow-x: scroll;
   }
+
   .similar-book__container {
     border: none;
     margin: 0;
     width: auto;
-    padding: 25px 16px 80px;
+    padding: 25px 0px 80px 16px;
   }
 }
 

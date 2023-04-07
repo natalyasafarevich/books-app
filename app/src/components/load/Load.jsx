@@ -3,7 +3,6 @@ import "./Loading.scss";
 import Box from "@mui/material/Box";
 import { useEffect } from "react";
 import { ScrollToTop } from "../../helper/ScrollToTop";
-// import LinearProgress from "@mui/material/LinearProgress";
 
 export default function Load() {
 	const load = useSelector((state) => state.loading.isLoading);
@@ -21,9 +20,7 @@ export default function Load() {
 			<div className="loading">
 				<div className="loading__container"></div>
 			</div>
-			// <Box sx={{ width: "100%" }}>
-			// 	<LinearProgress />
-			// </Box>
+		
 		);
 	}
 }

@@ -11,7 +11,6 @@ export default function FavoritesBook() {
 		<div className="wrapper">
 			<div className="favorite-books">
 				<p className="favorite-books__title title"> My Library</p>
-
 				<div className="favorite-books__container category">
 					{favoriteBooks.map((book, index) => (
 						<BookCard book={book} key={index} />

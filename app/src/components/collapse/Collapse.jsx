@@ -50,17 +50,7 @@ export default function Collapse() {
 								epub
 							</a>
 						)}
-						{/* {book?.formats["text/plain; charset=utf-8"] ||
-							(book?.formats["text/plain"] && (
-								<a
-									className="collapse__link"
-									// href={
-										// book.formats["text/plain; charset=utf-8"] ||
-										// book.formats["text/plain"]
-									>
-									txt
-								</a>
-							))} */}
+
 						{book.formats["text/html"] && (
 							<a
 								className="collapse__link"

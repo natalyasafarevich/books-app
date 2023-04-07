@@ -3,7 +3,7 @@
   opacity: 1;
   right: 0;
   width: 100%;
-  z-index: 9;
+  z-index: 999;
 
   &.disabled {}
 
@@ -16,7 +16,7 @@
   &__container {
     background-color: red;
     position: relative;
-    z-index: 999;
+    z-index: 999999999;
     padding: 20px 16px;
     background: #FFFFFF;
     border: 1px solid #DEE2E6;
@@ -132,7 +132,6 @@
     &:active {
       box-shadow: none;
       outline: none;
-      // border: none;
     }
 
   }
@@ -187,16 +186,6 @@
   }
 }
 
-@media (max-width: 1399.98px) {}
-
-@media (max-width: 1199.98px) {
-  .wrapper {
-    // padding: 0 10px;
-    // width: auto;
-  }
-}
-
-@media (max-width: 991.98px) {}
 
 @media (max-width: 767.98px) {
   .advanced-search{
@@ -212,5 +201,3 @@
     }
   }
 }
-
-@media (max-width: 575.98px) {}

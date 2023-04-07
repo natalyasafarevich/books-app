@@ -35,7 +35,6 @@ export default function Paginations({ state }) {
 		<div className="pagination">
 			<Stack spacing={2}>
 				<Pagination
-					// className="pagination"
 					onClick={paginationNumber}
 					count={items_pagination.length}
 					renderItem={(item) => <PaginationItem  {...item} />}

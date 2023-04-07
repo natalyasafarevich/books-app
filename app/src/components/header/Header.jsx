@@ -57,7 +57,6 @@ export function Header() {
 		document.querySelector(".advanced-search").classList.remove("hidden");
 	};
 
-	// submit form
 	const formSubmin = (e) => {
 		const value = e.target.value;
 		if (e.keyCode === 13) {

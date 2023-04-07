@@ -13,7 +13,6 @@ export function setTopic(page, topic) {
       const topics =  response.data.results;
       const count = response.data.count;
       if (topics.length === 0) {
-       
         dispatch(errorOn())
         return;
       }

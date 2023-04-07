@@ -16,3 +16,8 @@
     background: center/contain no-repeat url(../../img/99318-hms-loading.gif);
   }
 }
+@media (max-width: 575.98px) {
+  .loading {
+ 
+    z-index: 9999;}
+}

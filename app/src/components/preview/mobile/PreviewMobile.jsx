@@ -6,13 +6,10 @@ import { Link, useParams } from "react-router-dom";
 
 export default function PreviewMobile() {
 	const [book, setBook] = useState({});
-	// const params = useParams();
 	const favoriteBook = useSelector(
 		(state) => state.favorite_books.favoriteBooks
 	);
-	useEffect(() => {
-		console.log(window.innerWidth);
-	}, [window.innerWidth]);
+
 	useEffect(() => {
 		if (favoriteBook.length !== 0) {
 			setBook(favoriteBook[Math.floor(Math.random() * favoriteBook.length)]);
@@ -21,7 +18,6 @@ export default function PreviewMobile() {
 	if (Object.keys(book).length && window.innerWidth < 768) {
 		return (
 			<>
-				{/* {console.log(book)} */}
 				<div className="preview-mobile">
 					<div className="preview-mobile__container">
 						<p className="preview-mobile__title">Begin reading</p>
@@ -39,7 +35,7 @@ export default function PreviewMobile() {
 							<div className="preview-mobile__info">
 								<p className="preview-mobile__name">{book.title}</p>
 								<p className="preview-mobile__author">{book.authors[0].name}</p>
-								{book.subjects.slice(0,2).map((item, index) => (
+								{book.subjects.slice(0, 2).map((item, index) => (
 									<p key={index} className="preview-mobile__subjects">
 										{item}
 									</p>

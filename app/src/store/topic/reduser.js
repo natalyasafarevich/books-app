@@ -19,13 +19,6 @@ export const TopicReduser = (state = defaultState, action) => {
         clone.count = action.count;
         return clone
       }
-    // case GET_TOPIC:
-    //   {
-    //     const clone = cloneDeep(state);
-    //     clone.results = Math.ceil(clone.count / clone.allBooks);
-    //     return clone
-    //   }
-
     default:
       return state
   }

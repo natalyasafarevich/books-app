@@ -13,10 +13,7 @@ export function setBookLanguage(language) {
       const dataBook = await response.data;
       dispatch({type: SET_BOOK_LANGUAGE, data: dataBook})
       dispatch(loadingOff())
-      dispatch(errorOFF())
     } catch (e) {
-      dispatch(errorOn())
-      dispatch(loadingOff())
     }
   }
 }

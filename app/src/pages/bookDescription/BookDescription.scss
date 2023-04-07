@@ -1,4 +1,6 @@
 .desc-book {
+    overflow-y: initial;
+
     &__container {
         display: flex;
         align-items: center;
@@ -25,7 +27,6 @@
         border-radius: 0;
         margin: 0 10px;
         background-repeat: no-repeat;
-        // box-shadow: 1.50765px 18.0918px 45.2295px -15.0765px rgba(0, 0, 0, 0.2), -6.0306px 9.0459px 30.153px rgba(0, 0, 0, 0.25), 0px 64.8289px 42.2142px -24.1224px rgba(0, 0, 0, 0.35);
         border-radius: 9.0459px;
 
     }
@@ -47,7 +48,6 @@
 
     &__info {
         margin: 0 10px;
-        // max-width: 45%;
         width: 100%;
     }
 
@@ -70,7 +70,7 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 25px;
-        color: var(--secondary-color);
+        color: var(--brand-color);
 
         a {
             color: var(--secondary-color);
@@ -162,14 +162,18 @@
 
     &__collapse {
         margin: 25px 0 0;
-        // display: flex;
+    }
+}
+
+.small-size {
+    div {
+        background-position: center;
     }
 }
 
 .collapse {
     &__row {
         display: flex;
-        margin: 0 -15px;
     }
 
     &__item {
@@ -269,16 +273,6 @@
     }
 }
 
-
-@media (max-width: 1399.98px) {}
-
-@media (max-width: 1199.98px) {
-    .wrapper {
-        // padding: 0 10px;
-        // width: auto;
-    }
-}
-
 .book-mobile__desc,
 .book-mobile_button {
     display: none;
@@ -291,8 +285,8 @@
         display: block;
         margin-top: 24px;
         padding: 0 16px;
-        width: 95%;
     }
+
 
     .book-border {
         width: max-content;
@@ -317,7 +311,6 @@
 
 
     .desc-book__subjects p {
-        // margin-top: 12px;   
         font-weight: 600;
         font-size: 14px;
         line-height: 17px;
@@ -331,8 +324,6 @@
         a {
             font-size: 14px;
             line-height: 17px;
-
-            color: #EAF4F4;
         }
     }
 
@@ -364,7 +355,6 @@
     .desc-book__container {
         display: flex;
         flex-direction: column;
-        // justify-content:flex-start;
         width: 100%;
         padding: 0;
         margin: 0;
@@ -399,8 +389,9 @@
             top: 0;
             left: 0;
             z-index: 9;
-            background: linear-gradient(180deg, rgba(24, 25, 25, 0) 0%, rgba(24, 25, 25, 0.6) 41.9%, #181919 95.03%);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.7803454145330007) 0%, rgba(255, 255, 255, 1) 100%);
             backdrop-filter: blur(6px);
+            transform: rotate(180deg);
         }
 
         max-width: 100%;
@@ -426,7 +417,8 @@
 @media (max-width: 575.98px) {
     .desc-book .book-card__img {
         background-position-x: center;
-      }
+    }
+
     .book-mobile_button .add-favotive {
         font-size: 11px;
         padding: 15px 0;

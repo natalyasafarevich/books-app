@@ -29,12 +29,12 @@ export function BookDescription() {
 
 	const favorBooks = useSelector((state) => state.favorite_books.favoriteBooks);
 	const book = useSelector((state) => state.current_book.currentBook);
+	const search_params = useSelector((state) => state.search_params);
 
-	// useEffect
 	useEffect(() => {
 		ScrollToTop();
 		dispatch(setCurrentBook(params.isbn));
-	}, [params]);
+	}, [params, search_params]);
 
 	const deleteFavorite = (e) => {
 		dispatch(setNotificationRemove(book.title));
@@ -64,13 +64,12 @@ export function BookDescription() {
 				}
 			});
 		} else {
-			setIsFavorite(false);
 		}
-	}, [params, favorBooks, deleteFavorite, addFavorite]);
+	}, [params, favorBooks, search_params, deleteFavorite, addFavorite]);
 
 	useEffect(() => {
 		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
-	}, [favorBooks]);
+	}, [favorBooks, search_params]);
 
 	if (Object.keys(book).length) {
 		return (

@@ -1,7 +1,6 @@
 .label {
     width: max-content;
     margin: 0 auto;
-    // position: relative;
 
     &__info {
         padding: 6px 19px;
@@ -101,7 +100,6 @@
                 content: '';
                 display: flex;
                 position: relative;
-                // vertical-align: middle;
                 width: 25px;
                 height: 25px;
                 margin-left: 5px;

@@ -21,8 +21,11 @@ function BookCard({ book }) {
 
 	const dispatch = useDispatch();
 	const favorBooks = useSelector((state) => state.favorite_books?.favoriteBooks);
+	const booki = useSelector((state) => state);
+
 
 	useEffect(() => {
+		
 		const getBooks = JSON.parse(localStorage.getItem("favorBook"));
 		if (getBooks) {
 			getBooks.map((item) => {
@@ -36,45 +39,42 @@ function BookCard({ book }) {
 		localStorage.setItem("favorBook", JSON.stringify(favorBooks));
 	}, [favorBooks]);
 
-
-	
 	const deleteFavorite = (e) => {
 		dispatch(removeFavoriets(book.id));
-		dispatch(setNotificationRemove(book.title))
+		dispatch(setNotificationRemove(book.title));
 		setIsFavorite(false);
-		
+
 		e.preventDefault();
 	};
 	const addFavorite = (e) => {
 		dispatch(setNotificationAdd(book.title));
 
-
 		dispatch(addFavoriets(book));
 		setIsFavorite(true);
 		e.preventDefault();
-		
 	};
 
 	return (
 		<>
-			<Link to={`/book/${book.id}`}className={[`book-card`]}>
+			<Link to={`/book/${book.id}`} className={[`book-card`]}>
 				<div className="book-card__container">
 					<div className="book-card__box">
-						{book.formats["image/jpeg"]  === undefined ? <div
-							className="book-card__img book-card__img_undefined"
-						/>:<div
-						style={{ backgroundImage: `url(${book?.formats["image/jpeg"]})` }}
-						className="book-card__img"
-					
-					/>}
+						{book.formats["image/jpeg"] === undefined ? (
+							<div className="book-card__img book-card__img_undefined" />
+						) : (
+							<div
+								style={{ backgroundImage: `url(${book?.formats["image/jpeg"]})` }}
+								className="book-card__img"
+							/>
+						)}
 						<div className="book-card__content">
 							{/* <div className="book-card__bg"></div> */}
 							{/* <div className="book-card__links"> */}
-								{/* <Link to={`/book/${book.id}`} className="book-card__link ">
+							{/* <Link to={`/book/${book.id}`} className="book-card__link ">
 									<RemoveRedEyeOutlinedIcon className="book-card__icon book-card__icon_eye" />
 								</Link> */}
 
-								{/* {isFavorite && (
+							{/* {isFavorite && (
 									<button
 										className="book-card__link book-card__link_add"
 										onClick={deleteFavorite}>
@@ -92,22 +92,22 @@ function BookCard({ book }) {
 						</div>
 					</div>
 					<div className="book-card__info">
-					{isFavorite && (
-									<button
-										className="book-card__link book-card__link_add"
-										onClick={deleteFavorite}>
-											remove from
-										<FavoriteIcon className="book-card__icon fav active" />
-									</button>
-								)}
-								{!isFavorite && (
-									<button
-										className="book-card__link book-card__link_add"
-										onClick={addFavorite}>
-											add to
-										<FavoriteBorderIcon className="book-card__icon fav" />
-									</button>
-								)}
+						{/* {isFavorite && (
+							<button
+								className="book-card__link book-card__link_add"
+								onClick={deleteFavorite}>
+								remove from
+								<FavoriteIcon className="book-card__icon fav active" />
+							</button>
+						)}
+						{!isFavorite && (
+							<button
+								className="book-card__link book-card__link_add"
+								onClick={addFavorite}>
+								add to
+								<FavoriteBorderIcon className="book-card__icon fav" />
+							</button>
+						)} */}
 						<div className="book-card__subject"></div>
 						<p to={`/book/${book.id}`} className="book-card__name">
 							{book.title}
@@ -116,7 +116,6 @@ function BookCard({ book }) {
 							<span>by</span> {book.authors[0]?.name}
 						</p>
 					</div>
-				
 				</div>
 			</Link>
 		</>

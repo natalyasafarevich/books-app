@@ -1,5 +1,4 @@
 .notification {
-  // opacity: 0;
 
   &.animation-open {
     animation: fade 0.5s ease forwards;
@@ -16,14 +15,13 @@
   z-index: 9999;
 
   &__container {
-    // background: #E6FAF5;
     background: #20315C;
     border-radius: 10px;
     align-items: center;
     padding: 15px 30px;
     overflow: hidden;
     position: relative;
-    color: var(--brand-color);
+    color: #fff;
     max-width: 567px;
     width: auto;
     display: flex;
@@ -88,5 +86,42 @@
   to {
     z-index: -9;
     opacity: 0;
+  }
+}
+@media (max-width: 1399.98px) {}
+
+@media (max-width: 1199.98px) {
+ 
+}
+
+@media (max-width: 991.98px) {}
+
+@media (max-width: 767.98px) {
+ 
+}
+
+@media (max-width: 575.98px) {
+  .notification {
+  
+    &__desc {
+
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 16px;
+  
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 7px;
+        color: #9FAED7;
+        display: block;
+      }
+    }
+    &__container {
+      border-radius: 10px;
+      padding: 10px;
+   
+    }
   }
 }

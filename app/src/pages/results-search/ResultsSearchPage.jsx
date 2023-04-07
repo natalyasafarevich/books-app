@@ -20,33 +20,26 @@ export default function ResultsSearchPage() {
 	const params = useParams();
 	const dispatch = useDispatch();
 
-	const results = useSelector((state) => state.topic);
 	const paginations = useSelector((state) => state.pagination.page);
-	const search_params = useSelector((state) => state.search_params);
+	const search_params = useSelector((state) => state.search_params.books);
 
 	useEffect(() => {
 		dispatch(setResetPage());
 	}, [params]);
 
 	useEffect(() => {
-
-
 		if (params.name === "books") {
-			// dispatch(setResetPage());
 			dispatch(getSearchBooks(`page=${paginations}`));
 			return;
 		}
 		if (params.lang) {
-			// dispatch(setResetPage());
 			dispatch(getSearchBooks(`page=${paginations}&languages=${params.lang}`));
 			return;
 		}
 		if (params.topic) {
-			// dispatch(setResetPage());
 			dispatch(getSearchBooks(`page=${paginations}&topic=${params.topic}`));
 			return;
 		}
-		// dispatch(setResetPage());
 		dispatch(
 			getSearchBooks(
 				`page=${paginations}&search=${params.name || params.author_name}`
@@ -56,8 +49,6 @@ export default function ResultsSearchPage() {
 
 	return (
 		<div className="results-search">
-							{/* <Load /> */}
-
 			<div className="results-search__title">
 				<div className="result-title main">
 					search by request:&nbsp;
@@ -68,31 +59,36 @@ export default function ResultsSearchPage() {
 						</span>
 					)) || (
 						<span>
-						"{params.name || params.author_name || params.topic || params.lang}"
-							
+							"{params.name || params.author_name || params.topic || params.lang}"
 							(sorted by popularity)
 						</span>
 					)}
 				</div>
 				<div className="mobile-results">
 					<p className="mobile-results__title">
-							{params.name || params.author_name || params.topic || params.lang}</p>
+						{params.name || params.author_name || params.topic || params.lang}
+					</p>
 				</div>
 			</div>
-	
 			<div className="wrapper">
 				<div className="main results-search__main">
 					<div className="results-search__flex">
-						{/* <Selection books={results.topic} /> */}
-						<Paginations state={search_params?.books} />
+						<Paginations state={search_params} />
 					</div>
-				
 					<div className="results-search__container">
 						<div className="results-search__row">
 							<Error />
-							{search_params?.books?.results?.map((item, i) => (
-								<BookCard book={item} key={i} />
-							))}
+							{(search_params?.results?.length > 0 &&
+								search_params.results?.map((item, i) => (
+									<BookCard book={item} key={i} />
+								))) || (
+								<div className="not-found-box">
+									<ButtonBack />
+									<span className="not-found-results">
+										Nothing found for your search, please try again
+									</span>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

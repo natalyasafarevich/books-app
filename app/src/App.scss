@@ -18,6 +18,7 @@ body,
 footer {
   flex-grow: 1;
 }
+
 body,
 html {
   // overflow-x: hidden;
@@ -86,6 +87,11 @@ body[data-theme="dark"] {
     box-shadow: 0px 25px 50px rgba(60, 60, 60, 0.25)
   }
 
+  .desc-book__img::after {
+    transform: rotate(0deg);
+    background: linear-gradient(180deg, rgba(24, 25, 25, 0) 0%, rgba(24, 25, 25, 0.6) 41.9%, #181919 95.03%);
+  }
+
   .label__link::after {
     background: center/cover no-repeat url(./img/arrow-right-light.svg  );
   }
@@ -107,8 +113,6 @@ body[data-theme="dark"] {
     background-color: var(--primiry-color);
 
     &__container {
-      width: 400px;
-      height: 400px;
       background: center/contain no-repeat url(../src/img/animation_500_lg0tp3ax.gif);
     }
   }
@@ -125,6 +129,5 @@ body[data-theme="dark"] {
 
 @media (max-width: 991.98px) {}
 
-@media (max-width: 767.98px) {}
 
 @media (max-width: 575.98px) {}

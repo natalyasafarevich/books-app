@@ -39,16 +39,8 @@
     }
 }
 
-@media (max-width: 1399.98px) {}
 
-@media (max-width: 1199.98px) {
-    .wrapper {
-        // padding: 0 10px;
-        // width: auto;
-    }
-}
 
-@media (max-width: 991.98px) {}
 
 @media (max-width: 767.98px) {
     .favorite-books {
@@ -82,11 +74,13 @@
     .favorite-books .book-card__box {
         padding: 0;
     }
-    .favorite-books .book-card:nth-child(even ) {
+
+    .favorite-books .book-card:nth-child(even) {
         margin-left: 8px;
     }
-    .favorite-books .book-card__container{
-        margin-right: 0px  ;
+
+    .favorite-books .book-card__container {
+        margin-right: 0px;
     }
 
     .favorite-books .book-card {

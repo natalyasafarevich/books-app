@@ -16,7 +16,6 @@ export function setSearchBook(name) {
       const response = await searchBook(name);
       const dataBook = await response.data.results;
       const count = response.data.count;
-      
       if (dataBook.length === 0) {
         dispatch(loadingOn())
         return;

@@ -74,9 +74,7 @@
         height: 500px;
         background-size: contain;
         background-position: center;
-        // transform: scale(1.2);
     }
-
 
     &__desc {
         margin-top: 18px;
@@ -132,12 +130,8 @@
                 color: #606775;
 
             }
-
-
         }
     }
-
-    // .tracking-in-expand{-webkit-animation:tracking-in-expand .8s ease-in-out both;animation:tracking-in-expand .8s ease-in-out both}
 }
 
 @media (max-width: 1399.98px) {}
