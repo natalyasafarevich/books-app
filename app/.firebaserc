@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "book-reader-83aed",
+    "app": "reader-app-63162"
+  },
+  "targets": {},
+  "etags": {}
+}

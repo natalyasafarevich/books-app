@@ -17,6 +17,8 @@ import SearchPage from './pages/search/SearchPage';
 import Load from './components/load/Load';
 import Footer from './components/footer/Footer';
 import Explore from './pages/explore/Explore';
+import Login from './pages/login/Login';
+import Registration from './pages/registration/Registration';
 
 function App() {
   const params = useParams()
@@ -73,6 +75,12 @@ function App() {
           element={<NotFound/>}/>
         <Route path='/explore'
           element={<Explore/>}/>
+            <Route path='/login'
+          element={<Login/>}/>
+            <Route path='/explore'
+          element={<Explore/>}/>
+            <Route path='/registration'
+          element={<Registration/>}/>
       </Routes>
       <Footer/>
     </div>

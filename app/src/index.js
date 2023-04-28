@@ -5,9 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import store from './store/store';
+// import * as firebase from 'firebase';   
 import './index.css';
+// import firebaseui from 'firebaseui';
 
-
+// firebaseui.initializeApp()
+// firebase.ini
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render (<BrowserRouter>
     <Provider store={store}>
