@@ -8,9 +8,10 @@ import {errorReduser} from "./error/reduser";
 import {loadingReduser} from "./loading/reduser";
 import {notificationReduser} from "./notification/reduser";
 import {paginationReduser} from "./pagination/reduser";
-import { ParamsReduser } from "./paramsSearch/reduser";
+import {ParamsReduser} from "./paramsSearch/reduser";
 import {ThemeReduser} from "./theme/reduser";
 import {TopicReduser} from "./topic/reduser";
+import {currnetIdReduser} from "./auth/reduser";
 
 export default combineReducers({
 
@@ -25,5 +26,6 @@ export default combineReducers({
   pagination: paginationReduser,
   theme: ThemeReduser,
   note: notificationReduser,
-  search_params: ParamsReduser
+  search_params: ParamsReduser,
+  auth: currnetIdReduser
 });
