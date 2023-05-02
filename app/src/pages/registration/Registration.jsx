@@ -12,7 +12,7 @@ import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import "./Registration.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentId } from "../../store/auth/actions";
+
 
 export default function Registration() {
 	const [errorMessage, setErrorMessage] = useState("");
@@ -71,7 +71,7 @@ export default function Registration() {
 				.auth()
 				.createUserWithEmailAndPassword(email.value, password.value)
 				.then(() => {
-					dispatch(setCurrentId(nanoid()));
+					// dispatch(setCurrentId(nanoid()));
 
 					writeUserData(nanoid(), name.value, email.value, "email");
 					navigate('/')

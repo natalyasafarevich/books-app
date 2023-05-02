@@ -1,17 +1,21 @@
 import cloneDeep from "lodash.clonedeep";
-import {setCurrentId} from "./actions";
+import {SET_CURRENT_USER} from "./actions";
 
 const initialState = {
-  id: ''
+  user: {
+    name: null,
+    email: null,
+    avatar: null
+  }
 }
 export const currnetIdReduser = (state = initialState, action) => {
 
   switch (action.type) {
-    case setCurrentId:
+    case SET_CURRENT_USER:
       {
         const clone = cloneDeep(state);
-        clone.id = action.id;
-
+        clone.user = action.data;
+        // console.log(action.user)
         return clone;
       }
     default:

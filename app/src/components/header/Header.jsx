@@ -20,6 +20,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { setCurrentBook } from "../../store/books/current/actions";
 import { useEffect } from "react";
 import Switcher from "../switcher/Switcher";
+import User from "../user/User";
 
 export function Header() {
 	const dispatch = useDispatch();
@@ -140,17 +141,18 @@ export function Header() {
 
 				<div className="header__box">
 					<div className="header__theme">
-						<Theme />
+						{/* <Theme /> */}
 					</div>
-					<div className="header__btns">
-						<Link to={"/favorite"} className="header__favorite" databooks={faivorite}>
+					{/* <div className="header__btns"> */}
+						{/* <Link to={"/favorite"} className="header__favorite" databooks={faivorite}>
 							<FavoriteBorderIcon className="fav" />
-						</Link>
+						</Link> */}
 
-						<div className="header__search" onClick={searchClick}>
+						{/* <div className="header__search" onClick={searchClick}>
 							<SearchIcon className="fav " />
-						</div>
-					</div>
+						</div> */}
+					{/* </div> */}
+					<User/>
 				</div>
 			</div>
 		</header>

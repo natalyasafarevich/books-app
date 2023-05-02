@@ -1,0 +1,9 @@
+.user{
+  &__container{
+    display: flex;
+  }
+  &__avatar{
+    width: 40px;
+    height: 40px;
+  }
+}
