@@ -29,7 +29,7 @@ export default function singUpGoogle() {
       const {email, name, picture} = response.additionalUserInfo.profile;
       writeUserData(nanoid(), name, email, 'google');
 
-			// write current id
+      // write current id
     }
   }).catch(error => {
     console.log(error)

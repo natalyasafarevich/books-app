@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { validateEmail } from "../../helper/validationEmail";
 import { singUpFacebook, singUpGitHub, writeUserData } from "../../Auth/Auth";
 import singUpGoogle from "../../Auth/Auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
@@ -15,7 +17,10 @@ import { setCurrentId } from "../../store/auth/actions";
 export default function Registration() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const current_id = useSelector((state) => state.auth);
+
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 
 
 	const handleClicke = (e) => {
@@ -69,6 +74,7 @@ export default function Registration() {
 					dispatch(setCurrentId(nanoid()));
 
 					writeUserData(nanoid(), name.value, email.value, "email");
+					navigate('/')
 				})
 				.catch((e) => {
 					email.closest(".form__box").classList.add("_error");

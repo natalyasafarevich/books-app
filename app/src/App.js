@@ -19,7 +19,7 @@ import Footer from './components/footer/Footer';
 import Explore from './pages/explore/Explore';
 import Login from './pages/login/Login';
 import Registration from './pages/registration/Registration';
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 function App() {
   const params = useParams()
   const theme = useSelector(state => state.theme.isLight)
@@ -34,7 +34,24 @@ function App() {
 
     }
 
-  }, [theme])
+  }, [theme]);
+
+  useEffect(()=>{
+
+    const auth = getAuth();
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				console.log(user)
+				// User is signed in, see docs for a list of available properties
+				// https://firebase.google.com/docs/reference/js/firebase.User
+				const uid = user.uid;
+				// ...
+			} else {
+				// User is signed out
+				// ...
+			}
+		});
+},[onAuthStateChanged])
   const navigate = useNavigate()
   useEffect(() => {
     ScrollToTop()
