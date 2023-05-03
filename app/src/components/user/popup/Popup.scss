@@ -1,0 +1,34 @@
+.popup {
+  position: absolute;
+  // bottom: -40px;
+  width: 100%;
+
+  &__container {
+    padding: 10px 0 10px 10px;
+    border-radius: 0 0 5px 5px;
+    display: block;
+    background-color: rgba(161, 159, 159, 0.39);
+    width: auto;
+  }
+
+  &__button {
+    cursor: pointer;
+    margin-bottom: 15px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    background: transparent;
+    width:60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 15px;
+
+    svg {
+      margin-left: 5px;
+    }
+  }
+}

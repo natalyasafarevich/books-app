@@ -12,6 +12,7 @@ import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import "./Registration.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { handleSubmit } from "../../helper/firebase-config/handleSubmit";
 
 
 export default function Registration() {
@@ -36,59 +37,59 @@ export default function Registration() {
 	};
 
 	// validation
-	const handleSubmit = () => {
-		const email = document.querySelector("#email");
-		const password = document.querySelector("#password");
-		const confirm_password = document.querySelector("#confirm-password");
-		const name = document.querySelector("#name");
+	// const handleSubmit = () => {
+	// 	const email = document.querySelector("#email");
+	// 	const password = document.querySelector("#password");
+	// 	const confirm_password = document.querySelector("#confirm-password");
+	// 	const name = document.querySelector("#name");
 
-		if (!validateEmail(email.value)) {
-			setErrorMessage("Enter your email address or check if it is correct.");
-			// Enter your email address or check if it is correct.
-			email.closest(".form__box").classList.add("_error");
-		} else {
-			email.closest(".form__box").classList.remove("_error");
-		}
+	// 	if (!validateEmail(email.value)) {
+	// 		setErrorMessage("Enter your email address or check if it is correct.");
+	// 		// Enter your email address or check if it is correct.
+	// 		email.closest(".form__box").classList.add("_error");
+	// 	} else {
+	// 		email.closest(".form__box").classList.remove("_error");
+	// 	}
 
-		if (name.value.length === 0) {
-			name.closest(".form__box").classList.add("_error");
-		} else {
-			name.closest(".form__box").classList.remove("_error");
-		}
+	// 	if (name.value.length === 0) {
+	// 		name.closest(".form__box").classList.add("_error");
+	// 	} else {
+	// 		name.closest(".form__box").classList.remove("_error");
+	// 	}
 
-		if (password.value !== confirm_password.value) {
-			document.querySelectorAll(".form__password").forEach((item) => {
-				item.classList.add("_error");
-			});
-			return;
-		}
+	// 	if (password.value !== confirm_password.value) {
+	// 		document.querySelectorAll(".form__password").forEach((item) => {
+	// 			item.classList.add("_error");
+	// 		});
+	// 		return;
+	// 	}
 
-		if (password.value === confirm_password.value) {
-			document.querySelectorAll(".form__password").forEach((item) => {
-				item.classList.remove("_error");
-			});
-			firebase
-				.auth()
-				.createUserWithEmailAndPassword(email.value, password.value)
-				.then(() => {
-					// dispatch(setCurrentId(nanoid()));
+	// 	if (password.value === confirm_password.value) {
+	// 		document.querySelectorAll(".form__password").forEach((item) => {
+	// 			item.classList.remove("_error");
+	// 		});
+	// 		firebase
+	// 			.auth()
+	// 			.createUserWithEmailAndPassword(email.value, password.value)
+	// 			.then(() => {
+	// 				// dispatch(setCurrentId(nanoid()));
 
-					writeUserData(nanoid(), name.value, email.value, "email");
-					navigate('/')
-				})
-				.catch((e) => {
-					email.closest(".form__box").classList.add("_error");
-					setErrorMessage("Email already in use");
-				});
-			// const db = getDatabase();
-			// const refe = ref(db, "/users/");
+	// 				writeUserData(nanoid(), name.value, email.value, "email");
+	// 				navigate('/')
+	// 			})
+	// 			.catch((e) => {
+	// 				email.closest(".form__box").classList.add("_error");
+	// 				setErrorMessage("Email already in use");
+	// 			});
+	// 		// const db = getDatabase();
+	// 		// const refe = ref(db, "/users/");
 
-			// onValue(refe, (snapshot) => {
-			// 	const data = snapshot.val();
-			// 	console.log(data);
-			// });
-		}
-	};
+	// 		// onValue(refe, (snapshot) => {
+	// 		// 	const data = snapshot.val();
+	// 		// 	console.log(data);
+	// 		// });
+	// 	}
+	// };
 
 	// 	let provider = new firebase.auth.GoogleAuthProvider();
 	// 	provider.addScope("profile");
@@ -149,7 +150,7 @@ export default function Registration() {
 				<div className="sign-up">
 					<div className="sign-up__row">
 						<div className="sign-up__form form">
-							<p className="form__title">Sign in</p>
+							<p className="form__title">Registration</p>
 							<p className="form__desc">
 								If you already have an account register
 								<span>
@@ -193,8 +194,7 @@ export default function Registration() {
 									placeholder="Confrim Password"
 								/>
 							</div>
-
-							<button type="submit" className="form__submit" onClick={handleSubmit}>
+							<button type="submit" className="form__submit" 	onClick={() => handleSubmit(setErrorMessage, navigate, dispatch)}>
 								Register
 							</button>
 							<p className="sign-up__marker">or continue with</p>

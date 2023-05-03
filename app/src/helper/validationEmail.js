@@ -4,3 +4,4 @@ const EMAIL_REGEXP =
 export function validateEmail(value) {
   return EMAIL_REGEXP.test(value);
 }
+

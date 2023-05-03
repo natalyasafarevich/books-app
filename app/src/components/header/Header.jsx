@@ -1,9 +1,10 @@
 import "./Header.scss";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Link as ScrollLink } from 'react-scroll'
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CloseIcon from "@mui/icons-material/Close";
+import LoginIcon from "@mui/icons-material/Login";
 import SearchIcon from "@mui/icons-material/Search";
 import { info } from "../../helper/defaultInfo";
 import {
@@ -16,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Theme from "../theme/Theme";
 import AdvancedSearch from "../advanced-search/AdvancedSearch";
 import { getSearchBooks } from "../../store/paramsSearch/actions";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import { setCurrentBook } from "../../store/books/current/actions";
 import { useEffect } from "react";
 import Switcher from "../switcher/Switcher";
@@ -28,7 +29,11 @@ export function Header() {
 
 	const params_search = useSelector((state) => state.search_params);
 	const paginations = useSelector((state) => state.pagination.page);
-	const faivorite = useSelector((state) => state.favorite_books.favoriteBooks.length);
+	const faivorite = useSelector(
+		(state) => state.favorite_books.favoriteBooks.length
+	);
+
+	const isLogIn = useSelector((state) => state.auth.isLogin);
 	const { links } = info.header;
 
 	useEffect(() => {
@@ -105,7 +110,7 @@ export function Header() {
 			<div className="header__container">
 				<Link to="/" className="header__logo"></Link>
 				<button className="header__burger">
-				<Switcher/>
+					<Switcher />
 				</button>
 				<div className="header__content">
 					<div className="header__form hidden">
@@ -123,8 +128,7 @@ export function Header() {
 						<button className="header__search-link" onClick={advancedSearch}>
 							Advanced Search
 						</button>
-						{window.innerWidth > 768 && 		<AdvancedSearch />}
-				
+						{window.innerWidth > 768 && <AdvancedSearch />}
 					</div>
 					<ul className="header__list">
 						{links.map((item, index) => (
@@ -140,19 +144,25 @@ export function Header() {
 				</div>
 
 				<div className="header__box">
-					<div className="header__theme">
-						{/* <Theme /> */}
-					</div>
+					<div className="header__theme">{/* <Theme /> */}</div>
+					{console.log(isLogIn)}
+					{isLogIn ? (
+						<User />
+					) : (
+						<NavLink to={"/login"} className="login" >
+							login <LoginIcon />
+						</NavLink>
+					)}
 					{/* <div className="header__btns"> */}
-						{/* <Link to={"/favorite"} className="header__favorite" databooks={faivorite}>
+					{/* <Link to={"/favorite"} className="header__favorite" databooks={faivorite}>
 							<FavoriteBorderIcon className="fav" />
 						</Link> */}
 
-						{/* <div className="header__search" onClick={searchClick}>
+					{/* <div className="header__search" onClick={searchClick}>
 							<SearchIcon className="fav " />
 						</div> */}
 					{/* </div> */}
-					<User/>
+					{/* <User/> */}
 				</div>
 			</div>
 		</header>

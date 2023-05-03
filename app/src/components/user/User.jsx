@@ -7,11 +7,14 @@ import "./User.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../store/auth/actions";
 import { useEffect, useState } from "react";
+import Popup from "./popup/Popup";
+import avatar from '../../img/user-avatar.svg'
 // import { Button } from "react-scroll";
 
 export default function User() {
 	const auth = getAuth();
 	const dispatch = useDispatch();
+	const isLogIn = useSelector((state) => state.auth.isLogin);
 
 	const current_user = useSelector((state) => state.auth.user);
 	useEffect(() => {
@@ -19,20 +22,28 @@ export default function User() {
 			if (!user) {
 				return;
 			}
+			console.log(user.displayName)
 			const { displayName, email, photoURL } = user;
+
 			dispatch(setCurrentUser(displayName, email, photoURL));
 		});
 		// setCurrentUser(undefined)
 		console.log(current_user);
-	}, [onAuthStateChanged]);
+	}, [isLogIn]);
 
 	return (
-		<div className="user">
-			<button className="user__container">
-				<p className="user__name">{current_user?.name}</p>
-        {console.log(current_user?.avatar)}
-        <img src="https://lh3.googleusercontent.com/a/AGNmyxbCsi4PZCkBA6LkKL8vJvjlg9PQA-0qoA_d9L3X=s96-c" />
-			</button>
+		<div className="inner">
+			<div className="user">
+				<button className="user__container">
+					<p className="user__name">{current_user?.name}</p>
+					<div
+						className="user__avatar"
+						style={{
+							background: `center/cover no-repeat url(${current_user?.avatar || `${avatar}`} )`,
+						}}></div>
+				</button>
+			</div>
+			<Popup />
 		</div>
 	);
 }

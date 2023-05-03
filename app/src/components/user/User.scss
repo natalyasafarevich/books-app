@@ -1,9 +1,26 @@
-.user{
-  &__container{
+.user {
+
+  &__container {
+    cursor: pointer;
+    background: transparent;
     display: flex;
+    align-items: center;
   }
-  &__avatar{
+
+  &__name {
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 4px;
+  }
+
+  &__avatar {
+    min-width: 40px;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
   }
+}
+
+.inner {
+  position: relative;
 }
