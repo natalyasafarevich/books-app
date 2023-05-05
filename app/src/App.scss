@@ -69,8 +69,6 @@ html {
 
 .pagination div,
 .pagination button {
-
-
   color: var(--brand-color);
 }
 
@@ -84,7 +82,7 @@ html {
 
 body[data-theme="dark"] {
   .preview__info {
-    box-shadow: 0px 25px 50px rgba(60, 60, 60, 0.25)
+    box-shadow: 0px 25px 50px rgba(60, 60, 60, 0.25);
   }
 
   .desc-book__img::after {
@@ -93,7 +91,7 @@ body[data-theme="dark"] {
   }
 
   .label__link::after {
-    background: center/cover no-repeat url(./img/arrow-right-light.svg  );
+    background: center/cover no-repeat url(./img/arrow-right-light.svg);
   }
 
   .preview__box svg {
@@ -105,7 +103,6 @@ body[data-theme="dark"] {
   }
 
   .header__logo {
-
     background-image: url(../src/img/books-low-resolution-logo-white-on-transparent-background.svg);
   }
 
@@ -117,8 +114,26 @@ body[data-theme="dark"] {
     }
   }
 }
+._error {
+  position: relative;
 
-@media (max-width: 1399.98px) {}
+  &::before {
+    content: attr(data);
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-size: 11px;
+    color: red;
+  }
+
+  input {
+    outline: 1px solid red;
+  }
+}
+
+@media (max-width: 1399.98px) {
+}
 
 @media (max-width: 1199.98px) {
   .wrapper {
@@ -127,7 +142,8 @@ body[data-theme="dark"] {
   }
 }
 
-@media (max-width: 991.98px) {}
+@media (max-width: 991.98px) {
+}
 
-
-@media (max-width: 575.98px) {}
+@media (max-width: 575.98px) {
+}

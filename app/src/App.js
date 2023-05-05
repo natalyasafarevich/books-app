@@ -17,10 +17,15 @@ import SearchPage from './pages/search/SearchPage';
 import Load from './components/load/Load';
 import Footer from './components/footer/Footer';
 import Explore from './pages/explore/Explore';
-import Login from './pages/login/Login';
-import Registration from './pages/registration/Registration';
+// import Login from './Auth/login/Login';
+// import Registration from './pages/registration/Registration';
 import {getAuth, onAuthStateChanged} from "firebase/auth";
-import {LOG_IN_USER, logInUser} from './store/auth/actions';
+import { logInUser} from './store/auth/actions';
+import ResetPassword from './Auth/reset-password/ResetPassword';
+import Registration from './Auth/registration/Registration';
+import Login from './Auth/login/Login';
+
+// import ResetPassword from './Auth/reset-password/ResetPassword';
 function App() {
   const params = useParams()
   const theme = useSelector(state => state.theme.isLight)
@@ -58,50 +63,54 @@ function App() {
   useEffect(() => {
     ScrollToTop()
   }, [navigate, params])
-  return (<div className='app'>
+  return (
+    <div className='app'>
+      <Load/>
+      <Notification/>
 
-    <Load/>
-    <Notification/>
-    <div className="wrapper">
-      <div className='main'>
-        <Header/>
-
+      <div className="wrapper">
+        <div className='main'>
+          <Header/>
+        </div>
       </div>
-    </div>
 
-    <Routes>
-      <Route path="/"
-        element={<Main/>}/>
-      <Route path="/book/:isbn"
-        element={<BookDescription/>}/>
-      <Route path="/books/:title"
-        element={<BooksPage/>}/>
-      <Route path="/favorite"
-        element={<FavoritesBook/>}/>
-      <Route path={"/search/books-languages/:lang"}
-        element={<ResultsSearchPage/>}/>
-      <Route path={"/search"}
-        element={<SearchPage/>}/>
-
-      <Route path={"/search/author/:author_name"}
-        element={<ResultsSearchPage/>}/>
-      <Route path={"/search/:name"}
-        element={<ResultsSearchPage/>}/>
-      <Route path={"/search/topic/:topic"}
-        element={<ResultsSearchPage/>}/>
-      <Route path='*'
-        element={<NotFound/>}/>
-      <Route path='/explore'
-        element={<Explore/>}/>
-      <Route path='/login'
-        element={<Login/>}/>
-      <Route path='/explore'
-        element={<Explore/>}/>
+      <Routes>
+        <Route path="/"
+          element={<Main/>}/>
+        <Route path="/book/:isbn"
+          element={<BookDescription/>}/>
+        <Route path="/books/:title"
+          element={<BooksPage/>}/>
+        <Route path="/favorite"
+          element={<FavoritesBook/>}/>
+        <Route path={"/search/books-languages/:lang"}
+          element={<ResultsSearchPage/>}/>
+        <Route path={"/search"}
+          element={<SearchPage/>}/>
+        <Route path={"/search/author/:author_name"}
+          element={<ResultsSearchPage/>}/>
+        <Route path={"/search/:name"}
+          element={<ResultsSearchPage/>}/>
+        <Route path={"/search/topic/:topic"}
+          element={<ResultsSearchPage/>}/>
+        <Route path='*'
+          element={<NotFound/>}/>
+        <Route path='/explore'
+          element={<Explore/>}/>
+          <Route path='/login'
+          element={<Login/>}/> *
+        {/* <Route path='/login'
+          element={<Login/>}/> */}
+        <Route path='/explore'
+          element={<Explore/>}/>
       <Route path='/registration'
-        element={<Registration/>}/>
-    </Routes>
-    <Footer/>
-  </div>);
+          element={<Registration/>}/>  
+        <Route path='/reset-password'
+          element={<ResetPassword/>}/>
+      </Routes>
+      <Footer/>
+    </div>
+  );
 }
 
 export default App;

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { validateEmail } from "../../helper/validationEmail";
-import { singUpFacebook, singUpGitHub, writeUserData } from "../../Auth/Auth";
-import singUpGoogle from "../../Auth/Auth";
+import { singUpFacebook, singUpGitHub, writeUserData } from "../Auth";
+import singUpGoogle from "../Auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import firebase from "firebase/compat/app";
@@ -35,7 +35,6 @@ export default function Login() {
 		icon.setAttribute("type", "password");
 	};
 
-
 	return (
 		<div className="wrapper">
 			<div className="main">
@@ -57,8 +56,7 @@ export default function Login() {
 									placeholder="Write your email"
 								/>
 							</div>
-							{/* {console.log(current_id)} */}
-						
+
 							<div
 								className="form__password"
 								data={"The passwords do not and then retype the password"}>
@@ -74,9 +72,10 @@ export default function Login() {
 							<button
 								type="submit"
 								className="form__submit"
-								onClick={() => login(setErrorMessage, navigate,dispatch)}>
-							Login
+								onClick={() => login(setErrorMessage, navigate, dispatch)}>
+								Login
 							</button>
+							<Link className="form__reset-password" to={"/reset-password"}>Forgot password ? </Link>
 							<p className="sign-up__marker">or continue with</p>
 							<div className="sign-up__social">
 								<button
