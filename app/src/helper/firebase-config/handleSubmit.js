@@ -46,7 +46,10 @@ export const handleSubmit = (setErrorMessage, navigate, dispatch) => {
       dispatch(logInUser());
       const auth = getAuth();
       updateProfile(auth.currentUser, {
-        displayName:  name.value,
+        displayName: name.value,
+        metadata: `[
+         1, 2
+        ]`
         // photoURL: "https://example.com/jane-q-user/profile.jpg"
       }).then(() => {
         // Profile updated!

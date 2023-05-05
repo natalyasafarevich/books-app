@@ -20,7 +20,7 @@ import Explore from './pages/explore/Explore';
 import Login from './pages/login/Login';
 import Registration from './pages/registration/Registration';
 import {getAuth, onAuthStateChanged} from "firebase/auth";
-import { LOG_IN_USER, logInUser } from './store/auth/actions';
+import {LOG_IN_USER, logInUser} from './store/auth/actions';
 function App() {
   const params = useParams()
   const theme = useSelector(state => state.theme.isLight)
@@ -43,7 +43,7 @@ function App() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(logInUser())
+        dispatch(logInUser());
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;

@@ -22,7 +22,7 @@ export default function User() {
 			if (!user) {
 				return;
 			}
-			console.log(user.displayName)
+			console.log(user)
 			const { displayName, email, photoURL } = user;
 
 			dispatch(setCurrentUser(displayName, email, photoURL));
