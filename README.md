@@ -1,6 +1,6 @@
 # BOOK-APP
 
-Deploy: [https://your-book-app.netlify.app/]([https://your-book-app.netlify.app/](https://your-books-ns.netlify.app/) "book-app")
+Deploy: [https://your-books-ns.netlify.app/](https://your-books-ns.netlify.app/)
 
 Display books with using[ Gutendex API](https://gutendex.com/ " Gutendex")
 
